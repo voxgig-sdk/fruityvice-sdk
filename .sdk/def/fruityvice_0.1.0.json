@@ -1,0 +1,385 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Fruityvice",
+    "description": "API for fruit data retrieval and addition. Provides information about various fruits based on 100 grams. Users can also contribute by adding new fruits.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://www.fruityvice.com/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.fruityvice.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/fruit/all": {
+      "get": {
+        "summary": "Get all fruits",
+        "description": "Retrieve data for all available fruits in the database",
+        "operationId": "getAllFruits",
+        "tags": [
+          "Fruits"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with all fruit data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Fruit"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/fruit/{id}": {
+      "get": {
+        "summary": "Get fruit by ID",
+        "description": "Retrieve data for a specific fruit using its ID",
+        "operationId": "getFruitById",
+        "tags": [
+          "Fruits"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the fruit",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with fruit data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Fruit"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Fruit not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/fruit/{name}": {
+      "get": {
+        "summary": "Get fruit by name",
+        "description": "Retrieve data for a specific fruit using its name",
+        "operationId": "getFruitByName",
+        "tags": [
+          "Fruits"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "description": "The name of the fruit",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with fruit data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Fruit"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Fruit not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/fruit": {
+      "put": {
+        "summary": "Add a new fruit",
+        "description": "Contribute by adding a new fruit to the database. Added fruits must be approved by an admin before becoming available. The data should be based on 100 grams of the fruit. An ID does not have to be provided.",
+        "operationId": "addFruit",
+        "tags": [
+          "Fruits"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Fruit data to be added",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FruitInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Fruit successfully added and pending approval",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Fruit added successfully and pending approval"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Fruit successfully created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Fruit"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid fruit data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Fruit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the fruit",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the fruit",
+            "example": "Apple"
+          },
+          "family": {
+            "type": "string",
+            "description": "Botanical family of the fruit",
+            "example": "Rosaceae"
+          },
+          "order": {
+            "type": "string",
+            "description": "Botanical order of the fruit",
+            "example": "Rosales"
+          },
+          "genus": {
+            "type": "string",
+            "description": "Botanical genus of the fruit",
+            "example": "Malus"
+          },
+          "nutritions": {
+            "type": "object",
+            "description": "Nutritional information per 100 grams",
+            "properties": {
+              "calories": {
+                "type": "number",
+                "description": "Calories per 100g",
+                "example": 52
+              },
+              "fat": {
+                "type": "number",
+                "description": "Fat content in grams per 100g",
+                "example": 0.4
+              },
+              "sugar": {
+                "type": "number",
+                "description": "Sugar content in grams per 100g",
+                "example": 10.3
+              },
+              "carbohydrates": {
+                "type": "number",
+                "description": "Carbohydrates content in grams per 100g",
+                "example": 11.4
+              },
+              "protein": {
+                "type": "number",
+                "description": "Protein content in grams per 100g",
+                "example": 0.3
+              }
+            }
+          }
+        }
+      },
+      "FruitInput": {
+        "type": "object",
+        "required": [
+          "name",
+          "family",
+          "order",
+          "genus",
+          "nutritions"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the fruit",
+            "example": "Banana"
+          },
+          "family": {
+            "type": "string",
+            "description": "Botanical family of the fruit",
+            "example": "Musaceae"
+          },
+          "order": {
+            "type": "string",
+            "description": "Botanical order of the fruit",
+            "example": "Zingiberales"
+          },
+          "genus": {
+            "type": "string",
+            "description": "Botanical genus of the fruit",
+            "example": "Musa"
+          },
+          "nutritions": {
+            "type": "object",
+            "description": "Nutritional information per 100 grams",
+            "required": [
+              "calories",
+              "fat",
+              "sugar",
+              "carbohydrates",
+              "protein"
+            ],
+            "properties": {
+              "calories": {
+                "type": "number",
+                "description": "Calories per 100g",
+                "example": 89
+              },
+              "fat": {
+                "type": "number",
+                "description": "Fat content in grams per 100g",
+                "example": 0.3
+              },
+              "sugar": {
+                "type": "number",
+                "description": "Sugar content in grams per 100g",
+                "example": 12.2
+              },
+              "carbohydrates": {
+                "type": "number",
+                "description": "Carbohydrates content in grams per 100g",
+                "example": 22.8
+              },
+              "protein": {
+                "type": "number",
+                "description": "Protein content in grams per 100g",
+                "example": 1.1
+              }
+            }
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message",
+            "example": "Fruit not found"
+          },
+          "message": {
+            "type": "string",
+            "description": "Detailed error message",
+            "example": "The requested fruit could not be found in the database"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Fruits",
+      "description": "Operations related to fruit data retrieval and addition"
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+# Entity: fruit
+
+main: kit: entity: fruit: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "family"
+      op: {
+        update: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "genus"
+      op: {
+        update: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "message"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      op: {
+        update: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "nutrition"
+      op: {
+        update: {
+          req: true
+          type: "`$OBJECT`"
+        }
+      }
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "order"
+      op: {
+        update: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "fruit"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/api/fruit/all"
+          parts: [
+            "api"
+            "fruit"
+            "all"
+          ]
+          select: {
+            "$action": "all"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/fruit/{id}"
+          parts: [
+            "api"
+            "fruit"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/fruit/{name}"
+          parts: [
+            "api"
+            "fruit"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              name: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          method: "PUT"
+          orig: "/api/fruit"
+          parts: [
+            "api"
+            "fruit"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

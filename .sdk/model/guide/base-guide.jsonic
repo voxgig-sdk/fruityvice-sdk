@@ -1,0 +1,25 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 1
+  metrics: count: path: 4
+  metrics: count: method: 4
+
+  entity: fruit: {
+    path: "/api/fruit": {
+      op: update: method: *PUT
+    }
+    path: "/api/fruit/all": {
+      action: "all": {}
+      op: list: method: *GET
+    }
+    path: "/api/fruit/{id}": {
+      op: load: method: *GET
+    }
+    path: "/api/fruit/{name}": {
+      rename: param: "name": *"id"
+      op: load: method: *GET
+    }
+  }
+
+}

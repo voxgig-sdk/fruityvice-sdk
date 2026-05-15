@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://www.fruityvice.com/"
+      }
+      description: "API for fruit data retrieval and addition. Provides information about various fruits based on 100 grams. Users can also contribute by adding new fruits."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://www.fruityvice.com"
+        }
+      ]
+      title: "Fruityvice"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
