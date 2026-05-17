@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/fruityvice-sdk"
-	"github.com/voxgig-sdk/fruityvice-sdk/core"
+	sdk "github.com/voxgig-sdk/fruityvice-sdk/go"
+	"github.com/voxgig-sdk/fruityvice-sdk/go/core"
 )
 
 func TestFruitDirect(t *testing.T) {

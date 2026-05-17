@@ -10,10 +10,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/fruityvice-sdk"
-	"github.com/voxgig-sdk/fruityvice-sdk/core"
+	sdk "github.com/voxgig-sdk/fruityvice-sdk/go"
+	"github.com/voxgig-sdk/fruityvice-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/fruityvice-sdk/go/utility/struct"
 )
 
 func TestFruitEntity(t *testing.T) {

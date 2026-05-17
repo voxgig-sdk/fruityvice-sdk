@@ -1,10 +1,10 @@
 package voxgigfruityvicesdk
 
 import (
-	"github.com/voxgig-sdk/fruityvice-sdk/core"
-	"github.com/voxgig-sdk/fruityvice-sdk/entity"
-	"github.com/voxgig-sdk/fruityvice-sdk/feature"
-	_ "github.com/voxgig-sdk/fruityvice-sdk/utility"
+	"github.com/voxgig-sdk/fruityvice-sdk/go/core"
+	"github.com/voxgig-sdk/fruityvice-sdk/go/entity"
+	"github.com/voxgig-sdk/fruityvice-sdk/go/feature"
+	_ "github.com/voxgig-sdk/fruityvice-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
