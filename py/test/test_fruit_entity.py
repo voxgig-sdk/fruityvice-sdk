@@ -118,7 +118,6 @@ def _fruit_basic_setup(extra):
         "FRUITYVICE_TEST_FRUIT_ENTID": idmap,
         "FRUITYVICE_TEST_LIVE": "FALSE",
         "FRUITYVICE_TEST_EXPLAIN": "FALSE",
-        "FRUITYVICE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -129,7 +128,6 @@ def _fruit_basic_setup(extra):
     if env.get("FRUITYVICE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("FRUITYVICE_APIKEY"),
             },
             extra or {},
         ])

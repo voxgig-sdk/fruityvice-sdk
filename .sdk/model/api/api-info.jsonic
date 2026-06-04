@@ -16,8 +16,29 @@ main: {
       ]
       title: "Fruityvice"
       version: "1.0.0"
+      tagline: "Free webservice for fruit data and per-100g nutrition info, open to community contributions"
+      homepage: "https://www.fruityvice.com"
+      docs_url: "https://www.fruityvice.com/doc/index.html"
+      license_short: "Free to use; no licence explicitly published."
+      license_md: `- Fruityvice describes itself as "completely free to use and contribute to".
+- No formal open-source or data licence is published on the site.
+- The site owner does not guarantee the data is 100% accurate.
+- Treat the data as best-effort community-curated information and confirm critical values against an authoritative source.`
+      about_md: `[Fruityvice](https://www.fruityvice.com) is a small public webservice that returns nutritional and taxonomic data about fruit. The project bills itself as "a powerful webservice which provides data for all kinds of fruit" and is open to community contributions: anyone can submit a new fruit, and submissions are reviewed by an admin before publication.
+
+What you can do with the API:
+
+- Look up a single fruit by name or numeric ID (e.g. \`GET /api/fruit/banana\`).
+- Retrieve the full list of fruits via \`GET /api/fruit/all\`.
+- Submit a new fruit record with \`PUT /api/fruit\` (subject to admin approval).
+
+Each fruit record includes basic taxonomy and a nutrition block calculated per 100 grams of fruit. The exact field set is described in the project's REST documentation at \`/doc/index.html\`.
+
+Operational notes: the service is HTTP-based, requires no authentication or API key, and according to the FreePublicAPIs catalogue page runs with sub-200ms typical response times. CORS is reported as disabled, so browser-side calls from another origin may need a proxy.`
+      entity_desc: {
+        fruit: "A single fruit record with taxonomy (family, order, genus, name, id) and a per-100g nutrition block; accessed via `GET /api/fruit/{id|name}` or listed in bulk via `GET /api/fruit/all`."
+      }
+      auth: false
     }
   }
-}
-
 }

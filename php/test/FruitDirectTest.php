@@ -123,14 +123,12 @@ function fruit_direct_setup($mockres)
     $env = Runner::env_override([
         "FRUITYVICE_TEST_FRUIT_ENTID" => [],
         "FRUITYVICE_TEST_LIVE" => "FALSE",
-        "FRUITYVICE_APIKEY" => "NONE",
     ]);
 
     $live = $env["FRUITYVICE_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["FRUITYVICE_APIKEY"],
         ];
         $client = new FruityviceSDK($merged_opts);
         return [
