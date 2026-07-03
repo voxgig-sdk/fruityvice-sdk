@@ -194,12 +194,14 @@ func fruitDirectSetup(mockres any) *fruitDirectSetupResult {
 	env := envOverride(map[string]any{
 		"FRUITYVICE_TEST_FRUIT_ENTID": map[string]any{},
 		"FRUITYVICE_TEST_LIVE":    "FALSE",
+		"FRUITYVICE_APIKEY":       "NONE",
 	})
 
 	live := env["FRUITYVICE_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["FRUITYVICE_APIKEY"],
 		}
 		client := sdk.NewFruityviceSDK(mergedOpts)
 

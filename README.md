@@ -1,22 +1,8 @@
 # Fruityvice SDK
 
-Free webservice for fruit data and per-100g nutrition info, open to community contributions
+Fruityvice client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Fruityvice
-
-[Fruityvice](https://www.fruityvice.com) is a small public webservice that returns nutritional and taxonomic data about fruit. The project bills itself as "a powerful webservice which provides data for all kinds of fruit" and is open to community contributions: anyone can submit a new fruit, and submissions are reviewed by an admin before publication.
-
-What you can do with the API:
-
-- Look up a single fruit by name or numeric ID (e.g. `GET /api/fruit/banana`).
-- Retrieve the full list of fruits via `GET /api/fruit/all`.
-- Submit a new fruit record with `PUT /api/fruit` (subject to admin approval).
-
-Each fruit record includes basic taxonomy and a nutrition block calculated per 100 grams of fruit. The exact field set is described in the project's REST documentation at `/doc/index.html`.
-
-Operational notes: the service is HTTP-based, requires no authentication or API key, and according to the FreePublicAPIs catalogue page runs with sub-200ms typical response times. CORS is reported as disabled, so browser-side calls from another origin may need a proxy.
 
 ## Try it
 
@@ -50,29 +36,31 @@ gem install fruityvice-sdk
 luarocks install fruityvice-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { FruityviceSDK } from 'fruityvice'
 
-const client = new FruityviceSDK({})
+const client = new FruityviceSDK({
+  apikey: process.env.FRUITYVICE_APIKEY,
+})
 
 // List all fruits
 const fruits = await client.Fruit().list()
+console.log(fruits.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -102,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Fruit** | A single fruit record with taxonomy (family, order, genus, name, id) and a per-100g nutrition block; accessed via `GET /api/fruit/{id|name}` or listed in bulk via `GET /api/fruit/all`. | `/api/fruit/all` |
+| **Fruit** |  | `/api/fruit/all` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,17 +100,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from fruityvice_sdk import FruityviceSDK
 
-client = FruityviceSDK({})
+client = FruityviceSDK({
+    "apikey": os.environ.get("FRUITYVICE_APIKEY"),
+})
 
 # List all fruits
-fruits, err = client.Fruit(None).list(None, None)
+fruits, err = client.Fruit().list()
+print(fruits)
 
 # Load a specific fruit
-fruit, err = client.Fruit(None).load(
-    {"id": "example_id"}, None
-)
+fruit, err = client.Fruit().load({"id": "example_id"})
+print(fruit)
 ```
 
 ### PHP
@@ -131,15 +122,17 @@ fruit, err = client.Fruit(None).load(
 <?php
 require_once 'fruityvice_sdk.php';
 
-$client = new FruityviceSDK([]);
+$client = new FruityviceSDK([
+    "apikey" => getenv("FRUITYVICE_APIKEY"),
+]);
 
 // List all fruits
-[$fruits, $err] = $client->Fruit(null)->list(null, null);
+[$fruits, $err] = $client->Fruit()->list();
+print_r($fruits);
 
 // Load a specific fruit
-[$fruit, $err] = $client->Fruit(null)->load(
-    ["id" => "example_id"], null
-);
+[$fruit, $err] = $client->Fruit()->load(["id" => "example_id"]);
+print_r($fruit);
 ```
 
 ### Golang
@@ -147,10 +140,13 @@ $client = new FruityviceSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/fruityvice-sdk/go"
 
-client := sdk.NewFruityviceSDK(map[string]any{})
+client := sdk.NewFruityviceSDK(map[string]any{
+    "apikey": os.Getenv("FRUITYVICE_APIKEY"),
+})
 
 // List all fruits
 fruits, err := client.Fruit(nil).List(nil, nil)
+fmt.Println(fruits)
 ```
 
 ### Ruby
@@ -158,15 +154,17 @@ fruits, err := client.Fruit(nil).List(nil, nil)
 ```ruby
 require_relative "Fruityvice_sdk"
 
-client = FruityviceSDK.new({})
+client = FruityviceSDK.new({
+  "apikey" => ENV["FRUITYVICE_APIKEY"],
+})
 
 # List all fruits
-fruits, err = client.Fruit(nil).list(nil, nil)
+fruits, err = client.Fruit().list
+puts fruits
 
 # Load a specific fruit
-fruit, err = client.Fruit(nil).load(
-  { "id" => "example_id" }, nil
-)
+fruit, err = client.Fruit().load({ "id" => "example_id" })
+puts fruit
 ```
 
 ### Lua
@@ -174,15 +172,17 @@ fruit, err = client.Fruit(nil).load(
 ```lua
 local sdk = require("fruityvice_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("FRUITYVICE_APIKEY"),
+})
 
 -- List all fruits
-local fruits, err = client:Fruit(nil):list(nil, nil)
+local fruits, err = client:Fruit():list()
+print(fruits)
 
 -- Load a specific fruit
-local fruit, err = client:Fruit(nil):load(
-  { id = "example_id" }, nil
-)
+local fruit, err = client:Fruit():load({ id = "example_id" })
+print(fruit)
 ```
 
 ## Unit testing in offline mode
@@ -201,25 +201,21 @@ const result = await client.Fruit().load({ id: 'test01' })
 ### Python
 
 ```python
-client = FruityviceSDK.test(None, None)
-result, err = client.Fruit(None).load(
-    {"id": "test01"}, None
-)
+client = FruityviceSDK.test()
+result, err = client.Fruit().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = FruityviceSDK::test(null, null);
-[$result, $err] = $client->Fruit(null)->load(
-    ["id" => "test01"], null
-);
+$client = FruityviceSDK::test();
+[$result, $err] = $client->Fruit()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Fruit(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -228,19 +224,15 @@ result, err := client.Fruit(nil).Load(
 ### Ruby
 
 ```ruby
-client = FruityviceSDK.test(nil, nil)
-result, err = client.Fruit(nil).load(
-  { "id" => "test01" }, nil
-)
+client = FruityviceSDK.test
+result, err = client.Fruit().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Fruit(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Fruit():load({ id = "test01" })
 ```
 
 ## How it works
@@ -344,16 +336,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Fruityvice
-
-- Upstream: [https://www.fruityvice.com](https://www.fruityvice.com)
-- API docs: [https://www.fruityvice.com/doc/index.html](https://www.fruityvice.com/doc/index.html)
-
-- Fruityvice describes itself as "completely free to use and contribute to".
-- No formal open-source or data licence is published on the site.
-- The site owner does not guarantee the data is 100% accurate.
-- Treat the data as best-effort community-curated information and confirm critical values against an authoritative source.
 
 ---
 

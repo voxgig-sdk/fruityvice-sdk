@@ -1,6 +1,11 @@
 # Fruityvice Lua SDK
 
-The Lua SDK for the Fruityvice API. Provides an entity-oriented interface using Lua conventions.
+
+
+The Lua SDK for the Fruityvice API — an entity-oriented client using Lua conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -26,13 +31,15 @@ loading a specific record.
 ```lua
 local sdk = require("fruityvice_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("FRUITYVICE_APIKEY"),
+})
 ```
 
 ### 2. List fruits
 
 ```lua
-local result, err = client:Fruit(nil):list(nil, nil)
+local result, err = client:Fruit():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -46,7 +53,7 @@ end
 ### 3. Load a fruit
 
 ```lua
-local result, err = client:Fruit(nil):load({ id = "example_id" }, nil)
+local result, err = client:Fruit():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -55,7 +62,7 @@ print(result)
 
 ```lua
 -- Update
-client:Fruit(nil):update({ id = created["id"], name = "Example-Renamed" }, nil)
+client:Fruit():update({ id = created["id"], name = "Example-Renamed" })
 
 ```
 
@@ -100,11 +107,9 @@ print(fetchdef["headers"])
 Create a mock client for unit testing — no server required:
 
 ```lua
-local client = sdk.test(nil, nil)
+local client = sdk.test()
 
-local result, err = client:Fruityvice(nil):load(
-  { id = "test01" }, nil
-)
+local result, err = client:Fruityvice():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -138,6 +143,7 @@ Create a `.env.local` file at the project root:
 
 ```
 FRUITYVICE_TEST_LIVE=TRUE
+FRUITYVICE_APIKEY=<your-key>
 ```
 
 Then run:
@@ -160,6 +166,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

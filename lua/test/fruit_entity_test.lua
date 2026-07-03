@@ -118,6 +118,7 @@ function fruit_basic_setup(extra)
     ["FRUITYVICE_TEST_FRUIT_ENTID"] = idmap,
     ["FRUITYVICE_TEST_LIVE"] = "FALSE",
     ["FRUITYVICE_TEST_EXPLAIN"] = "FALSE",
+    ["FRUITYVICE_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -129,6 +130,7 @@ function fruit_basic_setup(extra)
   if env["FRUITYVICE_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["FRUITYVICE_APIKEY"],
       },
       extra or {},
     })

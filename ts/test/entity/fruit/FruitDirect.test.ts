@@ -136,12 +136,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'FRUITYVICE_TEST_FRUIT_ENTID': {},
     'FRUITYVICE_TEST_LIVE': 'FALSE',
+    'FRUITYVICE_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.FRUITYVICE_TEST_LIVE
 
   if (live) {
     const client = new FruityviceSDK({
+      apikey: env.FRUITYVICE_APIKEY,
     })
 
     let idmap: any = env['FRUITYVICE_TEST_FRUIT_ENTID']

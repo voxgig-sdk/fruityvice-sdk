@@ -133,6 +133,7 @@ function basicSetup(extra?: any) {
     'FRUITYVICE_TEST_FRUIT_ENTID': idmap,
     'FRUITYVICE_TEST_LIVE': 'FALSE',
     'FRUITYVICE_TEST_EXPLAIN': 'FALSE',
+    'FRUITYVICE_APIKEY': 'NONE',
   })
 
   idmap = env['FRUITYVICE_TEST_FRUIT_ENTID']
@@ -142,6 +143,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new FruityviceSDK(merge([
       {
+        apikey: env.FRUITYVICE_APIKEY,
       },
       extra
     ]))

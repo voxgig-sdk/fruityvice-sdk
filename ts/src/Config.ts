@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'https://www.fruityvice.com',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -55,6 +59,7 @@ class Config {
     "fruit": {
       "fields": [
         {
+          "active": true,
           "name": "family",
           "op": {
             "update": {
@@ -64,10 +69,10 @@ class Config {
           },
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "genus",
           "op": {
             "update": {
@@ -77,24 +82,24 @@ class Config {
           },
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "id",
           "req": false,
           "type": "`$INTEGER`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "message",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 3
         },
         {
+          "active": true,
           "name": "name",
           "op": {
             "update": {
@@ -104,10 +109,10 @@ class Config {
           },
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 4
         },
         {
+          "active": true,
           "name": "nutrition",
           "op": {
             "update": {
@@ -117,10 +122,10 @@ class Config {
           },
           "req": false,
           "type": "`$OBJECT`",
-          "active": true,
           "index$": 5
         },
         {
+          "active": true,
           "name": "order",
           "op": {
             "update": {
@@ -130,16 +135,18 @@ class Config {
           },
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 6
         }
       ],
       "name": "fruit",
       "op": {
         "list": {
+          "input": "data",
           "name": "list",
           "points": [
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/api/fruit/all",
               "parts": [
@@ -154,27 +161,26 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "list"
         },
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
               "args": {
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "id",
                     "orig": "id",
                     "reqd": true,
-                    "type": "`$INTEGER`",
-                    "active": true
+                    "type": "`$INTEGER`"
                   }
                 ]
               },
@@ -194,19 +200,19 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             },
             {
+              "active": true,
               "args": {
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "id",
                     "orig": "name",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -231,34 +237,32 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 1
             }
           ],
-          "input": "data",
           "key$": "load"
         },
         "update": {
+          "input": "data",
           "name": "update",
           "points": [
             {
+              "active": true,
+              "args": {},
               "method": "PUT",
               "orig": "/api/fruit",
               "parts": [
                 "api",
                 "fruit"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "update"
         }
       },

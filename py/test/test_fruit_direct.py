@@ -109,12 +109,14 @@ def _fruit_direct_setup(mockres):
     env = runner.env_override({
         "FRUITYVICE_TEST_FRUIT_ENTID": {},
         "FRUITYVICE_TEST_LIVE": "FALSE",
+        "FRUITYVICE_APIKEY": "NONE",
     })
 
     live = env.get("FRUITYVICE_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("FRUITYVICE_APIKEY"),
         }
         client = FruityviceSDK(merged_opts)
         return {

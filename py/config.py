@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://www.fruityvice.com",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -26,6 +29,7 @@ def make_config():
       "fruit": {
         "fields": [
           {
+            "active": True,
             "name": "family",
             "op": {
               "update": {
@@ -35,10 +39,10 @@ def make_config():
             },
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "genus",
             "op": {
               "update": {
@@ -48,24 +52,24 @@ def make_config():
             },
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "id",
             "req": False,
             "type": "`$INTEGER`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "message",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 3,
           },
           {
+            "active": True,
             "name": "name",
             "op": {
               "update": {
@@ -75,10 +79,10 @@ def make_config():
             },
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 4,
           },
           {
+            "active": True,
             "name": "nutrition",
             "op": {
               "update": {
@@ -88,10 +92,10 @@ def make_config():
             },
             "req": False,
             "type": "`$OBJECT`",
-            "active": True,
             "index$": 5,
           },
           {
+            "active": True,
             "name": "order",
             "op": {
               "update": {
@@ -101,16 +105,18 @@ def make_config():
             },
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 6,
           },
         ],
         "name": "fruit",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/api/fruit/all",
                 "parts": [
@@ -125,27 +131,26 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
                 "args": {
                   "params": [
                     {
+                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "id",
                       "reqd": True,
                       "type": "`$INTEGER`",
-                      "active": True,
                     },
                   ],
                 },
@@ -165,19 +170,19 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
               {
+                "active": True,
                 "args": {
                   "params": [
                     {
+                      "active": True,
                       "kind": "param",
                       "name": "id",
                       "orig": "name",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -202,34 +207,32 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 1,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
           "update": {
+            "input": "data",
             "name": "update",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "PUT",
                 "orig": "/api/fruit",
                 "parts": [
                   "api",
                   "fruit",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "update",
           },
         },

@@ -112,6 +112,7 @@ function fruit_basic_setup($extra)
         "FRUITYVICE_TEST_FRUIT_ENTID" => $idmap,
         "FRUITYVICE_TEST_LIVE" => "FALSE",
         "FRUITYVICE_TEST_EXPLAIN" => "FALSE",
+        "FRUITYVICE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -123,6 +124,7 @@ function fruit_basic_setup($extra)
     if ($env["FRUITYVICE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["FRUITYVICE_APIKEY"],
             ],
             $extra ?? [],
         ]);
