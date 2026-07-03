@@ -10,7 +10,7 @@ The TypeScript SDK for the Fruityvice API — a type-safe, entity-oriented clien
 
 ## Install
 ```bash
-npm install fruityvice
+npm install @voxgig-sdk/fruityvice
 ```
 ## Tutorial: your first API call
 

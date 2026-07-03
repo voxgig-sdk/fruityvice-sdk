@@ -10,7 +10,7 @@ The Python SDK for the Fruityvice API — an entity-oriented client following Py
 
 ## Install
 ```bash
-pip install fruityvice-sdk
+pip install voxgig-sdk-fruityvice
 ```
 
 Or install from source:

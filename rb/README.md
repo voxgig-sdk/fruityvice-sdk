@@ -10,13 +10,13 @@ The Ruby SDK for the Fruityvice API — an entity-oriented client using idiomati
 
 ## Install
 ```bash
-gem install fruityvice-sdk
+gem install voxgig-sdk-fruityvice
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "fruityvice-sdk"
+gem "voxgig-sdk-fruityvice"
 ```
 
 Then run:

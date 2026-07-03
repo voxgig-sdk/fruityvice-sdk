@@ -10,7 +10,7 @@ The PHP SDK for the Fruityvice API — an entity-oriented client using PHP conve
 
 ## Install
 ```bash
-composer require voxgig/fruityvice-sdk
+composer require voxgig-sdk/fruityvice
 ```
 
 
