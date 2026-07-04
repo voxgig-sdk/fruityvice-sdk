@@ -2,6 +2,8 @@
 
 import { FruitEntity } from './entity/FruitEntity'
 
+export type * from './FruityviceTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class FruityviceSDK {
 
 
 
+  _fruit?: FruitEntity
+
+  // Idiomatic facade: `client.fruit.list()` / `client.fruit.load({ id })`.
+  get fruit(): FruitEntity {
+    return (this._fruit ??= new FruitEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.fruit` instead. */
   Fruit(data?: any) {
     const self = this
     return new FruitEntity(self,data)

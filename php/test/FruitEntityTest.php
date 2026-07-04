@@ -50,8 +50,7 @@ class FruitEntityTest extends TestCase
         $fruit_ref01_ent = $client->Fruit(null);
         $fruit_ref01_match = [];
 
-        [$fruit_ref01_list_result, $err] = $fruit_ref01_ent->list($fruit_ref01_match, null);
-        $this->assertNull($err);
+        $fruit_ref01_list_result = $fruit_ref01_ent->list($fruit_ref01_match, null);
         $this->assertIsArray($fruit_ref01_list_result);
 
         // UPDATE
@@ -63,8 +62,7 @@ class FruitEntityTest extends TestCase
         $fruit_ref01_markdef_up0_value = "Mark01-fruit_ref01_" . $setup["now"];
         $fruit_ref01_data_up0_up[$fruit_ref01_markdef_up0_name] = $fruit_ref01_markdef_up0_value;
 
-        [$fruit_ref01_resdata_up0_result, $err] = $fruit_ref01_ent->update($fruit_ref01_data_up0_up, null);
-        $this->assertNull($err);
+        $fruit_ref01_resdata_up0_result = $fruit_ref01_ent->update($fruit_ref01_data_up0_up, null);
         $fruit_ref01_resdata_up0 = Helpers::to_map($fruit_ref01_resdata_up0_result);
         $this->assertNotNull($fruit_ref01_resdata_up0);
         $this->assertEquals($fruit_ref01_resdata_up0["id"], $fruit_ref01_data_up0_up["id"]);
@@ -74,8 +72,7 @@ class FruitEntityTest extends TestCase
         $fruit_ref01_match_dt0 = [
             "id" => $fruit_ref01_data["id"],
         ];
-        [$fruit_ref01_data_dt0_loaded, $err] = $fruit_ref01_ent->load($fruit_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $fruit_ref01_data_dt0_loaded = $fruit_ref01_ent->load($fruit_ref01_match_dt0, null);
         $fruit_ref01_data_dt0_load_result = Helpers::to_map($fruit_ref01_data_dt0_loaded);
         $this->assertNotNull($fruit_ref01_data_dt0_load_result);
         $this->assertEquals($fruit_ref01_data_dt0_load_result["id"], $fruit_ref01_data["id"]);
@@ -112,7 +109,6 @@ function fruit_basic_setup($extra)
         "FRUITYVICE_TEST_FRUIT_ENTID" => $idmap,
         "FRUITYVICE_TEST_LIVE" => "FALSE",
         "FRUITYVICE_TEST_EXPLAIN" => "FALSE",
-        "FRUITYVICE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -124,7 +120,6 @@ function fruit_basic_setup($extra)
     if ($env["FRUITYVICE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["FRUITYVICE_APIKEY"],
             ],
             $extra ?? [],
         ]);

@@ -15,9 +15,6 @@ module FruityviceConfig
       },
       "options" => {
         "base" => "https://www.fruityvice.com",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -151,6 +148,7 @@ module FruityviceConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
+                        "index$" => 0,
                       },
                     ],
                   },
@@ -183,6 +181,7 @@ module FruityviceConfig
                         "orig" => "name",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },

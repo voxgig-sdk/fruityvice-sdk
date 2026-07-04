@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -84,7 +83,7 @@ same parameters as `direct()`.
 ## FruitEntity
 
 ```lua
-local fruit = client:Fruit(nil)
+local fruit = client:fruit(nil)
 ```
 
 ### Fields
@@ -118,7 +117,7 @@ local fruit = client:Fruit(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Fruit():list()
+local results, err = client:fruit():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -126,7 +125,7 @@ local results, err = client:Fruit():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Fruit():load({ id = "fruit_id" })
+local result, err = client:fruit():load({ id = "fruit_id" })
 ```
 
 #### `update(reqdata, ctrl) -> any, err`
@@ -134,7 +133,7 @@ local result, err = client:Fruit():load({ id = "fruit_id" })
 Update an existing entity. The data must include the entity `id`.
 
 ```lua
-local result, err = client:Fruit():update({
+local result, err = client:fruit():update({
   id = "fruit_id",
   -- Fields to update
 })

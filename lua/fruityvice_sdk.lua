@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:fruit():list() / client:fruit():load({ id = ... })
+function FruityviceSDK:fruit(data)
+  local EntityMod = require("entity.fruit_entity")
+  if data == nil then
+    if self._fruit == nil then
+      self._fruit = EntityMod.new(self, nil)
+    end
+    return self._fruit
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:fruit() instead.
 function FruityviceSDK:Fruit(data)
   local EntityMod = require("entity.fruit_entity")
   return EntityMod.new(self, data)

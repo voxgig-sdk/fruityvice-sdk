@@ -160,7 +160,6 @@ func fruitBasicSetup(extra map[string]any) *entityTestSetup {
 		"FRUITYVICE_TEST_FRUIT_ENTID": idmap,
 		"FRUITYVICE_TEST_LIVE":      "FALSE",
 		"FRUITYVICE_TEST_EXPLAIN":   "FALSE",
-		"FRUITYVICE_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["FRUITYVICE_TEST_FRUIT_ENTID"])
@@ -171,7 +170,6 @@ func fruitBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["FRUITYVICE_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["FRUITYVICE_APIKEY"],
 			},
 			extra,
 		})

@@ -245,6 +245,9 @@ func (sdk *FruityviceSDK) Direct(fetchargs map[string]any) (map[string]any, erro
 }
 
 
+// Fruit returns a Fruit entity bound to this client.
+// Idiomatic usage: client.Fruit(nil).List(nil, nil) or
+// client.Fruit(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FruityviceSDK) Fruit(data map[string]any) FruityviceEntity {
 	return NewFruitEntityFunc(sdk, data)
 }

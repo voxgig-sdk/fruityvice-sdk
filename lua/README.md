@@ -9,12 +9,9 @@ The Lua SDK for the Fruityvice API — an entity-oriented client using Lua conve
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-fruityvice
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/fruityvice-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("fruityvice_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("FRUITYVICE_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List fruits
 
 ```lua
-local result, err = client:Fruit():list()
+local result, err = client:fruit():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -53,7 +48,7 @@ end
 ### 3. Load a fruit
 
 ```lua
-local result, err = client:Fruit():load({ id = "example_id" })
+local result, err = client:fruit():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -62,7 +57,7 @@ print(result)
 
 ```lua
 -- Update
-client:Fruit():update({ id = created["id"], name = "Example-Renamed" })
+client:fruit():update({ id = created["id"], name = "Example-Renamed" })
 
 ```
 
@@ -109,7 +104,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Fruityvice():load({ id = "test01" })
+local result, err = client:fruit():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -143,7 +138,6 @@ Create a `.env.local` file at the project root:
 
 ```
 FRUITYVICE_TEST_LIVE=TRUE
-FRUITYVICE_APIKEY=<your-key>
 ```
 
 Then run:
@@ -166,7 +160,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -249,7 +242,7 @@ API path: `/api/fruit/all`
 
 ### Fruit
 
-Create an instance: `const fruit = client.Fruit()`
+Create an instance: `const fruit = client.fruit`
 
 #### Operations
 
@@ -274,13 +267,13 @@ Create an instance: `const fruit = client.Fruit()`
 #### Example: Load
 
 ```ts
-const fruit = await client.Fruit().load({ id: 'fruit_id' })
+const fruit = await client.fruit.load({ id: 'fruit_id' })
 ```
 
 #### Example: List
 
 ```ts
-const fruits = await client.Fruit().list()
+const fruits = await client.fruit.list()
 ```
 
 
@@ -355,11 +348,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local fruit = client:fruit()
+fruit:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- fruit:data_get() now returns the loaded fruit data
+-- fruit:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

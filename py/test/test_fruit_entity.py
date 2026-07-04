@@ -50,8 +50,7 @@ class TestFruitEntity:
         fruit_ref01_ent = client.Fruit(None)
         fruit_ref01_match = {}
 
-        fruit_ref01_list_result, err = fruit_ref01_ent.list(fruit_ref01_match, None)
-        assert err is None
+        fruit_ref01_list_result = fruit_ref01_ent.list(fruit_ref01_match, None)
         assert isinstance(fruit_ref01_list_result, list)
 
         # UPDATE
@@ -63,9 +62,7 @@ class TestFruitEntity:
         fruit_ref01_markdef_up0_value = "Mark01-fruit_ref01_" + str(setup["now"])
         fruit_ref01_data_up0_up[fruit_ref01_markdef_up0_name] = fruit_ref01_markdef_up0_value
 
-        fruit_ref01_resdata_up0_result, err = fruit_ref01_ent.update(fruit_ref01_data_up0_up, None)
-        assert err is None
-        fruit_ref01_resdata_up0 = helpers.to_map(fruit_ref01_resdata_up0_result)
+        fruit_ref01_resdata_up0 = helpers.to_map(fruit_ref01_ent.update(fruit_ref01_data_up0_up, None))
         assert fruit_ref01_resdata_up0 is not None
         assert fruit_ref01_resdata_up0["id"] == fruit_ref01_data_up0_up["id"]
         assert fruit_ref01_resdata_up0[fruit_ref01_markdef_up0_name] == fruit_ref01_markdef_up0_value
@@ -74,8 +71,7 @@ class TestFruitEntity:
         fruit_ref01_match_dt0 = {
             "id": fruit_ref01_data["id"],
         }
-        fruit_ref01_data_dt0_loaded, err = fruit_ref01_ent.load(fruit_ref01_match_dt0, None)
-        assert err is None
+        fruit_ref01_data_dt0_loaded = fruit_ref01_ent.load(fruit_ref01_match_dt0, None)
         fruit_ref01_data_dt0_load_result = helpers.to_map(fruit_ref01_data_dt0_loaded)
         assert fruit_ref01_data_dt0_load_result is not None
         assert fruit_ref01_data_dt0_load_result["id"] == fruit_ref01_data["id"]
@@ -118,7 +114,6 @@ def _fruit_basic_setup(extra):
         "FRUITYVICE_TEST_FRUIT_ENTID": idmap,
         "FRUITYVICE_TEST_LIVE": "FALSE",
         "FRUITYVICE_TEST_EXPLAIN": "FALSE",
-        "FRUITYVICE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -129,7 +124,6 @@ def _fruit_basic_setup(extra):
     if env.get("FRUITYVICE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("FRUITYVICE_APIKEY"),
             },
             extra or {},
         ])

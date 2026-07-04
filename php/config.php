@@ -20,9 +20,6 @@ class FruityviceConfig
             ],
             "options" => [
                 "base" => "https://www.fruityvice.com",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -156,6 +153,7 @@ class FruityviceConfig
                         'orig' => 'id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
+                        'index$' => 0,
                       ],
                     ],
                   ],
@@ -188,6 +186,7 @@ class FruityviceConfig
                         'orig' => 'name',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                   ],

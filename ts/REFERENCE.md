@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `FruityviceSDK.test()`.
 ## FruitEntity
 
 ```ts
-const fruit = client.Fruit()
+const fruit = client.fruit
 ```
 
 ### Fields
@@ -144,7 +143,7 @@ const fruit = client.Fruit()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Fruit().list()
+const results = await client.fruit.list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -152,7 +151,7 @@ const results = await client.Fruit().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Fruit().load({ id: 'fruit_id' })
+const result = await client.fruit.load({ id: 'fruit_id' })
 ```
 
 #### `update(data: object, ctrl?: object)`
@@ -160,7 +159,7 @@ const result = await client.Fruit().load({ id: 'fruit_id' })
 Update an existing entity. The data must include the entity `id`.
 
 ```ts
-const result = await client.Fruit().update({
+const result = await client.fruit.update({
   id: 'fruit_id',
   // Fields to update
 })

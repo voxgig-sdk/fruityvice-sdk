@@ -9,9 +9,12 @@ The TypeScript SDK for the Fruityvice API — a type-safe, entity-oriented clien
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/fruityvice
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/fruityvice-sdk/releases](https://github.com/voxgig-sdk/fruityvice-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { FruityviceSDK } from 'fruityvice'
+import { FruityviceSDK } from '@voxgig-sdk/fruityvice'
 
-const client = new FruityviceSDK({
-  apikey: process.env.FRUITYVICE_APIKEY,
-})
+const client = new FruityviceSDK()
 ```
 
 ### 2. List fruits
 
 ```ts
-const result = await client.Fruit().list()
+const result = await client.fruit.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -42,7 +43,7 @@ if (result.ok) {
 ### 3. Load a fruit
 
 ```ts
-const result = await client.Fruit().load({ id: 'example_id' })
+const result = await client.fruit.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -53,7 +54,7 @@ if (result.ok) {
 
 ```ts
 // Update
-const updated = await client.Fruit().update({
+const updated = await client.fruit.update({
   id: created.data.id,
   name: 'Example-Renamed',
 })
@@ -102,7 +103,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = FruityviceSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.fruit.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -110,7 +111,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new FruityviceSDK({ apikey: '...' })
+const client = new FruityviceSDK()
 const testClient = client.tester()
 ```
 
@@ -119,7 +120,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.fruit
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -146,7 +147,6 @@ const logger = {
 }
 
 const client = new FruityviceSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -157,7 +157,6 @@ Create a `.env.local` file at the project root:
 
 ```
 FRUITYVICE_TEST_LIVE=TRUE
-FRUITYVICE_APIKEY=<your-key>
 ```
 
 Then run:
@@ -175,7 +174,6 @@ cd ts && npm test
 
 ```ts
 new FruityviceSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -186,7 +184,6 @@ new FruityviceSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -295,7 +292,7 @@ API path: `/api/fruit/all`
 
 ### Fruit
 
-Create an instance: `const fruit = client.Fruit()`
+Create an instance: `const fruit = client.fruit`
 
 #### Operations
 
@@ -320,13 +317,13 @@ Create an instance: `const fruit = client.Fruit()`
 #### Example: Load
 
 ```ts
-const fruit = await client.Fruit().load({ id: 'fruit_id' })
+const fruit = await client.fruit.load({ id: 'fruit_id' })
 ```
 
 #### Example: List
 
 ```ts
-const fruits = await client.Fruit().list()
+const fruits = await client.fruit.list()
 ```
 
 
@@ -387,7 +384,7 @@ fruityvice/
 Import the SDK from the package root:
 
 ```ts
-import { FruityviceSDK } from 'fruityvice'
+import { FruityviceSDK } from '@voxgig-sdk/fruityvice'
 ```
 
 ### Entity state
@@ -397,11 +394,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const fruit = client.fruit
+await fruit.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// fruit.data() now returns the loaded fruit data
+// fruit.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

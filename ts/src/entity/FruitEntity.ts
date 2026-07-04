@@ -14,9 +14,15 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Fruit,
+  FruitLoadMatch,
+  FruitListMatch,
+  FruitUpdateData,
+} from '../FruityviceTypes'
 
 // TODO: needs Entity superclass
-class FruitEntity extends FruityviceEntityBase {
+class FruitEntity extends FruityviceEntityBase<Fruit> {
 
   constructor(client: FruityviceSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +38,7 @@ class FruitEntity extends FruityviceEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: FruitLoadMatch, ctrl?: Control): Promise<Fruit> {
 
     const utility = this._utility
 
@@ -136,14 +142,16 @@ class FruitEntity extends FruityviceEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Fruit> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: FruitListMatch, ctrl?: Control): Promise<Fruit[]> {
 
     const utility = this._utility
 
@@ -243,7 +251,9 @@ class FruitEntity extends FruityviceEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Fruit[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
@@ -251,7 +261,7 @@ class FruitEntity extends FruityviceEntityBase {
 
 
 
-  async update(this: any, reqdata?: any, ctrl?: Control) {
+  async update(this: any, reqdata?: FruitUpdateData, ctrl?: Control): Promise<Fruit> {
 
     const utility = this._utility
 
@@ -356,7 +366,9 @@ class FruitEntity extends FruityviceEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Fruit> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
