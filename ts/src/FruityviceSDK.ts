@@ -204,14 +204,7 @@ class FruityviceSDK {
 
 
 
-  _fruit?: FruitEntity
-
-  // Idiomatic facade: `client.fruit.list()` / `client.fruit.load({ id })`.
-  get fruit(): FruitEntity {
-    return (this._fruit ??= new FruitEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.fruit` instead. */
+  // Entity access: `client.Fruit().list()` / `client.Fruit().load({ id })`.
   Fruit(data?: any) {
     const self = this
     return new FruitEntity(self,data)

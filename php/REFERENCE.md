@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## FruitEntity
 
 ```php
-$fruit = $client->fruit();
+$fruit = $client->Fruit();
 ```
 
 ### Fields
@@ -119,7 +119,7 @@ $fruit = $client->fruit();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->fruit()->list([]);
+$results = $client->Fruit()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -127,7 +127,7 @@ $results = $client->fruit()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->fruit()->load(["id" => "fruit_id"]);
+$result = $client->Fruit()->load(["id" => "fruit_id"]);
 ```
 
 #### `update(array $reqdata, ?array $ctrl = null): mixed`
@@ -135,7 +135,7 @@ $result = $client->fruit()->load(["id" => "fruit_id"]);
 Update an existing entity. The data must include the entity `id`. Throws on error.
 
 ```php
-$result = $client->fruit()->update([
+$result = $client->Fruit()->update([
   "id" => "fruit_id",
   // Fields to update
 ]);

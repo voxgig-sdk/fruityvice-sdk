@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:fruit():list() / client:fruit():load({ id = ... })
-function FruityviceSDK:fruit(data)
+-- Idiomatic facade: client:Fruit():list() / client:Fruit():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function FruityviceSDK:Fruit(data)
   local EntityMod = require("entity.fruit_entity")
   if data == nil then
     if self._fruit == nil then
@@ -253,12 +254,6 @@ function FruityviceSDK:fruit(data)
     end
     return self._fruit
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:fruit() instead.
-function FruityviceSDK:Fruit(data)
-  local EntityMod = require("entity.fruit_entity")
   return EntityMod.new(self, data)
 end
 

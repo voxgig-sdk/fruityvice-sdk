@@ -29,18 +29,16 @@ require_once 'fruityvice_sdk.php';
 $client = new FruityviceSDK();
 ```
 
-### 2. List fruits
+### 2. List fruit records
 
 ```php
 try {
-    $result = $client->fruit()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Fruit records — iterate directly.
+    $fruits = $client->Fruit()->list();
+    foreach ($fruits as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -49,9 +47,10 @@ try {
 
 ```php
 try {
-    $result = $client->fruit()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Fruit record (throws on error).
+    $fruit = $client->Fruit()->load(["id" => "example_id"]);
+    print_r($fruit);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -59,8 +58,8 @@ try {
 ### 4. Create, update, and remove
 
 ```php
-// Update
-$client->fruit()->update(["id" => $created["id"], "name" => "Example-Renamed"]);
+// Update — index the bare record directly ($created["id"]).
+$client->Fruit()->update(["id" => $created["id"], "name" => "Example-Renamed"]);
 
 ```
 
@@ -105,13 +104,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = FruityviceSDK::test();
+$client = FruityviceSDK::test([
+    "entity" => ["fruit" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->fruit()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$fruit = $client->Fruit()->load(["id" => "test01"]);
+print_r($fruit);
 ```
 
 ### Use a custom fetch function
@@ -253,7 +256,7 @@ API path: `/api/fruit/all`
 
 ### Fruit
 
-Create an instance: `const fruit = client.fruit`
+Create an instance: `$fruit = $client->Fruit();`
 
 #### Operations
 
@@ -277,14 +280,16 @@ Create an instance: `const fruit = client.fruit`
 
 #### Example: Load
 
-```ts
-const fruit = await client.fruit.load({ id: 'fruit_id' })
+```php
+// load() returns the bare Fruit record (throws on error).
+$fruit = $client->Fruit()->load(["id" => "fruit_id"]);
 ```
 
 #### Example: List
 
-```ts
-const fruits = await client.fruit.list()
+```php
+// list() returns an array of Fruit records (throws on error).
+$fruits = $client->Fruit()->list();
 ```
 
 
@@ -359,7 +364,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$fruit = $client->fruit();
+$fruit = $client->Fruit();
 $fruit->load(["id" => "example_id"]);
 
 // $fruit->dataGet() now returns the loaded fruit data

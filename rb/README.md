@@ -28,16 +28,14 @@ require_relative "Fruityvice_sdk"
 client = FruityviceSDK.new
 ```
 
-### 2. List fruits
+### 2. List fruit records
 
 ```ruby
 begin
-  result = client.fruit.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Fruit records — iterate directly.
+  fruits = client.Fruit.list
+  fruits.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,8 +46,9 @@ end
 
 ```ruby
 begin
-  result = client.fruit.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Fruit record (raises on error).
+  fruit = client.Fruit.load({ "id" => "example_id" })
+  puts fruit
 rescue => err
   warn "load failed: #{err}"
 end
@@ -58,8 +57,8 @@ end
 ### 4. Create, update, and remove
 
 ```ruby
-# Update
-client.fruit.update({ "id" => created["id"], "name" => "Example-Renamed" })
+# Update — index the bare record directly (created["id"]).
+client.Fruit.update({ "id" => created["id"], "name" => "Example-Renamed" })
 
 ```
 
@@ -104,13 +103,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = FruityviceSDK.test
+client = FruityviceSDK.test({
+  "entity" => { "fruit" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.fruit.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+fruit = client.Fruit.load({ "id" => "test01" })
+puts fruit
 ```
 
 ### Use a custom fetch function
@@ -248,7 +251,7 @@ API path: `/api/fruit/all`
 
 ### Fruit
 
-Create an instance: `const fruit = client.fruit`
+Create an instance: `fruit = client.Fruit`
 
 #### Operations
 
@@ -272,14 +275,16 @@ Create an instance: `const fruit = client.fruit`
 
 #### Example: Load
 
-```ts
-const fruit = await client.fruit.load({ id: 'fruit_id' })
+```ruby
+# load returns the bare Fruit record (raises on error).
+fruit = client.Fruit.load({ "id" => "fruit_id" })
 ```
 
 #### Example: List
 
-```ts
-const fruits = await client.fruit.list()
+```ruby
+# list returns an Array of Fruit records (raises on error).
+fruits = client.Fruit.list
 ```
 
 
@@ -354,7 +359,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-fruit = client.fruit
+fruit = client.Fruit
 fruit.load({ "id" => "example_id" })
 
 # fruit.data_get now returns the loaded fruit data

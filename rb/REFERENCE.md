@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## FruitEntity
 
 ```ruby
-fruit = client.fruit
+fruit = client.Fruit
 ```
 
 ### Fields
@@ -120,7 +120,7 @@ fruit = client.fruit
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.fruit.list(nil)
+results = client.Fruit.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -128,7 +128,7 @@ results = client.fruit.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.fruit.load({ "id" => "fruit_id" })
+result = client.Fruit.load({ "id" => "fruit_id" })
 ```
 
 #### `update(reqdata, ctrl = nil) -> result`
@@ -136,7 +136,7 @@ result = client.fruit.load({ "id" => "fruit_id" })
 Update an existing entity. The data must include the entity `id`. Raises on error.
 
 ```ruby
-result = client.fruit.update({
+result = client.Fruit.update({
   "id" => "fruit_id",
   # Fields to update
 })

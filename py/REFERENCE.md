@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## FruitEntity
 
 ```python
-fruit = client.fruit
+fruit = client.Fruit()
 ```
 
 ### Fields
@@ -114,7 +114,9 @@ fruit = client.fruit
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.fruit.list({})
+results = client.Fruit().list({})
+for fruit in results:
+    print(fruit)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -122,7 +124,7 @@ results = client.fruit.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.fruit.load({"id": "fruit_id"})
+result = client.Fruit().load({"id": "fruit_id"})
 ```
 
 #### `update(reqdata, ctrl=None) -> dict`
@@ -130,7 +132,7 @@ result = client.fruit.load({"id": "fruit_id"})
 Update an existing entity. The data must include the entity `id`. Returns the updated entity data and raises on error.
 
 ```python
-result = client.fruit.update({
+result = client.Fruit().update({
     "id": "fruit_id",
     # Fields to update
 })

@@ -109,7 +109,7 @@ Alias for `FruityviceSDK.test()`.
 ## FruitEntity
 
 ```ts
-const fruit = client.fruit
+const fruit = client.Fruit()
 ```
 
 ### Fields
@@ -143,7 +143,7 @@ const fruit = client.fruit
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.fruit.list()
+const results = await client.Fruit().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -151,7 +151,7 @@ const results = await client.fruit.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.fruit.load({ id: 'fruit_id' })
+const result = await client.Fruit().load({ id: 'fruit_id' })
 ```
 
 #### `update(data: object, ctrl?: object)`
@@ -159,7 +159,7 @@ const result = await client.fruit.load({ id: 'fruit_id' })
 Update an existing entity. The data must include the entity `id`.
 
 ```ts
-const result = await client.fruit.update({
+const result = await client.Fruit().update({
   id: 'fruit_id',
   // Fields to update
 })

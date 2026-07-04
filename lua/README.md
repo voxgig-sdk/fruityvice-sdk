@@ -31,33 +31,33 @@ local sdk = require("fruityvice_sdk")
 local client = sdk.new()
 ```
 
-### 2. List fruits
+### 2. List fruit records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:fruit():list()
+local fruits, err = client:Fruit():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(fruits) do
+  print(item["id"], item["name"])
 end
 ```
 
 ### 3. Load a fruit
 
 ```lua
-local result, err = client:fruit():load({ id = "example_id" })
+local fruit, err = client:Fruit():load({ id = "example_id" })
 if err then error(err) end
-print(result)
+print(fruit)
 ```
 
 ### 4. Create, update, and remove
 
 ```lua
 -- Update
-client:fruit():update({ id = created["id"], name = "Example-Renamed" })
+client:Fruit():update({ id = created["id"], name = "Example-Renamed" })
 
 ```
 
@@ -104,8 +104,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:fruit():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:Fruit():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -205,17 +205,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local fruit, err = client:Fruit():load({ id = "example_id" })
+    if err then error(err) end
+    -- fruit is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -242,7 +247,7 @@ API path: `/api/fruit/all`
 
 ### Fruit
 
-Create an instance: `const fruit = client.fruit`
+Create an instance: `local fruit = client:Fruit(nil)`
 
 #### Operations
 
@@ -266,14 +271,14 @@ Create an instance: `const fruit = client.fruit`
 
 #### Example: Load
 
-```ts
-const fruit = await client.fruit.load({ id: 'fruit_id' })
+```lua
+local fruit, err = client:Fruit():load({ id = "fruit_id" })
 ```
 
 #### Example: List
 
-```ts
-const fruits = await client.fruit.list()
+```lua
+local fruits, err = client:Fruit():list()
 ```
 
 
@@ -348,7 +353,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local fruit = client:fruit()
+local fruit = client:Fruit()
 fruit:load({ id = "example_id" })
 
 -- fruit:data_get() now returns the loaded fruit data

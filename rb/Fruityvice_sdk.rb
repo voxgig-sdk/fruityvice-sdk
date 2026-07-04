@@ -208,13 +208,7 @@ class FruityviceSDK
   end
 
 
-  # Idiomatic facade: client.fruit.list / client.fruit.load({ "id" => ... })
-  def fruit
-    require_relative 'entity/fruit_entity'
-    @fruit ||= FruitEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.fruit instead.
+  # Canonical facade: client.Fruit.list / client.Fruit.load({ "id" => ... })
   def Fruit(data = nil)
     require_relative 'entity/fruit_entity'
     FruitEntity.new(self, data)

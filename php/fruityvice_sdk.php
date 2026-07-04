@@ -233,10 +233,10 @@ class FruityviceSDK
 
     private $_fruit = null;
 
-    // Idiomatic facade: $client->fruit()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Fruit() (PHP method
-    // names are case-insensitive).
-    public function fruit($data = null)
+    // Canonical facade: $client->Fruit()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->fruit()
+    // resolves here too.
+    public function Fruit($data = null)
     {
         require_once __DIR__ . '/entity/fruit_entity.php';
         if ($data === null) {

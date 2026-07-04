@@ -220,25 +220,15 @@ class FruityviceSDK:
         }
 
 
-    @property
-    def fruit(self):
-        """Idiomatic facade: client.fruit.list() / client.fruit.load({"id": ...})."""
-        from entity.fruit_entity import FruitEntity
-        cached = getattr(self, "_fruit", None)
-        if cached is None:
-            cached = FruitEntity(self, None)
-            self._fruit = cached
-        return cached
-
-    def Fruit(self, data=None):
-        # Deprecated: use client.fruit instead.
+    def Fruit(self, data=None) -> "FruitEntity":
+        """Entity factory: client.Fruit().list({}) / client.Fruit().load({"id": ...})."""
         from entity.fruit_entity import FruitEntity
         return FruitEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "FruityviceSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class FruityviceSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.fruit_entity import FruitEntity

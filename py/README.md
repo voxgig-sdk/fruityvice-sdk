@@ -31,24 +31,28 @@ from fruityvice_sdk import FruityviceSDK
 client = FruityviceSDK()
 ```
 
-### 2. List fruits
+### 2. List fruit records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.fruit.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    fruits = client.Fruit().list({})
+    for fruit in fruits:
+        print(fruit)
 except Exception as err:
     print(f"list failed: {err}")
 ```
 
 ### 3. Load a fruit
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.fruit.load({"id": "example_id"})
-    print(result)
+    fruit = client.Fruit().load({"id": "example_id"})
+    print(fruit)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -56,8 +60,8 @@ except Exception as err:
 ### 4. Create, update, and remove
 
 ```python
-# Update
-client.fruit.update({"id": created["id"], "name": "Example-Renamed"})
+# Update — the created record's id is a plain dict key
+client.Fruit().update({"id": created["id"], "name": "Example-Renamed"})
 
 ```
 
@@ -104,8 +108,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = FruityviceSDK.test()
 
-result = client.fruit.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+fruit = client.Fruit().load({"id": "test01"})
+# fruit contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -244,7 +249,7 @@ API path: `/api/fruit/all`
 
 ### Fruit
 
-Create an instance: `const fruit = client.fruit`
+Create an instance: `fruit = client.Fruit()`
 
 #### Operations
 
@@ -268,14 +273,14 @@ Create an instance: `const fruit = client.fruit`
 
 #### Example: Load
 
-```ts
-const fruit = await client.fruit.load({ id: 'fruit_id' })
+```python
+fruit = client.Fruit().load({"id": "fruit_id"})
 ```
 
 #### Example: List
 
-```ts
-const fruits = await client.fruit.list()
+```python
+fruits = client.Fruit().list({})
 ```
 
 
@@ -349,7 +354,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-fruit = client.fruit
+fruit = client.Fruit()
 fruit.load({"id": "example_id"})
 
 # fruit.data_get() now returns the loaded fruit data

@@ -26,9 +26,11 @@ import { FruityviceSDK } from '@voxgig-sdk/fruityvice'
 
 const client = new FruityviceSDK()
 
-// List all fruits
-const fruits = await client.fruit.list()
-console.log(fruits.data)
+// List all fruits (returns Fruit[])
+const fruits = await client.Fruit().list()
+for (const fruit of fruits) {
+  console.log(fruit)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,12 +85,13 @@ from fruityvice_sdk import FruityviceSDK
 
 client = FruityviceSDK()
 
-# List all fruits
-fruits = client.fruit.list()
-print(fruits)
+# List all fruits (returns a list, raises on error)
+fruits = client.Fruit().list({})
+for fruit in fruits:
+    print(fruit)
 
-# Load a specific fruit
-fruit = client.fruit.load({"id": "example_id"})
+# Load a specific fruit (returns the record, raises on error)
+fruit = client.Fruit().load({"id": "example_id"})
 print(fruit)
 ```
 
@@ -100,12 +103,12 @@ require_once 'fruityvice_sdk.php';
 
 $client = new FruityviceSDK();
 
-// List all fruits (throws on error)
-$fruits = $client->fruit()->list();
+// List all fruits (returns an array; throws on error)
+$fruits = $client->Fruit()->list();
 print_r($fruits);
 
-// Load a specific fruit
-$fruit = $client->fruit()->load(["id" => "example_id"]);
+// Load a specific fruit (returns the bare record; throws on error)
+$fruit = $client->Fruit()->load(["id" => "example_id"]);
 print_r($fruit);
 ```
 
@@ -128,12 +131,12 @@ require_relative "Fruityvice_sdk"
 
 client = FruityviceSDK.new
 
-# List all fruits
-fruits = client.fruit.list
+# List all fruits (returns an Array; raises on error)
+fruits = client.Fruit.list
 puts fruits
 
-# Load a specific fruit
-fruit = client.fruit.load({ "id" => "example_id" })
+# Load a specific fruit (returns the bare record; raises on error)
+fruit = client.Fruit.load({ "id" => "example_id" })
 puts fruit
 ```
 
@@ -145,11 +148,11 @@ local sdk = require("fruityvice_sdk")
 local client = sdk.new()
 
 -- List all fruits
-local fruits, err = client:fruit():list()
+local fruits, err = client:Fruit():list()
 print(fruits)
 
 -- Load a specific fruit
-local fruit, err = client:fruit():load({ id = "example_id" })
+local fruit, err = client:Fruit():load({ id = "example_id" })
 print(fruit)
 ```
 
@@ -162,22 +165,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = FruityviceSDK.test()
-const result = await client.fruit.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const fruit = await client.Fruit().load({ id: 1 })
+// fruit is a bare Fruit populated with mock data
+console.log(fruit)
 ```
 
 ### Python
 
 ```python
 client = FruityviceSDK.test()
-result = client.fruit.load({"id": "test01"})
+fruit = client.Fruit().load({"id": "test01"})
+print(fruit)
 ```
 
 ### PHP
 
 ```php
-$client = FruityviceSDK::test();
-$result = $client->fruit()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = FruityviceSDK::test([
+    "entity" => ["fruit" => ["test01" => ["id" => "test01"]]],
+]);
+$fruit = $client->Fruit()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -192,15 +200,18 @@ result, err := client.Fruit(nil).Load(
 ### Ruby
 
 ```ruby
-client = FruityviceSDK.test
-result = client.fruit.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = FruityviceSDK.test({
+  "entity" => { "fruit" => { "test01" => { "id" => "test01" } } },
+})
+fruit = client.Fruit.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:fruit():load({ id = "test01" })
+local result, err = client:Fruit():load({ id = "test01" })
 ```
 
 ## How it works
@@ -248,6 +259,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## FruitEntity
 
 ```lua
-local fruit = client:fruit(nil)
+local fruit = client:Fruit(nil)
 ```
 
 ### Fields
@@ -117,7 +117,7 @@ local fruit = client:fruit(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:fruit():list()
+local results, err = client:Fruit():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -125,7 +125,7 @@ local results, err = client:fruit():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:fruit():load({ id = "fruit_id" })
+local result, err = client:Fruit():load({ id = "fruit_id" })
 ```
 
 #### `update(reqdata, ctrl) -> any, err`
@@ -133,7 +133,7 @@ local result, err = client:fruit():load({ id = "fruit_id" })
 Update an existing entity. The data must include the entity `id`.
 
 ```lua
-local result, err = client:fruit():update({
+local result, err = client:Fruit():update({
   id = "fruit_id",
   -- Fields to update
 })
