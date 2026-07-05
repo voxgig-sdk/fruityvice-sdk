@@ -24,8 +24,7 @@ type FruitLoadMatch struct {
 	Id int `json:"id"`
 }
 
-// FruitListMatch mirrors the fruit fields as an all-optional match
-// filter (Go analog of Partial<Fruit>).
+// FruitListMatch is the typed request payload for Fruit.ListTyped.
 type FruitListMatch struct {
 	Family *string `json:"family,omitempty"`
 	Genus *string `json:"genus,omitempty"`
@@ -36,8 +35,7 @@ type FruitListMatch struct {
 	Order *string `json:"order,omitempty"`
 }
 
-// FruitUpdateData mirrors the fruit fields as an all-optional match
-// filter (Go analog of Partial<Fruit>).
+// FruitUpdateData is the typed request payload for Fruit.UpdateTyped.
 type FruitUpdateData struct {
 	Family *string `json:"family,omitempty"`
 	Genus *string `json:"genus,omitempty"`

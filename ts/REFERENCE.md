@@ -116,25 +116,25 @@ const fruit = client.Fruit()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `family` | ``$STRING`` | No |  |
-| `genus` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `nutrition` | ``$OBJECT`` | No |  |
-| `order` | ``$STRING`` | No |  |
+| `family` | `string` | No |  |
+| `genus` | `string` | No |  |
+| `id` | `number` | No |  |
+| `message` | `string` | No |  |
+| `name` | `string` | No |  |
+| `nutrition` | `Record<string, any>` | No |  |
+| `order` | `string` | No |  |
 
 ### Field Usage by Operation
 
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `family` | - | - | - | Yes | - |
-| `genus` | - | - | - | Yes | - |
-| `id` | - | - | - | - | - |
-| `message` | - | - | - | - | - |
-| `name` | - | - | - | Yes | - |
-| `nutrition` | - | - | - | Yes | - |
-| `order` | - | - | - | Yes | - |
+| Field | load | list | update |
+| --- | --- | --- | --- |
+| `family` | - | - | Yes |
+| `genus` | - | - | Yes |
+| `id` | - | - | - |
+| `message` | - | - | - |
+| `name` | - | - | Yes |
+| `nutrition` | - | - | Yes |
+| `order` | - | - | Yes |
 
 ### Operations
 
@@ -151,7 +151,7 @@ const results = await client.Fruit().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Fruit().load({ id: 'fruit_id' })
+const result = await client.Fruit().load({ id: 1 })
 ```
 
 #### `update(data: object, ctrl?: object)`
@@ -160,7 +160,7 @@ Update an existing entity. The data must include the entity `id`.
 
 ```ts
 const result = await client.Fruit().update({
-  id: 'fruit_id',
+  id: 1,
   // Fields to update
 })
 ```

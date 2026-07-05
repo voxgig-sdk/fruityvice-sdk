@@ -8,7 +8,7 @@ Complete API reference for the Fruityvice Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'fruityvice_sdk'
+require_relative 'Fruityvice_sdk'
 
 client = FruityviceSDK.new(options)
 ```
@@ -93,34 +93,34 @@ fruit = client.Fruit
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `family` | ``$STRING`` | No |  |
-| `genus` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `nutrition` | ``$OBJECT`` | No |  |
-| `order` | ``$STRING`` | No |  |
+| `family` | `String` | No |  |
+| `genus` | `String` | No |  |
+| `id` | `Integer` | No |  |
+| `message` | `String` | No |  |
+| `name` | `String` | No |  |
+| `nutrition` | `Hash` | No |  |
+| `order` | `String` | No |  |
 
 ### Field Usage by Operation
 
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `family` | - | - | - | Yes | - |
-| `genus` | - | - | - | Yes | - |
-| `id` | - | - | - | - | - |
-| `message` | - | - | - | - | - |
-| `name` | - | - | - | Yes | - |
-| `nutrition` | - | - | - | Yes | - |
-| `order` | - | - | - | Yes | - |
+| Field | load | list | update |
+| --- | --- | --- | --- |
+| `family` | - | - | Yes |
+| `genus` | - | - | Yes |
+| `id` | - | - | - |
+| `message` | - | - | - |
+| `name` | - | - | Yes |
+| `nutrition` | - | - | Yes |
+| `order` | - | - | Yes |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Fruit.list(nil)
+results = client.Fruit.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`

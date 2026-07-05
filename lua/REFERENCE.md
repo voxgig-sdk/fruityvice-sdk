@@ -90,25 +90,25 @@ local fruit = client:Fruit(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `family` | ``$STRING`` | No |  |
-| `genus` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `nutrition` | ``$OBJECT`` | No |  |
-| `order` | ``$STRING`` | No |  |
+| `family` | `string` | No |  |
+| `genus` | `string` | No |  |
+| `id` | `number` | No |  |
+| `message` | `string` | No |  |
+| `name` | `string` | No |  |
+| `nutrition` | `table` | No |  |
+| `order` | `string` | No |  |
 
 ### Field Usage by Operation
 
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `family` | - | - | - | Yes | - |
-| `genus` | - | - | - | Yes | - |
-| `id` | - | - | - | - | - |
-| `message` | - | - | - | - | - |
-| `name` | - | - | - | Yes | - |
-| `nutrition` | - | - | - | Yes | - |
-| `order` | - | - | - | Yes | - |
+| Field | load | list | update |
+| --- | --- | --- | --- |
+| `family` | - | - | Yes |
+| `genus` | - | - | Yes |
+| `id` | - | - | - |
+| `message` | - | - | - |
+| `name` | - | - | Yes |
+| `nutrition` | - | - | Yes |
+| `order` | - | - | Yes |
 
 ### Operations
 

@@ -50,7 +50,7 @@ FruitLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Fruit#list (any subset of Fruit fields).
+# Request payload for Fruit#list.
 #
 # @!attribute [rw] family
 #   @return [String, nil]
@@ -83,7 +83,7 @@ FruitListMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Fruit#update (any subset of Fruit fields).
+# Request payload for Fruit#update.
 #
 # @!attribute [rw] family
 #   @return [String, nil]

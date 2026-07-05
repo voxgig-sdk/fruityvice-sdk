@@ -19,7 +19,23 @@ export interface FruitLoadMatch {
   id: number
 }
 
-export type FruitListMatch = Partial<Fruit>
+export interface FruitListMatch {
+  family?: string
+  genus?: string
+  id?: number
+  message?: string
+  name?: string
+  nutrition?: Record<string, any>
+  order?: string
+}
 
-export type FruitUpdateData = Partial<Fruit>
+export interface FruitUpdateData {
+  family?: string
+  genus?: string
+  id?: number
+  message?: string
+  name?: string
+  nutrition?: Record<string, any>
+  order?: string
+}
 

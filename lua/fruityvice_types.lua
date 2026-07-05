@@ -19,8 +19,22 @@
 ---@field id number
 
 ---@class FruitListMatch
+---@field family? string
+---@field genus? string
+---@field id? number
+---@field message? string
+---@field name? string
+---@field nutrition? table
+---@field order? string
 
 ---@class FruitUpdateData
+---@field family? string
+---@field genus? string
+---@field id? number
+---@field message? string
+---@field name? string
+---@field nutrition? table
+---@field order? string
 
 local M = {}
 

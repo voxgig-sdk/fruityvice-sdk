@@ -30,7 +30,7 @@ class FruitLoadMatch
     public int $id;
 }
 
-/** Match filter for Fruit#list (any subset of Fruit fields). */
+/** Request payload for Fruit#list. */
 class FruitListMatch
 {
     public ?string $family = null;
@@ -42,7 +42,7 @@ class FruitListMatch
     public ?string $order = null;
 }
 
-/** Match filter for Fruit#update (any subset of Fruit fields). */
+/** Request payload for Fruit#update. */
 class FruitUpdateData
 {
     public ?string $family = null;

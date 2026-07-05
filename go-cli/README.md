@@ -19,6 +19,7 @@ go build -o fruityvice-cli ./...
 ./fruityvice-cli list fruit
 ./fruityvice-cli load 1 fruit
 ./fruityvice-cli load '{id:1}' fruit
+./fruityvice-cli update '{id:1}' fruit
 
 # REPL
 ./fruityvice-cli

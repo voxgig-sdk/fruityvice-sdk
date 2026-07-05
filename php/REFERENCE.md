@@ -45,11 +45,11 @@ $client = FruityviceSDK::test();
 
 Create a new `FruitEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): FruityviceUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,34 +92,34 @@ $fruit = $client->Fruit();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `family` | ``$STRING`` | No |  |
-| `genus` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `nutrition` | ``$OBJECT`` | No |  |
-| `order` | ``$STRING`` | No |  |
+| `family` | `string` | No |  |
+| `genus` | `string` | No |  |
+| `id` | `int` | No |  |
+| `message` | `string` | No |  |
+| `name` | `string` | No |  |
+| `nutrition` | `array` | No |  |
+| `order` | `string` | No |  |
 
 ### Field Usage by Operation
 
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `family` | - | - | - | Yes | - |
-| `genus` | - | - | - | Yes | - |
-| `id` | - | - | - | - | - |
-| `message` | - | - | - | - | - |
-| `name` | - | - | - | Yes | - |
-| `nutrition` | - | - | - | Yes | - |
-| `order` | - | - | - | Yes | - |
+| Field | load | list | update |
+| --- | --- | --- | --- |
+| `family` | - | - | Yes |
+| `genus` | - | - | Yes |
+| `id` | - | - | - |
+| `message` | - | - | - |
+| `name` | - | - | Yes |
+| `nutrition` | - | - | Yes |
+| `order` | - | - | Yes |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Fruit()->list([]);
+$results = $client->Fruit()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -143,19 +143,19 @@ $result = $client->Fruit()->update([
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -164,7 +164,7 @@ Set the entity match criteria.
 Create a new `FruitEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

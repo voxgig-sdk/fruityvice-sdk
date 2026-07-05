@@ -221,7 +221,7 @@ class FruityviceSDK:
 
 
     def Fruit(self, data=None) -> "FruitEntity":
-        """Entity factory: client.Fruit().list({}) / client.Fruit().load({"id": ...})."""
+        """Entity factory: client.Fruit().list() / client.Fruit().load({"id": ...})."""
         from entity.fruit_entity import FruitEntity
         return FruitEntity(self, data)
 

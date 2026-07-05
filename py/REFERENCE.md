@@ -87,34 +87,34 @@ fruit = client.Fruit()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `family` | ``$STRING`` | No |  |
-| `genus` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `message` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `nutrition` | ``$OBJECT`` | No |  |
-| `order` | ``$STRING`` | No |  |
+| `family` | `str` | No |  |
+| `genus` | `str` | No |  |
+| `id` | `int` | No |  |
+| `message` | `str` | No |  |
+| `name` | `str` | No |  |
+| `nutrition` | `dict` | No |  |
+| `order` | `str` | No |  |
 
 ### Field Usage by Operation
 
-| Field | load | list | create | update | remove |
-| --- | --- | --- | --- | --- | --- |
-| `family` | - | - | - | Yes | - |
-| `genus` | - | - | - | Yes | - |
-| `id` | - | - | - | - | - |
-| `message` | - | - | - | - | - |
-| `name` | - | - | - | Yes | - |
-| `nutrition` | - | - | - | Yes | - |
-| `order` | - | - | - | Yes | - |
+| Field | load | list | update |
+| --- | --- | --- | --- |
+| `family` | - | - | Yes |
+| `genus` | - | - | Yes |
+| `id` | - | - | - |
+| `message` | - | - | - |
+| `name` | - | - | Yes |
+| `nutrition` | - | - | Yes |
+| `order` | - | - | Yes |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Fruit().list({})
+results = client.Fruit().list()
 for fruit in results:
     print(fruit)
 ```
