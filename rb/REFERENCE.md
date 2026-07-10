@@ -128,7 +128,7 @@ results = client.Fruit.list
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Fruit.load({ "id" => "fruit_id" })
+result = client.Fruit.load({ "id" => 1 })
 ```
 
 #### `update(reqdata, ctrl = nil) -> result`
@@ -137,7 +137,7 @@ Update an existing entity. The data must include the entity `id`. Raises on erro
 
 ```ruby
 result = client.Fruit.update({
-  "id" => "fruit_id",
+  "id" => 1,
   # Fields to update
 })
 ```

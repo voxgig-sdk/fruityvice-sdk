@@ -124,7 +124,7 @@ for fruit in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Fruit().load({"id": "fruit_id"})
+result = client.Fruit().load({"id": 1})
 ```
 
 #### `update(reqdata, ctrl=None) -> dict`
@@ -133,7 +133,7 @@ Update an existing entity. The data must include the entity `id`. Returns the up
 
 ```python
 result = client.Fruit().update({
-    "id": "fruit_id",
+    "id": 1,
     # Fields to update
 })
 ```

@@ -125,7 +125,7 @@ local results, err = client:Fruit():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Fruit():load({ id = "fruit_id" })
+local result, err = client:Fruit():load({ id = 1 })
 ```
 
 #### `update(reqdata, ctrl) -> any, err`
@@ -134,7 +134,7 @@ Update an existing entity. The data must include the entity `id`.
 
 ```lua
 local result, err = client:Fruit():update({
-  id = "fruit_id",
+  id = 1,
   -- Fields to update
 })
 ```

@@ -50,7 +50,7 @@ try {
 ```php
 try {
     // load() returns the bare Fruit record (throws on error).
-    $fruit = $client->Fruit()->load(["id" => "example_id"]);
+    $fruit = $client->Fruit()->load(["id" => 1]);
     print_r($fruit);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -61,7 +61,7 @@ try {
 
 ```php
 // Update
-$client->Fruit()->update(["id" => 1, "family" => "example", "genus" => "example"]);
+$client->Fruit()->update(["id" => 1, "family" => "example_family", "genus" => "example_genus"]);
 
 ```
 
@@ -316,7 +316,7 @@ Create an instance: `$fruit = $client->Fruit();`
 
 ```php
 // load() returns the bare Fruit record (throws on error).
-$fruit = $client->Fruit()->load(["id" => "fruit_id"]);
+$fruit = $client->Fruit()->load(["id" => 1]);
 ```
 
 #### Example: List

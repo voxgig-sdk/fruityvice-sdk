@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -401,14 +398,17 @@
           "url": "https://www.fruityvice.com/"
         },
         "description": "API for fruit data retrieval and addition. Provides information about various fruits based on 100 grams. Users can also contribute by adding new fruits.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://www.fruityvice.com"
           }
         ],
+        "summary": "API for fruit data retrieval and addition.",
         "title": "Fruityvice",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://fruityvice.com"
       },
       "option": {},
       "target": {
@@ -461,6 +461,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -511,6 +514,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

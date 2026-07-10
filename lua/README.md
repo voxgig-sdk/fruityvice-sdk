@@ -50,7 +50,7 @@ end
 ### 3. Load a fruit
 
 ```lua
-local fruit, err = client:Fruit():load({ id = "example_id" })
+local fruit, err = client:Fruit():load({ id = 1 })
 if err then error(err) end
 print(fruit)
 ```
@@ -59,7 +59,7 @@ print(fruit)
 
 ```lua
 -- Update
-client:Fruit():update({ id = 1, family = "example", genus = "example" })
+client:Fruit():update({ id = 1, family = "example_family", genus = "example_genus" })
 
 ```
 
@@ -294,7 +294,7 @@ Create an instance: `local fruit = client:Fruit(nil)`
 #### Example: Load
 
 ```lua
-local fruit, err = client:Fruit():load({ id = "fruit_id" })
+local fruit, err = client:Fruit():load({ id = 1 })
 ```
 
 #### Example: List

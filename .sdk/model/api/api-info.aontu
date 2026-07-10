@@ -15,9 +15,9 @@ main: {
           url: "https://www.fruityvice.com"
         }
       ]
+      summary: "API for fruit data retrieval and addition."
       title: "Fruityvice"
       version: "1.0.0"
+      website: "https://fruityvice.com"
     }
   }
-}
-

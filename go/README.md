@@ -67,7 +67,7 @@ func main() {
     fmt.Println(fruit)
 
     // Update a fruit.
-    updated, err := client.Fruit(nil).Update(map[string]any{"id": 1, "family": "example", "genus": "example"}, nil)
+    updated, err := client.Fruit(nil).Update(map[string]any{"id": 1, "family": "example_family", "genus": "example_genus"}, nil)
     if err != nil {
         panic(err)
     }
@@ -321,7 +321,7 @@ Create an instance: `fruit := client.Fruit(nil)`
 #### Example: Load
 
 ```go
-fruit, err := client.Fruit(nil).Load(map[string]any{"id": "fruit_id"}, nil)
+fruit, err := client.Fruit(nil).Load(map[string]any{"id": 1}, nil)
 if err != nil {
     panic(err)
 }

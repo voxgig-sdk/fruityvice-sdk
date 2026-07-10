@@ -56,7 +56,7 @@ except Exception as err:
 
 ```python
 try:
-    fruit = client.Fruit().load({"id": "example_id"})
+    fruit = client.Fruit().load({"id": 1})
     print(fruit)
 except Exception as err:
     print(f"load failed: {err}")
@@ -66,7 +66,7 @@ except Exception as err:
 
 ```python
 # Update
-client.Fruit().update({"id": 1, "family": "example", "genus": "example"})
+client.Fruit().update({"id": 1, "family": "example_family", "genus": "example_genus"})
 
 ```
 
@@ -308,7 +308,7 @@ Create an instance: `fruit = client.Fruit()`
 #### Example: Load
 
 ```python
-fruit = client.Fruit().load({"id": "fruit_id"})
+fruit = client.Fruit().load({"id": 1})
 ```
 
 #### Example: List

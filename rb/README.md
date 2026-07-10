@@ -49,7 +49,7 @@ end
 ```ruby
 begin
   # load returns the bare Fruit record (raises on error).
-  fruit = client.Fruit.load({ "id" => "example_id" })
+  fruit = client.Fruit.load({ "id" => 1 })
   puts fruit
 rescue => err
   warn "load failed: #{err}"
@@ -60,7 +60,7 @@ end
 
 ```ruby
 # Update
-client.Fruit.update({ "id" => 1, "family" => "example", "genus" => "example" })
+client.Fruit.update({ "id" => 1, "family" => "example_family", "genus" => "example_genus" })
 
 ```
 
@@ -306,7 +306,7 @@ Create an instance: `fruit = client.Fruit`
 
 ```ruby
 # load returns the bare Fruit record (raises on error).
-fruit = client.Fruit.load({ "id" => "fruit_id" })
+fruit = client.Fruit.load({ "id" => 1 })
 ```
 
 #### Example: List
