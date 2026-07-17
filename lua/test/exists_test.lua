@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Fruityvice SDK exists test
 
 local sdk = require("fruityvice_sdk")
 
