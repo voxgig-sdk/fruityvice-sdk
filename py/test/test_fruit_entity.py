@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from fruityvice_sdk.utility.voxgig_struct import voxgig_struct as vs
 from fruityvice_sdk import FruityviceSDK
-from core import helpers
+from fruityvice_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestFruitEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from fruityvice_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = FruityviceSDK.test(
@@ -96,7 +96,7 @@ class TestFruitEntity:
         fruit_ref01_markdef_up0_value = "Mark01-fruit_ref01_" + str(setup["now"])
         fruit_ref01_data_up0_up[fruit_ref01_markdef_up0_name] = fruit_ref01_markdef_up0_value
 
-        fruit_ref01_resdata_up0 = helpers.to_map(fruit_ref01_ent.update(fruit_ref01_data_up0_up, None))
+        fruit_ref01_resdata_up0 = helpers.to_map(runner.entity_data(fruit_ref01_ent.update(fruit_ref01_data_up0_up, None)))
         assert fruit_ref01_resdata_up0 is not None
         assert fruit_ref01_resdata_up0["id"] == fruit_ref01_data_up0_up["id"]
         assert fruit_ref01_resdata_up0[fruit_ref01_markdef_up0_name] == fruit_ref01_markdef_up0_value
@@ -106,7 +106,7 @@ class TestFruitEntity:
             "id": fruit_ref01_data["id"],
         }
         fruit_ref01_data_dt0_loaded = fruit_ref01_ent.load(fruit_ref01_match_dt0, None)
-        fruit_ref01_data_dt0_load_result = helpers.to_map(fruit_ref01_data_dt0_loaded)
+        fruit_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(fruit_ref01_data_dt0_loaded))
         assert fruit_ref01_data_dt0_load_result is not None
         assert fruit_ref01_data_dt0_load_result["id"] == fruit_ref01_data["id"]
 

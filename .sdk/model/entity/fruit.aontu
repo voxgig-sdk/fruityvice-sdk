@@ -6,25 +6,40 @@ main: kit: entity: fruit: {
 
   fields: [
     {
+      name: "calories"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "carbohydrates"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
       name: "family"
       op: {
-        update: {
-          req: true
+        list: {
+          req: false
           type: "`$STRING`"
         }
       }
-      req: false
+      req: true
       type: "`$STRING`"
+    }
+    {
+      name: "fat"
+      req: false
+      type: "`$NUMBER`"
     }
     {
       name: "genus"
       op: {
-        update: {
-          req: true
+        list: {
+          req: false
           type: "`$STRING`"
         }
       }
-      req: false
+      req: true
       type: "`$STRING`"
     }
     {
@@ -40,35 +55,45 @@ main: kit: entity: fruit: {
     {
       name: "name"
       op: {
-        update: {
-          req: true
+        list: {
+          req: false
           type: "`$STRING`"
         }
       }
-      req: false
+      req: true
       type: "`$STRING`"
     }
     {
-      name: "nutrition"
+      name: "nutritions"
       op: {
-        update: {
-          req: true
+        list: {
+          req: false
           type: "`$OBJECT`"
         }
       }
-      req: false
+      req: true
       type: "`$OBJECT`"
     }
     {
       name: "order"
       op: {
-        update: {
-          req: true
+        list: {
+          req: false
           type: "`$STRING`"
         }
       }
-      req: false
+      req: true
       type: "`$STRING`"
+    }
+    {
+      name: "protein"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "sugar"
+      req: false
+      type: "`$NUMBER`"
     }
   ]
 
@@ -129,7 +154,7 @@ main: kit: entity: fruit: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.nutritions`"
           }
         }
         {
@@ -163,7 +188,7 @@ main: kit: entity: fruit: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.nutritions`"
           }
         }
       ]

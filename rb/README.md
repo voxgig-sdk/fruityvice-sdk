@@ -37,7 +37,7 @@ begin
   # list returns an Array of Fruit records — iterate directly.
   fruits = client.Fruit.list
   fruits.each do |item|
-    puts "#{item["id"]} #{item["family"]}"
+    puts "#{item["id"]} #{item["calories"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Fruit record (raises on error).
+  # load returns the ENTITY — call data_get for the Fruit record (raises on error).
   fruit = client.Fruit.load({ "id" => 1 })
   puts fruit
 rescue => err
@@ -60,7 +60,7 @@ end
 
 ```ruby
 # Update
-client.Fruit.update({ "id" => 1, "family" => "example_family", "genus" => "example_genus" })
+client.Fruit.update({ "id" => 1, "calories" => 1, "carbohydrates" => 1 })
 
 ```
 
@@ -142,7 +142,8 @@ client = FruityviceSDK.test({
   "entity" => { "fruit" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 fruit = client.Fruit.list()
 puts fruit
 ```
@@ -261,13 +262,18 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
+| `calories` |  |
+| `carbohydrates` |  |
 | `family` |  |
+| `fat` |  |
 | `genus` |  |
 | `id` |  |
 | `message` |  |
 | `name` |  |
-| `nutrition` |  |
+| `nutritions` |  |
 | `order` |  |
+| `protein` |  |
+| `sugar` |  |
 
 Operations: List, Load, Update.
 
@@ -294,18 +300,23 @@ Create an instance: `fruit = client.Fruit`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `calories` | `Float` |  |
+| `carbohydrates` | `Float` |  |
 | `family` | `String` |  |
+| `fat` | `Float` |  |
 | `genus` | `String` |  |
 | `id` | `Integer` |  |
 | `message` | `String` |  |
 | `name` | `String` |  |
-| `nutrition` | `Hash` |  |
+| `nutritions` | `Hash` |  |
 | `order` | `String` |  |
+| `protein` | `Float` |  |
+| `sugar` | `Float` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Fruit record (raises on error).
+# load returns the ENTITY — call data_get for the Fruit record (raises on error).
 fruit = client.Fruit.load({ "id" => 1 })
 ```
 

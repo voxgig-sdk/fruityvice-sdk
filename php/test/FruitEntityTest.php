@@ -102,7 +102,7 @@ class FruitEntityTest extends TestCase
         $fruit_ref01_data_up0_up[$fruit_ref01_markdef_up0_name] = $fruit_ref01_markdef_up0_value;
 
         $fruit_ref01_resdata_up0_result = $fruit_ref01_ent->update($fruit_ref01_data_up0_up, null);
-        $fruit_ref01_resdata_up0 = Helpers::to_map($fruit_ref01_resdata_up0_result);
+        $fruit_ref01_resdata_up0 = Helpers::to_map(is_object($fruit_ref01_resdata_up0_result) && method_exists($fruit_ref01_resdata_up0_result, 'data_get') ? $fruit_ref01_resdata_up0_result->data_get() : $fruit_ref01_resdata_up0_result);
         $this->assertNotNull($fruit_ref01_resdata_up0);
         $this->assertEquals($fruit_ref01_resdata_up0["id"], $fruit_ref01_data_up0_up["id"]);
         $this->assertEquals($fruit_ref01_resdata_up0[$fruit_ref01_markdef_up0_name], $fruit_ref01_markdef_up0_value);
@@ -112,7 +112,7 @@ class FruitEntityTest extends TestCase
             "id" => $fruit_ref01_data["id"],
         ];
         $fruit_ref01_data_dt0_loaded = $fruit_ref01_ent->load($fruit_ref01_match_dt0, null);
-        $fruit_ref01_data_dt0_load_result = Helpers::to_map($fruit_ref01_data_dt0_loaded);
+        $fruit_ref01_data_dt0_load_result = Helpers::to_map(is_object($fruit_ref01_data_dt0_loaded) && method_exists($fruit_ref01_data_dt0_loaded, 'data_get') ? $fruit_ref01_data_dt0_loaded->data_get() : $fruit_ref01_data_dt0_loaded);
         $this->assertNotNull($fruit_ref01_data_dt0_load_result);
         $this->assertEquals($fruit_ref01_data_dt0_load_result["id"], $fruit_ref01_data["id"]);
 

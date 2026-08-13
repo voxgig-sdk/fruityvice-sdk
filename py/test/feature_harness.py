@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import FruityviceControl
-from core.error import FruityviceError
-from core.result import FruityviceResult
-from core.spec import FruityviceSpec
+from fruityvice_sdk.config import make_config
+from fruityvice_sdk.features import _make_feature
+from fruityvice_sdk.core.control import FruityviceControl
+from fruityvice_sdk.core.error import FruityviceError
+from fruityvice_sdk.core.result import FruityviceResult
+from fruityvice_sdk.core.spec import FruityviceSpec
 
 
 # True when this SDK was generated with the named feature.

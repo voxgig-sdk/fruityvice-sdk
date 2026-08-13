@@ -63,7 +63,7 @@ describe('FruitEntity', async () => {
     const fruit_ref01_ent = client.Fruit()
     const fruit_ref01_match: any = {}
 
-    const fruit_ref01_list = await fruit_ref01_ent.list(fruit_ref01_match)
+    const fruit_ref01_list = (await fruit_ref01_ent.list(fruit_ref01_match)).map((e: any) => e.data())
 
 
     // UPDATE
@@ -73,7 +73,7 @@ describe('FruitEntity', async () => {
     const fruit_ref01_markdef_up0 = { name: 'family', value: 'Mark01-fruit_ref01_' + setup.now }
     ;(fruit_ref01_data_up0 as any)[fruit_ref01_markdef_up0.name] = fruit_ref01_markdef_up0.value
 
-    const fruit_ref01_resdata_up0 = await fruit_ref01_ent.update(fruit_ref01_data_up0)
+    const fruit_ref01_resdata_up0 = (await fruit_ref01_ent.update(fruit_ref01_data_up0)).data()
     assert(fruit_ref01_resdata_up0.id === fruit_ref01_data_up0.id)
 
     assert((fruit_ref01_resdata_up0 as any)[fruit_ref01_markdef_up0.name] === fruit_ref01_markdef_up0.value)
@@ -82,7 +82,7 @@ describe('FruitEntity', async () => {
     // LOAD
     const fruit_ref01_match_dt0: any = {}
     fruit_ref01_match_dt0.id = fruit_ref01_data.id
-    const fruit_ref01_data_dt0 = await fruit_ref01_ent.load(fruit_ref01_match_dt0)
+    const fruit_ref01_data_dt0 = (await fruit_ref01_ent.load(fruit_ref01_match_dt0)).data()
     assert(fruit_ref01_data_dt0.id === fruit_ref01_data.id)
 
 

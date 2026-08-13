@@ -35,7 +35,9 @@ const client = new FruityviceSDK()
 
 ### 2. List fruit records
 
-`list()` resolves to an array of Fruit objects — iterate it directly:
+`list()` resolves to an array of Fruit ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const fruits = await client.Fruit().list()
@@ -64,8 +66,8 @@ try {
 // Update
 const updated = await client.Fruit().update({
   id: 1,
-  family: 'example_family',
-  genus: 'example_genus',
+  calories: 1,
+  carbohydrates: 1,
 })
 
 ```
@@ -145,7 +147,8 @@ Create a mock client for unit testing — no server required:
 const client = FruityviceSDK.test()
 
 const fruit = await client.Fruit().list()
-// fruit is a bare entity populated with mock response data
+// fruit is the entity, populated with mock response data
+// — call fruit.data() for the record itself
 console.log(fruit)
 ```
 
@@ -312,13 +315,18 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
+| `calories` |  |
+| `carbohydrates` |  |
 | `family` |  |
+| `fat` |  |
 | `genus` |  |
 | `id` |  |
 | `message` |  |
 | `name` |  |
-| `nutrition` |  |
+| `nutritions` |  |
 | `order` |  |
+| `protein` |  |
+| `sugar` |  |
 
 Operations: list, load, update.
 
@@ -345,13 +353,18 @@ Create an instance: `const fruit = client.Fruit()`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `calories` | `number` |  |
+| `carbohydrates` | `number` |  |
 | `family` | `string` |  |
+| `fat` | `number` |  |
 | `genus` | `string` |  |
 | `id` | `number` |  |
 | `message` | `string` |  |
 | `name` | `string` |  |
-| `nutrition` | `Record<string, any>` |  |
+| `nutritions` | `Record<string, any>` |  |
 | `order` | `string` |  |
+| `protein` | `number` |  |
+| `sugar` | `number` |  |
 
 #### Example: Load
 

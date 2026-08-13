@@ -15,10 +15,12 @@ guide: {
     }
     path: "/api/fruit/{id}": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.nutritions`")|top
     }
     path: "/api/fruit/{name}": {
       rename: param: "name": *"id"
       op: load: method: *GET
+      op: load: transform: res: *("`body.nutritions`")|top
     }
   }
 

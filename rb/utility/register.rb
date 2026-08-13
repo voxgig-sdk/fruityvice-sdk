@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ FruityviceUtility.registrar = ->(u) {
   u.prepare_params = FruityviceUtilities::PrepareParams
   u.prepare_path = FruityviceUtilities::PreparePath
   u.prepare_query = FruityviceUtilities::PrepareQuery
+  u.graphql_body = FruityviceUtilities::GraphqlBody
+  u.graphql_errors = FruityviceUtilities::GraphqlErrors
   u.result_basic = FruityviceUtilities::ResultBasic
   u.result_body = FruityviceUtilities::ResultBody
   u.result_headers = FruityviceUtilities::ResultHeaders

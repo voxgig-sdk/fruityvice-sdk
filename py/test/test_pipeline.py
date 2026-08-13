@@ -16,11 +16,11 @@
 import pytest
 
 from fruityvice_sdk import FruityviceSDK
-from core.error import FruityviceError
-from core.result import FruityviceResult
-from core.response import FruityviceResponse
-from core.spec import FruityviceSpec
-from feature.base_feature import FruityviceBaseFeature
+from fruityvice_sdk.core.error import FruityviceError
+from fruityvice_sdk.core.result import FruityviceResult
+from fruityvice_sdk.core.response import FruityviceResponse
+from fruityvice_sdk.core.spec import FruityviceSpec
+from fruityvice_sdk.feature.base_feature import FruityviceBaseFeature
 
 
 def _client():

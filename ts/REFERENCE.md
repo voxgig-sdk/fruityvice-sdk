@@ -116,25 +116,55 @@ const fruit = client.Fruit()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `family` | `string` | No |  |
-| `genus` | `string` | No |  |
+| `calories` | `number` | No |  |
+| `carbohydrates` | `number` | No |  |
+| `family` | `string` | Yes |  |
+| `fat` | `number` | No |  |
+| `genus` | `string` | Yes |  |
 | `id` | `number` | No |  |
 | `message` | `string` | No |  |
-| `name` | `string` | No |  |
-| `nutrition` | `Record<string, any>` | No |  |
-| `order` | `string` | No |  |
+| `name` | `string` | Yes |  |
+| `nutritions` | `Record<string, any>` | Yes |  |
+| `order` | `string` | Yes |  |
+| `protein` | `number` | No |  |
+| `sugar` | `number` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | update |
 | --- | --- | --- | --- |
-| `family` | - | - | Yes |
-| `genus` | - | - | Yes |
+| `calories` | - | - | - |
+| `carbohydrates` | - | - | - |
+| `family` | - | Yes | - |
+| `fat` | - | - | - |
+| `genus` | - | Yes | - |
 | `id` | - | - | - |
 | `message` | - | - | - |
-| `name` | - | - | Yes |
-| `nutrition` | - | - | Yes |
-| `order` | - | - | Yes |
+| `name` | - | Yes | - |
+| `nutritions` | - | Yes | - |
+| `order` | - | Yes | - |
+| `protein` | - | - | - |
+| `sugar` | - | - | - |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `all` | `/api/fruit/all` | `client.Fruit().list({ $action: 'all', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Fruit record — check the API definition for its shape.
+
+```ts
+const result = await client.Fruit().list({
+  $action: 'all',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 

@@ -92,25 +92,35 @@ $fruit = $client->Fruit();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `family` | `string` | No |  |
-| `genus` | `string` | No |  |
+| `calories` | `float` | No |  |
+| `carbohydrates` | `float` | No |  |
+| `family` | `string` | Yes |  |
+| `fat` | `float` | No |  |
+| `genus` | `string` | Yes |  |
 | `id` | `int` | No |  |
 | `message` | `string` | No |  |
-| `name` | `string` | No |  |
-| `nutrition` | `array` | No |  |
-| `order` | `string` | No |  |
+| `name` | `string` | Yes |  |
+| `nutritions` | `array` | Yes |  |
+| `order` | `string` | Yes |  |
+| `protein` | `float` | No |  |
+| `sugar` | `float` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | update |
 | --- | --- | --- | --- |
-| `family` | - | - | Yes |
-| `genus` | - | - | Yes |
+| `calories` | - | - | - |
+| `carbohydrates` | - | - | - |
+| `family` | - | Yes | - |
+| `fat` | - | - | - |
+| `genus` | - | Yes | - |
 | `id` | - | - | - |
 | `message` | - | - | - |
-| `name` | - | - | Yes |
-| `nutrition` | - | - | Yes |
-| `order` | - | - | Yes |
+| `name` | - | Yes | - |
+| `nutritions` | - | Yes | - |
+| `order` | - | Yes | - |
+| `protein` | - | - | - |
+| `sugar` | - | - | - |
 
 ### Operations
 

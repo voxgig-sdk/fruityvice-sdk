@@ -10,11 +10,20 @@
 
 # Fruit entity data model.
 #
+# @!attribute [rw] calories
+#   @return [Float, nil]
+#
+# @!attribute [rw] carbohydrates
+#   @return [Float, nil]
+#
 # @!attribute [rw] family
-#   @return [String, nil]
+#   @return [String]
+#
+# @!attribute [rw] fat
+#   @return [Float, nil]
 #
 # @!attribute [rw] genus
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
@@ -23,21 +32,32 @@
 #   @return [String, nil]
 #
 # @!attribute [rw] name
-#   @return [String, nil]
+#   @return [String]
 #
-# @!attribute [rw] nutrition
-#   @return [Hash, nil]
+# @!attribute [rw] nutritions
+#   @return [Hash]
 #
 # @!attribute [rw] order
-#   @return [String, nil]
+#   @return [String]
+#
+# @!attribute [rw] protein
+#   @return [Float, nil]
+#
+# @!attribute [rw] sugar
+#   @return [Float, nil]
 Fruit = Struct.new(
+  :calories,
+  :carbohydrates,
   :family,
+  :fat,
   :genus,
   :id,
   :message,
   :name,
-  :nutrition,
+  :nutritions,
   :order,
+  :protein,
+  :sugar,
   keyword_init: true
 )
 
@@ -52,8 +72,17 @@ FruitLoadMatch = Struct.new(
 
 # Request payload for Fruit#list.
 #
+# @!attribute [rw] calories
+#   @return [Float, nil]
+#
+# @!attribute [rw] carbohydrates
+#   @return [Float, nil]
+#
 # @!attribute [rw] family
 #   @return [String, nil]
+#
+# @!attribute [rw] fat
+#   @return [Float, nil]
 #
 # @!attribute [rw] genus
 #   @return [String, nil]
@@ -67,26 +96,46 @@ FruitLoadMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] nutrition
+# @!attribute [rw] nutritions
 #   @return [Hash, nil]
 #
 # @!attribute [rw] order
 #   @return [String, nil]
+#
+# @!attribute [rw] protein
+#   @return [Float, nil]
+#
+# @!attribute [rw] sugar
+#   @return [Float, nil]
 FruitListMatch = Struct.new(
+  :calories,
+  :carbohydrates,
   :family,
+  :fat,
   :genus,
   :id,
   :message,
   :name,
-  :nutrition,
+  :nutritions,
   :order,
+  :protein,
+  :sugar,
   keyword_init: true
 )
 
 # Request payload for Fruit#update.
 #
+# @!attribute [rw] calories
+#   @return [Float, nil]
+#
+# @!attribute [rw] carbohydrates
+#   @return [Float, nil]
+#
 # @!attribute [rw] family
 #   @return [String, nil]
+#
+# @!attribute [rw] fat
+#   @return [Float, nil]
 #
 # @!attribute [rw] genus
 #   @return [String, nil]
@@ -100,19 +149,30 @@ FruitListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] nutrition
+# @!attribute [rw] nutritions
 #   @return [Hash, nil]
 #
 # @!attribute [rw] order
 #   @return [String, nil]
+#
+# @!attribute [rw] protein
+#   @return [Float, nil]
+#
+# @!attribute [rw] sugar
+#   @return [Float, nil]
 FruitUpdateData = Struct.new(
+  :calories,
+  :carbohydrates,
   :family,
+  :fat,
   :genus,
   :id,
   :message,
   :name,
-  :nutrition,
+  :nutritions,
   :order,
+  :protein,
+  :sugar,
   keyword_init: true
 )
 

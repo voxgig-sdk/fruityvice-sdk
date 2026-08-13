@@ -7,34 +7,49 @@
 -- edit by hand.
 
 ---@class Fruit
----@field family? string
----@field genus? string
+---@field calories? number
+---@field carbohydrates? number
+---@field family string
+---@field fat? number
+---@field genus string
 ---@field id? number
 ---@field message? string
----@field name? string
----@field nutrition? table
----@field order? string
+---@field name string
+---@field nutritions table
+---@field order string
+---@field protein? number
+---@field sugar? number
 
 ---@class FruitLoadMatch
 ---@field id number
 
 ---@class FruitListMatch
+---@field calories? number
+---@field carbohydrates? number
 ---@field family? string
+---@field fat? number
 ---@field genus? string
 ---@field id? number
 ---@field message? string
 ---@field name? string
----@field nutrition? table
+---@field nutritions? table
 ---@field order? string
+---@field protein? number
+---@field sugar? number
 
 ---@class FruitUpdateData
+---@field calories? number
+---@field carbohydrates? number
 ---@field family? string
+---@field fat? number
 ---@field genus? string
 ---@field id? number
 ---@field message? string
 ---@field name? string
----@field nutrition? table
+---@field nutritions? table
 ---@field order? string
+---@field protein? number
+---@field sugar? number
 
 local M = {}
 

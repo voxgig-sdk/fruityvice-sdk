@@ -26,82 +26,117 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
+            ["name"] = "calories",
+            ["req"] = false,
+            ["type"] = "`$NUMBER`",
+            ["index$"] = 0,
+          },
+          {
+            ["active"] = true,
+            ["name"] = "carbohydrates",
+            ["req"] = false,
+            ["type"] = "`$NUMBER`",
+            ["index$"] = 1,
+          },
+          {
+            ["active"] = true,
             ["name"] = "family",
             ["op"] = {
-              ["update"] = {
-                ["req"] = true,
+              ["list"] = {
+                ["req"] = false,
                 ["type"] = "`$STRING`",
               },
             },
-            ["req"] = false,
+            ["req"] = true,
             ["type"] = "`$STRING`",
-            ["index$"] = 0,
+            ["index$"] = 2,
+          },
+          {
+            ["active"] = true,
+            ["name"] = "fat",
+            ["req"] = false,
+            ["type"] = "`$NUMBER`",
+            ["index$"] = 3,
           },
           {
             ["active"] = true,
             ["name"] = "genus",
             ["op"] = {
-              ["update"] = {
-                ["req"] = true,
+              ["list"] = {
+                ["req"] = false,
                 ["type"] = "`$STRING`",
               },
             },
-            ["req"] = false,
+            ["req"] = true,
             ["type"] = "`$STRING`",
-            ["index$"] = 1,
+            ["index$"] = 4,
           },
           {
             ["active"] = true,
             ["name"] = "id",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
-            ["index$"] = 2,
+            ["index$"] = 5,
           },
           {
             ["active"] = true,
             ["name"] = "message",
             ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 3,
+            ["index$"] = 6,
           },
           {
             ["active"] = true,
             ["name"] = "name",
             ["op"] = {
-              ["update"] = {
-                ["req"] = true,
+              ["list"] = {
+                ["req"] = false,
                 ["type"] = "`$STRING`",
               },
             },
-            ["req"] = false,
+            ["req"] = true,
             ["type"] = "`$STRING`",
-            ["index$"] = 4,
+            ["index$"] = 7,
           },
           {
             ["active"] = true,
-            ["name"] = "nutrition",
+            ["name"] = "nutritions",
             ["op"] = {
-              ["update"] = {
-                ["req"] = true,
+              ["list"] = {
+                ["req"] = false,
                 ["type"] = "`$OBJECT`",
               },
             },
-            ["req"] = false,
+            ["req"] = true,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 5,
+            ["index$"] = 8,
           },
           {
             ["active"] = true,
             ["name"] = "order",
             ["op"] = {
-              ["update"] = {
-                ["req"] = true,
+              ["list"] = {
+                ["req"] = false,
                 ["type"] = "`$STRING`",
               },
             },
-            ["req"] = false,
+            ["req"] = true,
             ["type"] = "`$STRING`",
-            ["index$"] = 6,
+            ["index$"] = 9,
+          },
+          {
+            ["active"] = true,
+            ["name"] = "protein",
+            ["req"] = false,
+            ["type"] = "`$NUMBER`",
+            ["index$"] = 10,
+          },
+          {
+            ["active"] = true,
+            ["name"] = "sugar",
+            ["req"] = false,
+            ["type"] = "`$NUMBER`",
+            ["index$"] = 11,
           },
         },
         ["name"] = "fruit",
@@ -113,6 +148,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/fruit/all",
                 ["parts"] = {
@@ -151,6 +187,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/fruit/{id}",
                 ["parts"] = {
@@ -165,7 +202,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.nutritions`",
                 },
                 ["index$"] = 0,
               },
@@ -184,6 +221,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/fruit/{name}",
                 ["parts"] = {
@@ -203,7 +241,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.nutritions`",
                 },
                 ["index$"] = 1,
               },
@@ -217,6 +255,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "PUT",
                 ["orig"] = "/api/fruit",
                 ["parts"] = {

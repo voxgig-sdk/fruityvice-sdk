@@ -26,82 +26,117 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
+						"name": "calories",
+						"req": false,
+						"type": "`$NUMBER`",
+						"index$": 0,
+					},
+					map[string]any{
+						"active": true,
+						"name": "carbohydrates",
+						"req": false,
+						"type": "`$NUMBER`",
+						"index$": 1,
+					},
+					map[string]any{
+						"active": true,
 						"name": "family",
 						"op": map[string]any{
-							"update": map[string]any{
-								"req": true,
+							"list": map[string]any{
+								"req": false,
 								"type": "`$STRING`",
 							},
 						},
-						"req": false,
+						"req": true,
 						"type": "`$STRING`",
-						"index$": 0,
+						"index$": 2,
+					},
+					map[string]any{
+						"active": true,
+						"name": "fat",
+						"req": false,
+						"type": "`$NUMBER`",
+						"index$": 3,
 					},
 					map[string]any{
 						"active": true,
 						"name": "genus",
 						"op": map[string]any{
-							"update": map[string]any{
-								"req": true,
+							"list": map[string]any{
+								"req": false,
 								"type": "`$STRING`",
 							},
 						},
-						"req": false,
+						"req": true,
 						"type": "`$STRING`",
-						"index$": 1,
+						"index$": 4,
 					},
 					map[string]any{
 						"active": true,
 						"name": "id",
 						"req": false,
 						"type": "`$INTEGER`",
-						"index$": 2,
+						"index$": 5,
 					},
 					map[string]any{
 						"active": true,
 						"name": "message",
 						"req": false,
 						"type": "`$STRING`",
-						"index$": 3,
+						"index$": 6,
 					},
 					map[string]any{
 						"active": true,
 						"name": "name",
 						"op": map[string]any{
-							"update": map[string]any{
-								"req": true,
+							"list": map[string]any{
+								"req": false,
 								"type": "`$STRING`",
 							},
 						},
-						"req": false,
+						"req": true,
 						"type": "`$STRING`",
-						"index$": 4,
+						"index$": 7,
 					},
 					map[string]any{
 						"active": true,
-						"name": "nutrition",
+						"name": "nutritions",
 						"op": map[string]any{
-							"update": map[string]any{
-								"req": true,
+							"list": map[string]any{
+								"req": false,
 								"type": "`$OBJECT`",
 							},
 						},
-						"req": false,
+						"req": true,
 						"type": "`$OBJECT`",
-						"index$": 5,
+						"index$": 8,
 					},
 					map[string]any{
 						"active": true,
 						"name": "order",
 						"op": map[string]any{
-							"update": map[string]any{
-								"req": true,
+							"list": map[string]any{
+								"req": false,
 								"type": "`$STRING`",
 							},
 						},
-						"req": false,
+						"req": true,
 						"type": "`$STRING`",
-						"index$": 6,
+						"index$": 9,
+					},
+					map[string]any{
+						"active": true,
+						"name": "protein",
+						"req": false,
+						"type": "`$NUMBER`",
+						"index$": 10,
+					},
+					map[string]any{
+						"active": true,
+						"name": "sugar",
+						"req": false,
+						"type": "`$NUMBER`",
+						"index$": 11,
 					},
 				},
 				"name": "fruit",
@@ -113,6 +148,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/fruit/all",
 								"parts": []any{
@@ -130,7 +166,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -151,6 +186,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/fruit/{id}",
 								"parts": []any{
@@ -165,7 +201,7 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.nutritions`",
 								},
 								"index$": 0,
 							},
@@ -184,6 +220,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/fruit/{name}",
 								"parts": []any{
@@ -203,12 +240,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.nutritions`",
 								},
 								"index$": 1,
 							},
 						},
-						"key$": "load",
 					},
 					"update": map[string]any{
 						"input": "data",
@@ -217,6 +253,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "PUT",
 								"orig": "/api/fruit",
 								"parts": []any{
@@ -231,7 +268,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "update",
 					},
 				},
 				"relations": map[string]any{

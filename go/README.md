@@ -67,7 +67,7 @@ func main() {
     fmt.Println(fruit)
 
     // Update a fruit.
-    updated, err := client.Fruit(nil).Update(map[string]any{"id": 1, "family": "example_family", "genus": "example_genus"}, nil)
+    updated, err := client.Fruit(nil).Update(map[string]any{"id": 1, "calories": 1, "carbohydrates": 1}, nil)
     if err != nil {
         panic(err)
     }
@@ -277,13 +277,18 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
+| `"calories"` |  |
+| `"carbohydrates"` |  |
 | `"family"` |  |
+| `"fat"` |  |
 | `"genus"` |  |
 | `"id"` |  |
 | `"message"` |  |
 | `"name"` |  |
-| `"nutrition"` |  |
+| `"nutritions"` |  |
 | `"order"` |  |
+| `"protein"` |  |
+| `"sugar"` |  |
 
 Operations: List, Load, Update.
 
@@ -310,13 +315,18 @@ Create an instance: `fruit := client.Fruit(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `calories` | `float64` |  |
+| `carbohydrates` | `float64` |  |
 | `family` | `string` |  |
+| `fat` | `float64` |  |
 | `genus` | `string` |  |
 | `id` | `int` |  |
 | `message` | `string` |  |
 | `name` | `string` |  |
-| `nutrition` | `map[string]any` |  |
+| `nutritions` | `map[string]any` |  |
 | `order` | `string` |  |
+| `protein` | `float64` |  |
+| `sugar` | `float64` |  |
 
 #### Example: Load
 

@@ -59,7 +59,7 @@ print(fruit)
 
 ```lua
 -- Update
-client:Fruit():update({ id = 1, family = "example_family", genus = "example_genus" })
+client:Fruit():update({ id = 1, calories = 1, carbohydrates = 1 })
 
 ```
 
@@ -250,13 +250,18 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
+| `calories` |  |
+| `carbohydrates` |  |
 | `family` |  |
+| `fat` |  |
 | `genus` |  |
 | `id` |  |
 | `message` |  |
 | `name` |  |
-| `nutrition` |  |
+| `nutritions` |  |
 | `order` |  |
+| `protein` |  |
+| `sugar` |  |
 
 Operations: List, Load, Update.
 
@@ -283,13 +288,18 @@ Create an instance: `local fruit = client:Fruit(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `calories` | `number` |  |
+| `carbohydrates` | `number` |  |
 | `family` | `string` |  |
+| `fat` | `number` |  |
 | `genus` | `string` |  |
 | `id` | `number` |  |
 | `message` | `string` |  |
 | `name` | `string` |  |
-| `nutrition` | `table` |  |
+| `nutritions` | `table` |  |
 | `order` | `string` |  |
+| `protein` | `number` |  |
+| `sugar` | `number` |  |
 
 #### Example: Load
 

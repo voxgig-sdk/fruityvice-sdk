@@ -15,13 +15,18 @@ declare(strict_types=1);
 /** Fruit entity data model. */
 class Fruit
 {
-    public ?string $family = null;
-    public ?string $genus = null;
+    public ?float $calories = null;
+    public ?float $carbohydrates = null;
+    public string $family;
+    public ?float $fat = null;
+    public string $genus;
     public ?int $id = null;
     public ?string $message = null;
-    public ?string $name = null;
-    public ?array $nutrition = null;
-    public ?string $order = null;
+    public string $name;
+    public array $nutritions;
+    public string $order;
+    public ?float $protein = null;
+    public ?float $sugar = null;
 }
 
 /** Request payload for Fruit#load. */
@@ -33,24 +38,34 @@ class FruitLoadMatch
 /** Request payload for Fruit#list. */
 class FruitListMatch
 {
+    public ?float $calories = null;
+    public ?float $carbohydrates = null;
     public ?string $family = null;
+    public ?float $fat = null;
     public ?string $genus = null;
     public ?int $id = null;
     public ?string $message = null;
     public ?string $name = null;
-    public ?array $nutrition = null;
+    public ?array $nutritions = null;
     public ?string $order = null;
+    public ?float $protein = null;
+    public ?float $sugar = null;
 }
 
 /** Request payload for Fruit#update. */
 class FruitUpdateData
 {
+    public ?float $calories = null;
+    public ?float $carbohydrates = null;
     public ?string $family = null;
+    public ?float $fat = null;
     public ?string $genus = null;
     public ?int $id = null;
     public ?string $message = null;
     public ?string $name = null;
-    public ?array $nutrition = null;
+    public ?array $nutritions = null;
     public ?string $order = null;
+    public ?float $protein = null;
+    public ?float $sugar = null;
 }
 

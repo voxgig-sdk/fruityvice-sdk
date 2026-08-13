@@ -2,43 +2,63 @@
   "existing": {
     "fruit": {
       "FRUIT00": {
-        "family": "s46",
-        "genus": "s47",
+        "calories": 120,
+        "carbohydrates": 121,
+        "family": "s7a",
+        "fat": 123,
+        "genus": "s7c",
         "id": "FRUIT00",
-        "message": "s49",
-        "name": "s4a",
-        "nutrition": {},
-        "order": "s4c"
+        "message": "s7e",
+        "name": "s7f",
+        "nutritions": {},
+        "order": "s81",
+        "protein": 130,
+        "sugar": 131
       },
       "FRUIT01": {
-        "family": "s8c",
-        "genus": "s8d",
+        "calories": 240,
+        "carbohydrates": 241,
+        "family": "sf2",
+        "fat": 243,
+        "genus": "sf4",
         "id": "FRUIT01",
-        "message": "s8f",
-        "name": "s90",
-        "nutrition": {},
-        "order": "s92"
+        "message": "sf6",
+        "name": "sf7",
+        "nutritions": {},
+        "order": "sf9",
+        "protein": 250,
+        "sugar": 251
       },
       "FRUIT02": {
-        "family": "sd2",
-        "genus": "sd3",
+        "calories": 360,
+        "carbohydrates": 361,
+        "family": "s16a",
+        "fat": 363,
+        "genus": "s16c",
         "id": "FRUIT02",
-        "message": "sd5",
-        "name": "sd6",
-        "nutrition": {},
-        "order": "sd8"
+        "message": "s16e",
+        "name": "s16f",
+        "nutritions": {},
+        "order": "s171",
+        "protein": 370,
+        "sugar": 371
       }
     }
   },
   "new": {
     "fruit": {
       "fruit_ref01": {
-        "family": "s118",
-        "genus": "s119",
-        "message": "s11b",
-        "name": "s11c",
-        "nutrition": {},
-        "order": "s11e"
+        "calories": 480,
+        "carbohydrates": 481,
+        "family": "s1e2",
+        "fat": 483,
+        "genus": "s1e4",
+        "message": "s1e6",
+        "name": "s1e7",
+        "nutritions": {},
+        "order": "s1e9",
+        "protein": 490,
+        "sugar": 491
       }
     }
   }

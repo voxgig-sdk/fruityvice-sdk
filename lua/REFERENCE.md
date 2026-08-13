@@ -90,25 +90,35 @@ local fruit = client:Fruit(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `family` | `string` | No |  |
-| `genus` | `string` | No |  |
+| `calories` | `number` | No |  |
+| `carbohydrates` | `number` | No |  |
+| `family` | `string` | Yes |  |
+| `fat` | `number` | No |  |
+| `genus` | `string` | Yes |  |
 | `id` | `number` | No |  |
 | `message` | `string` | No |  |
-| `name` | `string` | No |  |
-| `nutrition` | `table` | No |  |
-| `order` | `string` | No |  |
+| `name` | `string` | Yes |  |
+| `nutritions` | `table` | Yes |  |
+| `order` | `string` | Yes |  |
+| `protein` | `number` | No |  |
+| `sugar` | `number` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | update |
 | --- | --- | --- | --- |
-| `family` | - | - | Yes |
-| `genus` | - | - | Yes |
+| `calories` | - | - | - |
+| `carbohydrates` | - | - | - |
+| `family` | - | Yes | - |
+| `fat` | - | - | - |
+| `genus` | - | Yes | - |
 | `id` | - | - | - |
 | `message` | - | - | - |
-| `name` | - | - | Yes |
-| `nutrition` | - | - | Yes |
-| `order` | - | - | Yes |
+| `name` | - | Yes | - |
+| `nutritions` | - | Yes | - |
+| `order` | - | Yes | - |
+| `protein` | - | - | - |
+| `sugar` | - | - | - |
 
 ### Operations
 

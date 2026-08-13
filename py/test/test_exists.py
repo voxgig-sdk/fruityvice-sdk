@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Fruityvice SDK exists test
 
 import pytest
 from fruityvice_sdk import FruityviceSDK

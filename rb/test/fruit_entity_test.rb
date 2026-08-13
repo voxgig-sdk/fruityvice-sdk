@@ -92,7 +92,7 @@ class FruitEntityTest < Minitest::Test
     fruit_ref01_data_up0_up[fruit_ref01_markdef_up0_name] = fruit_ref01_markdef_up0_value
 
     fruit_ref01_resdata_up0_result = fruit_ref01_ent.update(fruit_ref01_data_up0_up, nil)
-    fruit_ref01_resdata_up0 = Helpers.to_map(fruit_ref01_resdata_up0_result)
+    fruit_ref01_resdata_up0 = Helpers.to_map(fruit_ref01_resdata_up0_result.respond_to?(:data_get) ? fruit_ref01_resdata_up0_result.data_get : fruit_ref01_resdata_up0_result)
     assert !fruit_ref01_resdata_up0.nil?
     assert_equal fruit_ref01_resdata_up0["id"], fruit_ref01_data_up0_up["id"]
     assert_equal fruit_ref01_resdata_up0[fruit_ref01_markdef_up0_name], fruit_ref01_markdef_up0_value
@@ -102,7 +102,7 @@ class FruitEntityTest < Minitest::Test
       "id" => fruit_ref01_data["id"],
     }
     fruit_ref01_data_dt0_loaded = fruit_ref01_ent.load(fruit_ref01_match_dt0, nil)
-    fruit_ref01_data_dt0_load_result = Helpers.to_map(fruit_ref01_data_dt0_loaded)
+    fruit_ref01_data_dt0_load_result = Helpers.to_map(fruit_ref01_data_dt0_loaded.respond_to?(:data_get) ? fruit_ref01_data_dt0_loaded.data_get : fruit_ref01_data_dt0_loaded)
     assert !fruit_ref01_data_dt0_load_result.nil?
     assert_equal fruit_ref01_data_dt0_load_result["id"], fruit_ref01_data["id"]
 

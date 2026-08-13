@@ -134,7 +134,7 @@ func TestFruitEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("update failed: %v", err)
 		}
-		fruitRef01ResdataUp0 := core.ToMapAny(fruitRef01ResdataUp0Result)
+		fruitRef01ResdataUp0 := core.ToMapAny(entityData(fruitRef01ResdataUp0Result))
 		if fruitRef01ResdataUp0 == nil {
 			t.Fatal("expected update result to be a map")
 		}
@@ -153,7 +153,7 @@ func TestFruitEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		fruitRef01DataDt0LoadResult := core.ToMapAny(fruitRef01DataDt0Loaded)
+		fruitRef01DataDt0LoadResult := core.ToMapAny(entityData(fruitRef01DataDt0Loaded))
 		if fruitRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

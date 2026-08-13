@@ -98,25 +98,35 @@ fmt.Println(fruit.GetName()) // "fruit"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `family` | `string` | No |  |
-| `genus` | `string` | No |  |
+| `calories` | `float64` | No |  |
+| `carbohydrates` | `float64` | No |  |
+| `family` | `string` | Yes |  |
+| `fat` | `float64` | No |  |
+| `genus` | `string` | Yes |  |
 | `id` | `int` | No |  |
 | `message` | `string` | No |  |
-| `name` | `string` | No |  |
-| `nutrition` | `map[string]any` | No |  |
-| `order` | `string` | No |  |
+| `name` | `string` | Yes |  |
+| `nutritions` | `map[string]any` | Yes |  |
+| `order` | `string` | Yes |  |
+| `protein` | `float64` | No |  |
+| `sugar` | `float64` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | update |
 | --- | --- | --- | --- |
-| `family` | - | - | Yes |
-| `genus` | - | - | Yes |
+| `calories` | - | - | - |
+| `carbohydrates` | - | - | - |
+| `family` | - | Yes | - |
+| `fat` | - | - | - |
+| `genus` | - | Yes | - |
 | `id` | - | - | - |
 | `message` | - | - | - |
-| `name` | - | - | Yes |
-| `nutrition` | - | - | Yes |
-| `order` | - | - | Yes |
+| `name` | - | Yes | - |
+| `nutritions` | - | Yes | - |
+| `order` | - | Yes | - |
+| `protein` | - | - | - |
+| `sugar` | - | - | - |
 
 ### Operations
 

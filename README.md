@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = FruityviceSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = FruityviceSDK.test({
+  entity: {
+    fruit: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const fruits = await client.Fruit().list()
-// fruits is an array of bare Fruit records populated with mock data
+// fruits is an array of Fruit entities, populated with mock data
+// — call fruits[0].data() for the record itself
 console.log(fruits)
 ```
 
@@ -110,7 +119,7 @@ import { FruityviceSDK } from '@voxgig-sdk/fruityvice'
 
 const client = new FruityviceSDK()
 
-// List all fruits (returns Fruit[])
+// List all fruits (returns FruitEntity[] — .data() for the record)
 const fruits = await client.Fruit().list()
 for (const fruit of fruits) {
   console.log(fruit)
@@ -191,7 +200,7 @@ $client = new FruityviceSDK();
 $fruits = $client->Fruit()->list();
 print_r($fruits);
 
-// Load a specific fruit (returns the bare record; throws on error)
+// Load a specific fruit (returns the ENTITY; call data_get() for the record; throws on error)
 $fruit = $client->Fruit()->load(["id" => 1]);
 print_r($fruit);
 ```
@@ -222,7 +231,7 @@ client = FruityviceSDK.new
 fruits = client.Fruit.list
 puts fruits
 
-# Load a specific fruit (returns the bare record; raises on error)
+# Load a specific fruit (returns the ENTITY; call data_get for the record)
 fruit = client.Fruit.load({ "id" => 1 })
 puts fruit
 ```
@@ -359,6 +368,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://www.fruityvice.com/](https://www.fruityvice.com/)
 

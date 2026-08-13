@@ -93,25 +93,35 @@ fruit = client.Fruit
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `family` | `String` | No |  |
-| `genus` | `String` | No |  |
+| `calories` | `Float` | No |  |
+| `carbohydrates` | `Float` | No |  |
+| `family` | `String` | Yes |  |
+| `fat` | `Float` | No |  |
+| `genus` | `String` | Yes |  |
 | `id` | `Integer` | No |  |
 | `message` | `String` | No |  |
-| `name` | `String` | No |  |
-| `nutrition` | `Hash` | No |  |
-| `order` | `String` | No |  |
+| `name` | `String` | Yes |  |
+| `nutritions` | `Hash` | Yes |  |
+| `order` | `String` | Yes |  |
+| `protein` | `Float` | No |  |
+| `sugar` | `Float` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | update |
 | --- | --- | --- | --- |
-| `family` | - | - | Yes |
-| `genus` | - | - | Yes |
+| `calories` | - | - | - |
+| `carbohydrates` | - | - | - |
+| `family` | - | Yes | - |
+| `fat` | - | - | - |
+| `genus` | - | Yes | - |
 | `id` | - | - | - |
 | `message` | - | - | - |
-| `name` | - | - | Yes |
-| `nutrition` | - | - | Yes |
-| `order` | - | - | Yes |
+| `name` | - | Yes | - |
+| `nutritions` | - | Yes | - |
+| `order` | - | Yes | - |
+| `protein` | - | - | - |
+| `sugar` | - | - | - |
 
 ### Operations
 

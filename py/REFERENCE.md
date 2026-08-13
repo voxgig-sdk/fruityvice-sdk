@@ -87,25 +87,35 @@ fruit = client.Fruit()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `family` | `str` | No |  |
-| `genus` | `str` | No |  |
+| `calories` | `float` | No |  |
+| `carbohydrates` | `float` | No |  |
+| `family` | `str` | Yes |  |
+| `fat` | `float` | No |  |
+| `genus` | `str` | Yes |  |
 | `id` | `int` | No |  |
 | `message` | `str` | No |  |
-| `name` | `str` | No |  |
-| `nutrition` | `dict` | No |  |
-| `order` | `str` | No |  |
+| `name` | `str` | Yes |  |
+| `nutritions` | `dict` | Yes |  |
+| `order` | `str` | Yes |  |
+| `protein` | `float` | No |  |
+| `sugar` | `float` | No |  |
 
 ### Field Usage by Operation
 
 | Field | load | list | update |
 | --- | --- | --- | --- |
-| `family` | - | - | Yes |
-| `genus` | - | - | Yes |
+| `calories` | - | - | - |
+| `carbohydrates` | - | - | - |
+| `family` | - | Yes | - |
+| `fat` | - | - | - |
+| `genus` | - | Yes | - |
 | `id` | - | - | - |
 | `message` | - | - | - |
-| `name` | - | - | Yes |
-| `nutrition` | - | - | Yes |
-| `order` | - | - | Yes |
+| `name` | - | Yes | - |
+| `nutritions` | - | Yes | - |
+| `order` | - | Yes | - |
+| `protein` | - | - | - |
+| `sugar` | - | - | - |
 
 ### Operations
 
