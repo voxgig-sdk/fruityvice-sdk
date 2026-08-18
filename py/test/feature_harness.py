@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from fruityvice_sdk.config import make_config
+from fruityvice_sdk.config import shared_config
 from fruityvice_sdk.features import _make_feature
 from fruityvice_sdk.core.control import FruityviceControl
 from fruityvice_sdk.core.error import FruityviceError
@@ -24,7 +24,7 @@ from fruityvice_sdk.core.spec import FruityviceSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

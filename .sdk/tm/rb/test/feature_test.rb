@@ -15,7 +15,7 @@ require_relative "../Fruityvice_sdk"
 module FruityviceFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = FruityviceConfig.make_config["feature"]
+    f = FruityviceConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

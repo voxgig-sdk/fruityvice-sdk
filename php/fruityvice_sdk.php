@@ -40,7 +40,7 @@ class FruityviceSDK
         $utility = new FruityviceUtility();
         $this->_utility = $utility;
 
-        $config = FruityviceConfig::make_config();
+        $config = FruityviceConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

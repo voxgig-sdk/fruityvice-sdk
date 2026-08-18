@@ -23,8 +23,8 @@ class FruityviceSDK:
         utility = FruityviceUtility()
         self._utility = utility
 
-        from fruityvice_sdk.config import make_config
-        config = make_config()
+        from fruityvice_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

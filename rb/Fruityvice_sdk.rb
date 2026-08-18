@@ -28,7 +28,7 @@ class FruityviceSDK
     utility = FruityviceUtility.new
     @_utility = utility
 
-    config = FruityviceConfig.make_config
+    config = FruityviceConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
