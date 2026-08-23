@@ -98,18 +98,18 @@ fmt.Println(fruit.GetName()) // "fruit"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `calories` | `float64` | No |  |
-| `carbohydrates` | `float64` | No |  |
-| `family` | `string` | Yes |  |
-| `fat` | `float64` | No |  |
-| `genus` | `string` | Yes |  |
-| `id` | `int` | No |  |
+| `calories` | `float64` | No | Calories per 100g |
+| `carbohydrates` | `float64` | No | Carbohydrates content in grams per 100g |
+| `family` | `string` | Yes | Botanical family of the fruit |
+| `fat` | `float64` | No | Fat content in grams per 100g |
+| `genus` | `string` | Yes | Botanical genus of the fruit |
+| `id` | `int` | No | Unique identifier for the fruit |
 | `message` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `nutritions` | `map[string]any` | Yes |  |
-| `order` | `string` | Yes |  |
-| `protein` | `float64` | No |  |
-| `sugar` | `float64` | No |  |
+| `name` | `string` | Yes | Name of the fruit |
+| `nutritions` | `map[string]any` | Yes | Nutritional information per 100 grams |
+| `order` | `string` | Yes | Botanical order of the fruit |
+| `protein` | `float64` | No | Protein content in grams per 100g |
+| `sugar` | `float64` | No | Sugar content in grams per 100g |
 
 ### Field Usage by Operation
 

@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Fruityvice",
+			"slug": "fruityvice",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,10 +36,12 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "calories",
+						"short": "Calories per 100g",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "carbohydrates",
+						"short": "Carbohydrates content in grams per 100g",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
@@ -47,10 +52,12 @@ func MakeConfig() map[string]any {
 							},
 						},
 						"req": true,
+						"short": "Botanical family of the fruit",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "fat",
+						"short": "Fat content in grams per 100g",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
@@ -61,10 +68,12 @@ func MakeConfig() map[string]any {
 							},
 						},
 						"req": true,
+						"short": "Botanical genus of the fruit",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the fruit",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
@@ -79,6 +88,7 @@ func MakeConfig() map[string]any {
 							},
 						},
 						"req": true,
+						"short": "Name of the fruit",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -89,6 +99,7 @@ func MakeConfig() map[string]any {
 							},
 						},
 						"req": true,
+						"short": "Nutritional information per 100 grams",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
@@ -99,14 +110,17 @@ func MakeConfig() map[string]any {
 							},
 						},
 						"req": true,
+						"short": "Botanical order of the fruit",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "protein",
+						"short": "Protein content in grams per 100g",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "sugar",
+						"short": "Sugar content in grams per 100g",
 						"type": "`$NUMBER`",
 					},
 				},

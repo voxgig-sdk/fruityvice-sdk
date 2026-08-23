@@ -92,18 +92,18 @@ $fruit = $client->Fruit();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `calories` | `float` | No |  |
-| `carbohydrates` | `float` | No |  |
-| `family` | `string` | Yes |  |
-| `fat` | `float` | No |  |
-| `genus` | `string` | Yes |  |
-| `id` | `int` | No |  |
+| `calories` | `float` | No | Calories per 100g |
+| `carbohydrates` | `float` | No | Carbohydrates content in grams per 100g |
+| `family` | `string` | Yes | Botanical family of the fruit |
+| `fat` | `float` | No | Fat content in grams per 100g |
+| `genus` | `string` | Yes | Botanical genus of the fruit |
+| `id` | `int` | No | Unique identifier for the fruit |
 | `message` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `nutritions` | `array` | Yes |  |
-| `order` | `string` | Yes |  |
-| `protein` | `float` | No |  |
-| `sugar` | `float` | No |  |
+| `name` | `string` | Yes | Name of the fruit |
+| `nutritions` | `array` | Yes | Nutritional information per 100 grams |
+| `order` | `string` | Yes | Botanical order of the fruit |
+| `protein` | `float` | No | Protein content in grams per 100g |
+| `sugar` | `float` | No | Sugar content in grams per 100g |
 
 ### Field Usage by Operation
 

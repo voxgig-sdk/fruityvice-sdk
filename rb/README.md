@@ -262,18 +262,18 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `calories` |  |
-| `carbohydrates` |  |
-| `family` |  |
-| `fat` |  |
-| `genus` |  |
-| `id` |  |
+| `calories` | Calories per 100g |
+| `carbohydrates` | Carbohydrates content in grams per 100g |
+| `family` | Botanical family of the fruit |
+| `fat` | Fat content in grams per 100g |
+| `genus` | Botanical genus of the fruit |
+| `id` | Unique identifier for the fruit |
 | `message` |  |
-| `name` |  |
-| `nutritions` |  |
-| `order` |  |
-| `protein` |  |
-| `sugar` |  |
+| `name` | Name of the fruit |
+| `nutritions` | Nutritional information per 100 grams |
+| `order` | Botanical order of the fruit |
+| `protein` | Protein content in grams per 100g |
+| `sugar` | Sugar content in grams per 100g |
 
 Operations: List, Load, Update.
 
@@ -300,18 +300,18 @@ Create an instance: `fruit = client.Fruit`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `calories` | `Float` |  |
-| `carbohydrates` | `Float` |  |
-| `family` | `String` |  |
-| `fat` | `Float` |  |
-| `genus` | `String` |  |
-| `id` | `Integer` |  |
+| `calories` | `Float` | Calories per 100g |
+| `carbohydrates` | `Float` | Carbohydrates content in grams per 100g |
+| `family` | `String` | Botanical family of the fruit |
+| `fat` | `Float` | Fat content in grams per 100g |
+| `genus` | `String` | Botanical genus of the fruit |
+| `id` | `Integer` | Unique identifier for the fruit |
 | `message` | `String` |  |
-| `name` | `String` |  |
-| `nutritions` | `Hash` |  |
-| `order` | `String` |  |
-| `protein` | `Float` |  |
-| `sugar` | `Float` |  |
+| `name` | `String` | Name of the fruit |
+| `nutritions` | `Hash` | Nutritional information per 100 grams |
+| `order` | `String` | Botanical order of the fruit |
+| `protein` | `Float` | Protein content in grams per 100g |
+| `sugar` | `Float` | Sugar content in grams per 100g |
 
 #### Example: Load
 

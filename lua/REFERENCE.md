@@ -90,18 +90,18 @@ local fruit = client:Fruit(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `calories` | `number` | No |  |
-| `carbohydrates` | `number` | No |  |
-| `family` | `string` | Yes |  |
-| `fat` | `number` | No |  |
-| `genus` | `string` | Yes |  |
-| `id` | `number` | No |  |
+| `calories` | `number` | No | Calories per 100g |
+| `carbohydrates` | `number` | No | Carbohydrates content in grams per 100g |
+| `family` | `string` | Yes | Botanical family of the fruit |
+| `fat` | `number` | No | Fat content in grams per 100g |
+| `genus` | `string` | Yes | Botanical genus of the fruit |
+| `id` | `number` | No | Unique identifier for the fruit |
 | `message` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `nutritions` | `table` | Yes |  |
-| `order` | `string` | Yes |  |
-| `protein` | `number` | No |  |
-| `sugar` | `number` | No |  |
+| `name` | `string` | Yes | Name of the fruit |
+| `nutritions` | `table` | Yes | Nutritional information per 100 grams |
+| `order` | `string` | Yes | Botanical order of the fruit |
+| `protein` | `number` | No | Protein content in grams per 100g |
+| `sugar` | `number` | No | Sugar content in grams per 100g |
 
 ### Field Usage by Operation
 

@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "Fruityvice",
+            "slug": "fruityvice",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -50,10 +53,12 @@ def make_config():
         "fields": [
           {
             "name": "calories",
+            "short": "Calories per 100g",
             "type": "`$NUMBER`",
           },
           {
             "name": "carbohydrates",
+            "short": "Carbohydrates content in grams per 100g",
             "type": "`$NUMBER`",
           },
           {
@@ -64,10 +69,12 @@ def make_config():
               },
             },
             "req": True,
+            "short": "Botanical family of the fruit",
             "type": "`$STRING`",
           },
           {
             "name": "fat",
+            "short": "Fat content in grams per 100g",
             "type": "`$NUMBER`",
           },
           {
@@ -78,10 +85,12 @@ def make_config():
               },
             },
             "req": True,
+            "short": "Botanical genus of the fruit",
             "type": "`$STRING`",
           },
           {
             "name": "id",
+            "short": "Unique identifier for the fruit",
             "type": "`$INTEGER`",
           },
           {
@@ -96,6 +105,7 @@ def make_config():
               },
             },
             "req": True,
+            "short": "Name of the fruit",
             "type": "`$STRING`",
           },
           {
@@ -106,6 +116,7 @@ def make_config():
               },
             },
             "req": True,
+            "short": "Nutritional information per 100 grams",
             "type": "`$OBJECT`",
           },
           {
@@ -116,14 +127,17 @@ def make_config():
               },
             },
             "req": True,
+            "short": "Botanical order of the fruit",
             "type": "`$STRING`",
           },
           {
             "name": "protein",
+            "short": "Protein content in grams per 100g",
             "type": "`$NUMBER`",
           },
           {
             "name": "sugar",
+            "short": "Sugar content in grams per 100g",
             "type": "`$NUMBER`",
           },
         ],

@@ -8,11 +8,13 @@ main: kit: entity: fruit: {
     {
       name: "calories"
       req: false
+      short: "Calories per 100g"
       type: "`$NUMBER`"
     }
     {
       name: "carbohydrates"
       req: false
+      short: "Carbohydrates content in grams per 100g"
       type: "`$NUMBER`"
     }
     {
@@ -24,11 +26,13 @@ main: kit: entity: fruit: {
         }
       }
       req: true
+      short: "Botanical family of the fruit"
       type: "`$STRING`"
     }
     {
       name: "fat"
       req: false
+      short: "Fat content in grams per 100g"
       type: "`$NUMBER`"
     }
     {
@@ -40,11 +44,13 @@ main: kit: entity: fruit: {
         }
       }
       req: true
+      short: "Botanical genus of the fruit"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the fruit"
       type: "`$INTEGER`"
     }
     {
@@ -61,6 +67,7 @@ main: kit: entity: fruit: {
         }
       }
       req: true
+      short: "Name of the fruit"
       type: "`$STRING`"
     }
     {
@@ -72,6 +79,7 @@ main: kit: entity: fruit: {
         }
       }
       req: true
+      short: "Nutritional information per 100 grams"
       type: "`$OBJECT`"
     }
     {
@@ -83,16 +91,19 @@ main: kit: entity: fruit: {
         }
       }
       req: true
+      short: "Botanical order of the fruit"
       type: "`$STRING`"
     }
     {
       name: "protein"
       req: false
+      short: "Protein content in grams per 100g"
       type: "`$NUMBER`"
     }
     {
       name: "sugar"
       req: false
+      short: "Sugar content in grams per 100g"
       type: "`$NUMBER`"
     }
   ]

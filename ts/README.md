@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -315,18 +315,18 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `calories` |  |
-| `carbohydrates` |  |
-| `family` |  |
-| `fat` |  |
-| `genus` |  |
-| `id` |  |
+| `calories` | Calories per 100g |
+| `carbohydrates` | Carbohydrates content in grams per 100g |
+| `family` | Botanical family of the fruit |
+| `fat` | Fat content in grams per 100g |
+| `genus` | Botanical genus of the fruit |
+| `id` | Unique identifier for the fruit |
 | `message` |  |
-| `name` |  |
-| `nutritions` |  |
-| `order` |  |
-| `protein` |  |
-| `sugar` |  |
+| `name` | Name of the fruit |
+| `nutritions` | Nutritional information per 100 grams |
+| `order` | Botanical order of the fruit |
+| `protein` | Protein content in grams per 100g |
+| `sugar` | Sugar content in grams per 100g |
 
 Operations: list, load, update.
 
@@ -353,18 +353,18 @@ Create an instance: `const fruit = client.Fruit()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `calories` | `number` |  |
-| `carbohydrates` | `number` |  |
-| `family` | `string` |  |
-| `fat` | `number` |  |
-| `genus` | `string` |  |
-| `id` | `number` |  |
+| `calories` | `number` | Calories per 100g |
+| `carbohydrates` | `number` | Carbohydrates content in grams per 100g |
+| `family` | `string` | Botanical family of the fruit |
+| `fat` | `number` | Fat content in grams per 100g |
+| `genus` | `string` | Botanical genus of the fruit |
+| `id` | `number` | Unique identifier for the fruit |
 | `message` | `string` |  |
-| `name` | `string` |  |
-| `nutritions` | `Record<string, any>` |  |
-| `order` | `string` |  |
-| `protein` | `number` |  |
-| `sugar` | `number` |  |
+| `name` | `string` | Name of the fruit |
+| `nutritions` | `Record<string, any>` | Nutritional information per 100 grams |
+| `order` | `string` | Botanical order of the fruit |
+| `protein` | `number` | Protein content in grams per 100g |
+| `sugar` | `number` | Sugar content in grams per 100g |
 
 #### Example: Load
 

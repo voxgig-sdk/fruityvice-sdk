@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "Fruityvice",
+      slug = "fruityvice",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -29,10 +32,12 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "calories",
+            ["short"] = "Calories per 100g",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "carbohydrates",
+            ["short"] = "Carbohydrates content in grams per 100g",
             ["type"] = "`$NUMBER`",
           },
           {
@@ -43,10 +48,12 @@ local function make_config()
               },
             },
             ["req"] = true,
+            ["short"] = "Botanical family of the fruit",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "fat",
+            ["short"] = "Fat content in grams per 100g",
             ["type"] = "`$NUMBER`",
           },
           {
@@ -57,10 +64,12 @@ local function make_config()
               },
             },
             ["req"] = true,
+            ["short"] = "Botanical genus of the fruit",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "id",
+            ["short"] = "Unique identifier for the fruit",
             ["type"] = "`$INTEGER`",
           },
           {
@@ -75,6 +84,7 @@ local function make_config()
               },
             },
             ["req"] = true,
+            ["short"] = "Name of the fruit",
             ["type"] = "`$STRING`",
           },
           {
@@ -85,6 +95,7 @@ local function make_config()
               },
             },
             ["req"] = true,
+            ["short"] = "Nutritional information per 100 grams",
             ["type"] = "`$OBJECT`",
           },
           {
@@ -95,14 +106,17 @@ local function make_config()
               },
             },
             ["req"] = true,
+            ["short"] = "Botanical order of the fruit",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "protein",
+            ["short"] = "Protein content in grams per 100g",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "sugar",
+            ["short"] = "Sugar content in grams per 100g",
             ["type"] = "`$NUMBER`",
           },
         },

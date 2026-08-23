@@ -250,18 +250,18 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `calories` |  |
-| `carbohydrates` |  |
-| `family` |  |
-| `fat` |  |
-| `genus` |  |
-| `id` |  |
+| `calories` | Calories per 100g |
+| `carbohydrates` | Carbohydrates content in grams per 100g |
+| `family` | Botanical family of the fruit |
+| `fat` | Fat content in grams per 100g |
+| `genus` | Botanical genus of the fruit |
+| `id` | Unique identifier for the fruit |
 | `message` |  |
-| `name` |  |
-| `nutritions` |  |
-| `order` |  |
-| `protein` |  |
-| `sugar` |  |
+| `name` | Name of the fruit |
+| `nutritions` | Nutritional information per 100 grams |
+| `order` | Botanical order of the fruit |
+| `protein` | Protein content in grams per 100g |
+| `sugar` | Sugar content in grams per 100g |
 
 Operations: List, Load, Update.
 
@@ -288,18 +288,18 @@ Create an instance: `local fruit = client:Fruit(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `calories` | `number` |  |
-| `carbohydrates` | `number` |  |
-| `family` | `string` |  |
-| `fat` | `number` |  |
-| `genus` | `string` |  |
-| `id` | `number` |  |
+| `calories` | `number` | Calories per 100g |
+| `carbohydrates` | `number` | Carbohydrates content in grams per 100g |
+| `family` | `string` | Botanical family of the fruit |
+| `fat` | `number` | Fat content in grams per 100g |
+| `genus` | `string` | Botanical genus of the fruit |
+| `id` | `number` | Unique identifier for the fruit |
 | `message` | `string` |  |
-| `name` | `string` |  |
-| `nutritions` | `table` |  |
-| `order` | `string` |  |
-| `protein` | `number` |  |
-| `sugar` | `number` |  |
+| `name` | `string` | Name of the fruit |
+| `nutritions` | `table` | Nutritional information per 100 grams |
+| `order` | `string` | Botanical order of the fruit |
+| `protein` | `number` | Protein content in grams per 100g |
+| `sugar` | `number` | Sugar content in grams per 100g |
 
 #### Example: Load
 

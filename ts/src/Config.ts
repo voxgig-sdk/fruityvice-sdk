@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Fruityvice',
+        slug: "fruityvice",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -56,10 +67,12 @@ class Config {
       "fields": [
         {
           "name": "calories",
+          "short": "Calories per 100g",
           "type": "`$NUMBER`"
         },
         {
           "name": "carbohydrates",
+          "short": "Carbohydrates content in grams per 100g",
           "type": "`$NUMBER`"
         },
         {
@@ -70,10 +83,12 @@ class Config {
             }
           },
           "req": true,
+          "short": "Botanical family of the fruit",
           "type": "`$STRING`"
         },
         {
           "name": "fat",
+          "short": "Fat content in grams per 100g",
           "type": "`$NUMBER`"
         },
         {
@@ -84,10 +99,12 @@ class Config {
             }
           },
           "req": true,
+          "short": "Botanical genus of the fruit",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the fruit",
           "type": "`$INTEGER`"
         },
         {
@@ -102,6 +119,7 @@ class Config {
             }
           },
           "req": true,
+          "short": "Name of the fruit",
           "type": "`$STRING`"
         },
         {
@@ -112,6 +130,7 @@ class Config {
             }
           },
           "req": true,
+          "short": "Nutritional information per 100 grams",
           "type": "`$OBJECT`"
         },
         {
@@ -122,14 +141,17 @@ class Config {
             }
           },
           "req": true,
+          "short": "Botanical order of the fruit",
           "type": "`$STRING`"
         },
         {
           "name": "protein",
+          "short": "Protein content in grams per 100g",
           "type": "`$NUMBER`"
         },
         {
           "name": "sugar",
+          "short": "Sugar content in grams per 100g",
           "type": "`$NUMBER`"
         }
       ],

@@ -87,18 +87,18 @@ fruit = client.Fruit()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `calories` | `float` | No |  |
-| `carbohydrates` | `float` | No |  |
-| `family` | `str` | Yes |  |
-| `fat` | `float` | No |  |
-| `genus` | `str` | Yes |  |
-| `id` | `int` | No |  |
+| `calories` | `float` | No | Calories per 100g |
+| `carbohydrates` | `float` | No | Carbohydrates content in grams per 100g |
+| `family` | `str` | Yes | Botanical family of the fruit |
+| `fat` | `float` | No | Fat content in grams per 100g |
+| `genus` | `str` | Yes | Botanical genus of the fruit |
+| `id` | `int` | No | Unique identifier for the fruit |
 | `message` | `str` | No |  |
-| `name` | `str` | Yes |  |
-| `nutritions` | `dict` | Yes |  |
-| `order` | `str` | Yes |  |
-| `protein` | `float` | No |  |
-| `sugar` | `float` | No |  |
+| `name` | `str` | Yes | Name of the fruit |
+| `nutritions` | `dict` | Yes | Nutritional information per 100 grams |
+| `order` | `str` | Yes | Botanical order of the fruit |
+| `protein` | `float` | No | Protein content in grams per 100g |
+| `sugar` | `float` | No | Sugar content in grams per 100g |
 
 ### Field Usage by Operation
 

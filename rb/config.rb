@@ -19,6 +19,9 @@ module FruityviceConfig
     {
       "main" => {
         "name" => "Fruityvice",
+        "slug" => "fruityvice",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -41,10 +44,12 @@ module FruityviceConfig
           "fields" => [
             {
               "name" => "calories",
+              "short" => "Calories per 100g",
               "type" => "`$NUMBER`",
             },
             {
               "name" => "carbohydrates",
+              "short" => "Carbohydrates content in grams per 100g",
               "type" => "`$NUMBER`",
             },
             {
@@ -55,10 +60,12 @@ module FruityviceConfig
                 },
               },
               "req" => true,
+              "short" => "Botanical family of the fruit",
               "type" => "`$STRING`",
             },
             {
               "name" => "fat",
+              "short" => "Fat content in grams per 100g",
               "type" => "`$NUMBER`",
             },
             {
@@ -69,10 +76,12 @@ module FruityviceConfig
                 },
               },
               "req" => true,
+              "short" => "Botanical genus of the fruit",
               "type" => "`$STRING`",
             },
             {
               "name" => "id",
+              "short" => "Unique identifier for the fruit",
               "type" => "`$INTEGER`",
             },
             {
@@ -87,6 +96,7 @@ module FruityviceConfig
                 },
               },
               "req" => true,
+              "short" => "Name of the fruit",
               "type" => "`$STRING`",
             },
             {
@@ -97,6 +107,7 @@ module FruityviceConfig
                 },
               },
               "req" => true,
+              "short" => "Nutritional information per 100 grams",
               "type" => "`$OBJECT`",
             },
             {
@@ -107,14 +118,17 @@ module FruityviceConfig
                 },
               },
               "req" => true,
+              "short" => "Botanical order of the fruit",
               "type" => "`$STRING`",
             },
             {
               "name" => "protein",
+              "short" => "Protein content in grams per 100g",
               "type" => "`$NUMBER`",
             },
             {
               "name" => "sugar",
+              "short" => "Sugar content in grams per 100g",
               "type" => "`$NUMBER`",
             },
           ],

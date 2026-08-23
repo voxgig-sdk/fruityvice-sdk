@@ -6,7 +6,7 @@ The Golang SDK for the Fruityvice API — an entity-oriented client using standa
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Fruit(nil)` — each with the same small set of operations (`List`, `Load`, `Update`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -277,18 +277,18 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"calories"` |  |
-| `"carbohydrates"` |  |
-| `"family"` |  |
-| `"fat"` |  |
-| `"genus"` |  |
-| `"id"` |  |
+| `"calories"` | Calories per 100g |
+| `"carbohydrates"` | Carbohydrates content in grams per 100g |
+| `"family"` | Botanical family of the fruit |
+| `"fat"` | Fat content in grams per 100g |
+| `"genus"` | Botanical genus of the fruit |
+| `"id"` | Unique identifier for the fruit |
 | `"message"` |  |
-| `"name"` |  |
-| `"nutritions"` |  |
-| `"order"` |  |
-| `"protein"` |  |
-| `"sugar"` |  |
+| `"name"` | Name of the fruit |
+| `"nutritions"` | Nutritional information per 100 grams |
+| `"order"` | Botanical order of the fruit |
+| `"protein"` | Protein content in grams per 100g |
+| `"sugar"` | Sugar content in grams per 100g |
 
 Operations: List, Load, Update.
 
@@ -315,18 +315,18 @@ Create an instance: `fruit := client.Fruit(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `calories` | `float64` |  |
-| `carbohydrates` | `float64` |  |
-| `family` | `string` |  |
-| `fat` | `float64` |  |
-| `genus` | `string` |  |
-| `id` | `int` |  |
+| `calories` | `float64` | Calories per 100g |
+| `carbohydrates` | `float64` | Carbohydrates content in grams per 100g |
+| `family` | `string` | Botanical family of the fruit |
+| `fat` | `float64` | Fat content in grams per 100g |
+| `genus` | `string` | Botanical genus of the fruit |
+| `id` | `int` | Unique identifier for the fruit |
 | `message` | `string` |  |
-| `name` | `string` |  |
-| `nutritions` | `map[string]any` |  |
-| `order` | `string` |  |
-| `protein` | `float64` |  |
-| `sugar` | `float64` |  |
+| `name` | `string` | Name of the fruit |
+| `nutritions` | `map[string]any` | Nutritional information per 100 grams |
+| `order` | `string` | Botanical order of the fruit |
+| `protein` | `float64` | Protein content in grams per 100g |
+| `sugar` | `float64` | Sugar content in grams per 100g |
 
 #### Example: Load
 

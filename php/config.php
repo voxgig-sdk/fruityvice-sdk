@@ -33,6 +33,9 @@ class FruityviceConfig
         return [
             "main" => [
                 "name" => "Fruityvice",
+                "slug" => "fruityvice",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -55,10 +58,12 @@ class FruityviceConfig
           'fields' => [
             [
               'name' => 'calories',
+              'short' => 'Calories per 100g',
               'type' => '`$NUMBER`',
             ],
             [
               'name' => 'carbohydrates',
+              'short' => 'Carbohydrates content in grams per 100g',
               'type' => '`$NUMBER`',
             ],
             [
@@ -69,10 +74,12 @@ class FruityviceConfig
                 ],
               ],
               'req' => true,
+              'short' => 'Botanical family of the fruit',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'fat',
+              'short' => 'Fat content in grams per 100g',
               'type' => '`$NUMBER`',
             ],
             [
@@ -83,10 +90,12 @@ class FruityviceConfig
                 ],
               ],
               'req' => true,
+              'short' => 'Botanical genus of the fruit',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'id',
+              'short' => 'Unique identifier for the fruit',
               'type' => '`$INTEGER`',
             ],
             [
@@ -101,6 +110,7 @@ class FruityviceConfig
                 ],
               ],
               'req' => true,
+              'short' => 'Name of the fruit',
               'type' => '`$STRING`',
             ],
             [
@@ -111,6 +121,7 @@ class FruityviceConfig
                 ],
               ],
               'req' => true,
+              'short' => 'Nutritional information per 100 grams',
               'type' => '`$OBJECT`',
             ],
             [
@@ -121,14 +132,17 @@ class FruityviceConfig
                 ],
               ],
               'req' => true,
+              'short' => 'Botanical order of the fruit',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'protein',
+              'short' => 'Protein content in grams per 100g',
               'type' => '`$NUMBER`',
             ],
             [
               'name' => 'sugar',
+              'short' => 'Sugar content in grams per 100g',
               'type' => '`$NUMBER`',
             ],
           ],

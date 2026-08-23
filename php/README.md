@@ -272,18 +272,18 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `calories` |  |
-| `carbohydrates` |  |
-| `family` |  |
-| `fat` |  |
-| `genus` |  |
-| `id` |  |
+| `calories` | Calories per 100g |
+| `carbohydrates` | Carbohydrates content in grams per 100g |
+| `family` | Botanical family of the fruit |
+| `fat` | Fat content in grams per 100g |
+| `genus` | Botanical genus of the fruit |
+| `id` | Unique identifier for the fruit |
 | `message` |  |
-| `name` |  |
-| `nutritions` |  |
-| `order` |  |
-| `protein` |  |
-| `sugar` |  |
+| `name` | Name of the fruit |
+| `nutritions` | Nutritional information per 100 grams |
+| `order` | Botanical order of the fruit |
+| `protein` | Protein content in grams per 100g |
+| `sugar` | Sugar content in grams per 100g |
 
 Operations: List, Load, Update.
 
@@ -310,18 +310,18 @@ Create an instance: `$fruit = $client->Fruit();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `calories` | `float` |  |
-| `carbohydrates` | `float` |  |
-| `family` | `string` |  |
-| `fat` | `float` |  |
-| `genus` | `string` |  |
-| `id` | `int` |  |
+| `calories` | `float` | Calories per 100g |
+| `carbohydrates` | `float` | Carbohydrates content in grams per 100g |
+| `family` | `string` | Botanical family of the fruit |
+| `fat` | `float` | Fat content in grams per 100g |
+| `genus` | `string` | Botanical genus of the fruit |
+| `id` | `int` | Unique identifier for the fruit |
 | `message` | `string` |  |
-| `name` | `string` |  |
-| `nutritions` | `array` |  |
-| `order` | `string` |  |
-| `protein` | `float` |  |
-| `sugar` | `float` |  |
+| `name` | `string` | Name of the fruit |
+| `nutritions` | `array` | Nutritional information per 100 grams |
+| `order` | `string` | Botanical order of the fruit |
+| `protein` | `float` | Protein content in grams per 100g |
+| `sugar` | `float` | Sugar content in grams per 100g |
 
 #### Example: Load
 
