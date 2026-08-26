@@ -28,6 +28,7 @@ module FruityviceConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
