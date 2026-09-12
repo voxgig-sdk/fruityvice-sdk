@@ -10,6 +10,17 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
+// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
+// the model's active plugin groups. A feature that takes a `plugins` option
+// (secrets over sekreto) reads its own entry; a feature with no plugins has
+// none. Named imports above make each definition statically reachable, so
+// an SDK carries exactly the plugin modules its model selects — the same
+// leanness the old side-effect registry imports bought, without a registry.
+const FEATURE_PLUGINS: Record<string, any[]> = {
+  
+}
+
+
 class Config {
 
   makeFeature(this: any, fn: string) {
@@ -156,6 +167,10 @@ class Config {
           "type": "`$NUMBER`"
         }
       ],
+      "id": {
+        "field": "id",
+        "name": "id"
+      },
       "name": "fruit",
       "op": {
         "list": {
@@ -167,10 +182,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/fruit/all",
-              "parts": [
-                "api",
-                "fruit",
-                "all"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "fruit"
+                },
+                {
+                  "lit": "all"
+                }
               ],
               "select": {
                 "$action": "all"
@@ -178,7 +199,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "fruit",
+                "all"
+              ]
             }
           ]
         },
@@ -201,10 +227,16 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/fruit/{id}",
-              "parts": [
-                "api",
-                "fruit",
-                "{id}"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "fruit"
+                },
+                {
+                  "var": "id"
+                }
               ],
               "select": {
                 "exist": [
@@ -214,7 +246,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.nutritions`"
-              }
+              },
+              "parts": [
+                "api",
+                "fruit",
+                "{id}"
+              ]
             },
             {
               "args": {
@@ -231,16 +268,22 @@ class Config {
               "kind": "http",
               "method": "GET",
               "orig": "/api/fruit/{name}",
-              "parts": [
-                "api",
-                "fruit",
-                "{id}"
-              ],
               "rename": {
                 "param": {
                   "name": "id"
                 }
               },
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "fruit"
+                },
+                {
+                  "var": "id"
+                }
+              ],
               "select": {
                 "exist": [
                   "id"
@@ -249,7 +292,12 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.nutritions`"
-              }
+              },
+              "parts": [
+                "api",
+                "fruit",
+                "{id}"
+              ]
             }
           ]
         },
@@ -262,15 +310,23 @@ class Config {
               "kind": "http",
               "method": "PUT",
               "orig": "/api/fruit",
-              "parts": [
-                "api",
-                "fruit"
+              "segments": [
+                {
+                  "lit": "api"
+                },
+                {
+                  "lit": "fruit"
+                }
               ],
               "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              }
+              },
+              "parts": [
+                "api",
+                "fruit"
+              ]
             }
           ]
         }
@@ -286,6 +342,7 @@ class Config {
 const config = new Config()
 
 export {
-  config
+  config,
+  FEATURE_PLUGINS,
 }
 

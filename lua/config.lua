@@ -121,6 +121,10 @@ local function make_config()
             ["type"] = "`$NUMBER`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "fruit",
         ["op"] = {
           ["list"] = {
@@ -132,10 +136,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/fruit/all",
-                ["parts"] = {
-                  "api",
-                  "fruit",
-                  "all",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "fruit",
+                  },
+                  {
+                    ["lit"] = "all",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "all",
@@ -143,6 +153,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "api",
+                  "fruit",
+                  "all",
                 },
               },
             },
@@ -166,10 +181,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/fruit/{id}",
-                ["parts"] = {
-                  "api",
-                  "fruit",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "fruit",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -179,6 +200,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.nutritions`",
+                },
+                ["parts"] = {
+                  "api",
+                  "fruit",
+                  "{id}",
                 },
               },
               {
@@ -196,14 +222,20 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/fruit/{name}",
-                ["parts"] = {
-                  "api",
-                  "fruit",
-                  "{id}",
-                },
                 ["rename"] = {
                   ["param"] = {
                     ["name"] = "id",
+                  },
+                },
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "fruit",
+                  },
+                  {
+                    ["var"] = "id",
                   },
                 },
                 ["select"] = {
@@ -214,6 +246,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.nutritions`",
+                },
+                ["parts"] = {
+                  "api",
+                  "fruit",
+                  "{id}",
                 },
               },
             },
@@ -227,14 +264,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "PUT",
                 ["orig"] = "/api/fruit",
-                ["parts"] = {
-                  "api",
-                  "fruit",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "fruit",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "api",
+                  "fruit",
                 },
               },
             },

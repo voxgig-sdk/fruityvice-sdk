@@ -133,6 +133,10 @@ module FruityviceConfig
               "type" => "`$NUMBER`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "fruit",
           "op" => {
             "list" => {
@@ -144,10 +148,16 @@ module FruityviceConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/fruit/all",
-                  "parts" => [
-                    "api",
-                    "fruit",
-                    "all",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "fruit",
+                    },
+                    {
+                      "lit" => "all",
+                    },
                   ],
                   "select" => {
                     "$action" => "all",
@@ -156,6 +166,11 @@ module FruityviceConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "fruit",
+                    "all",
+                  ],
                 },
               ],
             },
@@ -178,10 +193,16 @@ module FruityviceConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/fruit/{id}",
-                  "parts" => [
-                    "api",
-                    "fruit",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "fruit",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -192,6 +213,11 @@ module FruityviceConfig
                     "req" => "`reqdata`",
                     "res" => "`body.nutritions`",
                   },
+                  "parts" => [
+                    "api",
+                    "fruit",
+                    "{id}",
+                  ],
                 },
                 {
                   "args" => {
@@ -208,16 +234,22 @@ module FruityviceConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/fruit/{name}",
-                  "parts" => [
-                    "api",
-                    "fruit",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "name" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "fruit",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -227,6 +259,11 @@ module FruityviceConfig
                     "req" => "`reqdata`",
                     "res" => "`body.nutritions`",
                   },
+                  "parts" => [
+                    "api",
+                    "fruit",
+                    "{id}",
+                  ],
                 },
               ],
             },
@@ -239,15 +276,23 @@ module FruityviceConfig
                   "kind" => "http",
                   "method" => "PUT",
                   "orig" => "/api/fruit",
-                  "parts" => [
-                    "api",
-                    "fruit",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "fruit",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "fruit",
+                  ],
                 },
               ],
             },

@@ -121,10 +121,16 @@ main: kit: entity: fruit: {
         {
           method: "GET"
           orig: "/api/fruit/all"
-          parts: [
-            "api"
-            "fruit"
-            "all"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "fruit"
+            }
+            {
+              lit: "all"
+            }
           ]
           select: {
             "$action": "all"
@@ -153,10 +159,16 @@ main: kit: entity: fruit: {
           }
           method: "GET"
           orig: "/api/fruit/{id}"
-          parts: [
-            "api"
-            "fruit"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "fruit"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -182,16 +194,22 @@ main: kit: entity: fruit: {
           }
           method: "GET"
           orig: "/api/fruit/{name}"
-          parts: [
-            "api"
-            "fruit"
-            "{id}"
-          ]
           rename: {
             param: {
               name: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "fruit"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -210,9 +228,13 @@ main: kit: entity: fruit: {
         {
           method: "PUT"
           orig: "/api/fruit"
-          parts: [
-            "api"
-            "fruit"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "fruit"
+            }
           ]
           transform: {
             req: "`reqdata`"

@@ -1,6 +1,14 @@
 # Fruityvice SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -142,6 +150,10 @@ def make_config():
             "type": "`$NUMBER`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "fruit",
         "op": {
           "list": {
@@ -153,10 +165,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/fruit/all",
-                "parts": [
-                  "api",
-                  "fruit",
-                  "all",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "fruit",
+                  },
+                  {
+                    "lit": "all",
+                  },
                 ],
                 "select": {
                   "$action": "all",
@@ -165,6 +183,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "fruit",
+                  "all",
+                ],
               },
             ],
           },
@@ -187,10 +210,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/fruit/{id}",
-                "parts": [
-                  "api",
-                  "fruit",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "fruit",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -201,6 +230,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.nutritions`",
                 },
+                "parts": [
+                  "api",
+                  "fruit",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -217,16 +251,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/fruit/{name}",
-                "parts": [
-                  "api",
-                  "fruit",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "name": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "fruit",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -236,6 +276,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.nutritions`",
                 },
+                "parts": [
+                  "api",
+                  "fruit",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -248,15 +293,23 @@ def make_config():
                 "kind": "http",
                 "method": "PUT",
                 "orig": "/api/fruit",
-                "parts": [
-                  "api",
-                  "fruit",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "fruit",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "fruit",
+                ],
               },
             ],
           },

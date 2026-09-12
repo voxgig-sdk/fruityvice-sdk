@@ -147,6 +147,10 @@ class FruityviceConfig
               'type' => '`$NUMBER`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'fruit',
           'op' => [
             'list' => [
@@ -158,10 +162,16 @@ class FruityviceConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/fruit/all',
-                  'parts' => [
-                    'api',
-                    'fruit',
-                    'all',
+                  'segments' => [
+                    [
+                      'lit' => 'api',
+                    ],
+                    [
+                      'lit' => 'fruit',
+                    ],
+                    [
+                      'lit' => 'all',
+                    ],
                   ],
                   'select' => [
                     '$action' => 'all',
@@ -169,6 +179,11 @@ class FruityviceConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'api',
+                    'fruit',
+                    'all',
                   ],
                 ],
               ],
@@ -192,10 +207,16 @@ class FruityviceConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/fruit/{id}',
-                  'parts' => [
-                    'api',
-                    'fruit',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'api',
+                    ],
+                    [
+                      'lit' => 'fruit',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -205,6 +226,11 @@ class FruityviceConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.nutritions`',
+                  ],
+                  'parts' => [
+                    'api',
+                    'fruit',
+                    '{id}',
                   ],
                 ],
                 [
@@ -222,14 +248,20 @@ class FruityviceConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/fruit/{name}',
-                  'parts' => [
-                    'api',
-                    'fruit',
-                    '{id}',
-                  ],
                   'rename' => [
                     'param' => [
                       'name' => 'id',
+                    ],
+                  ],
+                  'segments' => [
+                    [
+                      'lit' => 'api',
+                    ],
+                    [
+                      'lit' => 'fruit',
+                    ],
+                    [
+                      'var' => 'id',
                     ],
                   ],
                   'select' => [
@@ -240,6 +272,11 @@ class FruityviceConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.nutritions`',
+                  ],
+                  'parts' => [
+                    'api',
+                    'fruit',
+                    '{id}',
                   ],
                 ],
               ],
@@ -253,14 +290,22 @@ class FruityviceConfig
                   'kind' => 'http',
                   'method' => 'PUT',
                   'orig' => '/api/fruit',
-                  'parts' => [
-                    'api',
-                    'fruit',
+                  'segments' => [
+                    [
+                      'lit' => 'api',
+                    ],
+                    [
+                      'lit' => 'fruit',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'api',
+                    'fruit',
                   ],
                 ],
               ],
