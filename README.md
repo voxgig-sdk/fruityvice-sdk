@@ -105,7 +105,7 @@ local results, err = client:Fruit():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/fruityvice` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fruityvice-sdk/releases) |
+| TypeScript | `@voxgig-sdk/fruityvice-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fruityvice-sdk/releases) |
 | Python | `voxgig-sdk-fruityvice` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fruityvice-sdk/releases) |
 | PHP | `voxgig-sdk/fruityvice` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fruityvice-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/fruityvice-sdk/go` | `go get github.com/voxgig-sdk/fruityvice-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Fruit():list()
 ### TypeScript
 
 ```ts
-import { FruityviceSDK } from '@voxgig-sdk/fruityvice'
+import { FruityviceSDK } from '@voxgig-sdk/fruityvice-sdk'
 
 const client = new FruityviceSDK()
 

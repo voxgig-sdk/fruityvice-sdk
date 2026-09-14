@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { FruityviceSDK } from '@voxgig-sdk/fruityvice'
+import { FruityviceSDK } from '@voxgig-sdk/fruityvice-sdk'
 
 const client = new FruityviceSDK()
 ```
@@ -461,7 +461,7 @@ fruityvice/
 Import the SDK from the package root:
 
 ```ts
-import { FruityviceSDK } from '@voxgig-sdk/fruityvice'
+import { FruityviceSDK } from '@voxgig-sdk/fruityvice-sdk'
 ```
 
 ### Entity state
