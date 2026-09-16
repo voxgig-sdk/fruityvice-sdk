@@ -1,12 +1,18 @@
 # Fruityvice SDK feature factory
 
 from fruityvice_sdk.feature.base_feature import FruityviceBaseFeature
+from fruityvice_sdk.feature.ratelimit_feature import FruityviceRatelimitFeature
+from fruityvice_sdk.feature.retry_feature import FruityviceRetryFeature
 from fruityvice_sdk.feature.test_feature import FruityviceTestFeature
+from fruityvice_sdk.feature.timeout_feature import FruityviceTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: FruityviceBaseFeature(),
+    "ratelimit": lambda: FruityviceRatelimitFeature(),
+    "retry": lambda: FruityviceRetryFeature(),
     "test": lambda: FruityviceTestFeature(),
+    "timeout": lambda: FruityviceTimeoutFeature(),
 }
 
 

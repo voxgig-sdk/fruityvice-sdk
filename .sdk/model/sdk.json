@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "fruit": {
           "active": true,
@@ -159,6 +223,12 @@
                 {
                   "active": true,
                   "args": {},
+                  "contract": {
+                    "id": "GET /api/fruit/all",
+                    "json": "{\"operationId\":\"getAllFruits\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"family\":{\"description\":\"Botanical family of the fruit\",\"example\":\"Rosaceae\",\"type\":\"string\"},\"genus\":{\"description\":\"Botanical genus of the fruit\",\"example\":\"Malus\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the fruit\",\"example\":1,\"type\":\"integer\"},\"name\":{\"description\":\"Name of the fruit\",\"example\":\"Apple\",\"type\":\"string\"},\"nutritions\":{\"description\":\"Nutritional information per 100 grams\",\"properties\":{\"calories\":{\"description\":\"Calories per 100g\",\"example\":52,\"type\":\"number\"},\"carbohydrates\":{\"description\":\"Carbohydrates content in grams per 100g\",\"example\":11.4,\"type\":\"number\"},\"fat\":{\"description\":\"Fat content in grams per 100g\",\"example\":0.4,\"type\":\"number\"},\"protein\":{\"description\":\"Protein content in grams per 100g\",\"example\":0.3,\"type\":\"number\"},\"sugar\":{\"description\":\"Sugar content in grams per 100g\",\"example\":10.3,\"type\":\"number\"}},\"type\":\"object\"},\"order\":{\"description\":\"Botanical order of the fruit\",\"example\":\"Rosales\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with all fruit data\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Fruit not found\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error message\",\"example\":\"The requested fruit could not be found in the database\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/api/fruit/all",
@@ -201,6 +271,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /api/fruit/{id}",
+                    "json": "{\"operationId\":\"getFruitById\",\"parameters\":[{\"description\":\"The ID of the fruit\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"family\":{\"description\":\"Botanical family of the fruit\",\"example\":\"Rosaceae\",\"type\":\"string\"},\"genus\":{\"description\":\"Botanical genus of the fruit\",\"example\":\"Malus\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the fruit\",\"example\":1,\"type\":\"integer\"},\"name\":{\"description\":\"Name of the fruit\",\"example\":\"Apple\",\"type\":\"string\"},\"nutritions\":{\"description\":\"Nutritional information per 100 grams\",\"properties\":{\"calories\":{\"description\":\"Calories per 100g\",\"example\":52,\"type\":\"number\"},\"carbohydrates\":{\"description\":\"Carbohydrates content in grams per 100g\",\"example\":11.4,\"type\":\"number\"},\"fat\":{\"description\":\"Fat content in grams per 100g\",\"example\":0.4,\"type\":\"number\"},\"protein\":{\"description\":\"Protein content in grams per 100g\",\"example\":0.3,\"type\":\"number\"},\"sugar\":{\"description\":\"Sugar content in grams per 100g\",\"example\":10.3,\"type\":\"number\"}},\"type\":\"object\"},\"order\":{\"description\":\"Botanical order of the fruit\",\"example\":\"Rosales\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with fruit data\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Fruit not found\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error message\",\"example\":\"The requested fruit could not be found in the database\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Fruit not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Fruit not found\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error message\",\"example\":\"The requested fruit could not be found in the database\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/api/fruit/{id}",
@@ -238,6 +314,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /api/fruit/{name}",
+                    "json": "{\"operationId\":\"getFruitByName\",\"parameters\":[{\"description\":\"The name of the fruit\",\"in\":\"path\",\"name\":\"name\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"family\":{\"description\":\"Botanical family of the fruit\",\"example\":\"Rosaceae\",\"type\":\"string\"},\"genus\":{\"description\":\"Botanical genus of the fruit\",\"example\":\"Malus\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the fruit\",\"example\":1,\"type\":\"integer\"},\"name\":{\"description\":\"Name of the fruit\",\"example\":\"Apple\",\"type\":\"string\"},\"nutritions\":{\"description\":\"Nutritional information per 100 grams\",\"properties\":{\"calories\":{\"description\":\"Calories per 100g\",\"example\":52,\"type\":\"number\"},\"carbohydrates\":{\"description\":\"Carbohydrates content in grams per 100g\",\"example\":11.4,\"type\":\"number\"},\"fat\":{\"description\":\"Fat content in grams per 100g\",\"example\":0.4,\"type\":\"number\"},\"protein\":{\"description\":\"Protein content in grams per 100g\",\"example\":0.3,\"type\":\"number\"},\"sugar\":{\"description\":\"Sugar content in grams per 100g\",\"example\":10.3,\"type\":\"number\"}},\"type\":\"object\"},\"order\":{\"description\":\"Botanical order of the fruit\",\"example\":\"Rosales\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with fruit data\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Fruit not found\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error message\",\"example\":\"The requested fruit could not be found in the database\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Fruit not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Fruit not found\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error message\",\"example\":\"The requested fruit could not be found in the database\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -277,6 +359,12 @@
                 {
                   "active": true,
                   "args": {},
+                  "contract": {
+                    "id": "PUT /api/fruit",
+                    "json": "{\"operationId\":\"addFruit\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"family\":{\"description\":\"Botanical family of the fruit\",\"example\":\"Musaceae\",\"type\":\"string\"},\"genus\":{\"description\":\"Botanical genus of the fruit\",\"example\":\"Musa\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the fruit\",\"example\":\"Banana\",\"type\":\"string\"},\"nutritions\":{\"description\":\"Nutritional information per 100 grams\",\"properties\":{\"calories\":{\"description\":\"Calories per 100g\",\"example\":89,\"type\":\"number\"},\"carbohydrates\":{\"description\":\"Carbohydrates content in grams per 100g\",\"example\":22.8,\"type\":\"number\"},\"fat\":{\"description\":\"Fat content in grams per 100g\",\"example\":0.3,\"type\":\"number\"},\"protein\":{\"description\":\"Protein content in grams per 100g\",\"example\":1.1,\"type\":\"number\"},\"sugar\":{\"description\":\"Sugar content in grams per 100g\",\"example\":12.2,\"type\":\"number\"}},\"required\":[\"calories\",\"fat\",\"sugar\",\"carbohydrates\",\"protein\"],\"type\":\"object\"},\"order\":{\"description\":\"Botanical order of the fruit\",\"example\":\"Zingiberales\",\"type\":\"string\"}},\"required\":[\"name\",\"family\",\"order\",\"genus\",\"nutritions\"],\"type\":\"object\"}}},\"description\":\"Fruit data to be added\",\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"example\":\"Fruit added successfully and pending approval\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Fruit successfully added and pending approval\"},\"201\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"family\":{\"description\":\"Botanical family of the fruit\",\"example\":\"Rosaceae\",\"type\":\"string\"},\"genus\":{\"description\":\"Botanical genus of the fruit\",\"example\":\"Malus\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the fruit\",\"example\":1,\"type\":\"integer\"},\"name\":{\"description\":\"Name of the fruit\",\"example\":\"Apple\",\"type\":\"string\"},\"nutritions\":{\"description\":\"Nutritional information per 100 grams\",\"properties\":{\"calories\":{\"description\":\"Calories per 100g\",\"example\":52,\"type\":\"number\"},\"carbohydrates\":{\"description\":\"Carbohydrates content in grams per 100g\",\"example\":11.4,\"type\":\"number\"},\"fat\":{\"description\":\"Fat content in grams per 100g\",\"example\":0.4,\"type\":\"number\"},\"protein\":{\"description\":\"Protein content in grams per 100g\",\"example\":0.3,\"type\":\"number\"},\"sugar\":{\"description\":\"Sugar content in grams per 100g\",\"example\":10.3,\"type\":\"number\"}},\"type\":\"object\"},\"order\":{\"description\":\"Botanical order of the fruit\",\"example\":\"Rosales\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Fruit successfully created\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Fruit not found\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error message\",\"example\":\"The requested fruit could not be found in the database\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid fruit data\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Fruit not found\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error message\",\"example\":\"The requested fruit could not be found in the database\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "PUT",
                   "orig": "/api/fruit",
@@ -303,13 +391,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -399,6 +697,102 @@
           },
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
+          "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
           "version": "0.0.1"
         }
       },
@@ -492,6 +886,48 @@
         "website": "https://fruityvice.com"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -1046,6 +1482,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -1087,7 +1524,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }

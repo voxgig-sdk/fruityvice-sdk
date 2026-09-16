@@ -61,5 +61,594 @@
         "sugar": 491
       }
     }
+  },
+  "requests": {
+    "GET /api/fruit/all": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getAllFruits",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "family": {
+                        "description": "Botanical family of the fruit",
+                        "example": "Rosaceae",
+                        "type": "string"
+                      },
+                      "genus": {
+                        "description": "Botanical genus of the fruit",
+                        "example": "Malus",
+                        "type": "string"
+                      },
+                      "id": {
+                        "description": "Unique identifier for the fruit",
+                        "example": 1,
+                        "type": "integer"
+                      },
+                      "name": {
+                        "description": "Name of the fruit",
+                        "example": "Apple",
+                        "type": "string"
+                      },
+                      "nutritions": {
+                        "description": "Nutritional information per 100 grams",
+                        "properties": {
+                          "calories": {
+                            "description": "Calories per 100g",
+                            "example": 52,
+                            "type": "number"
+                          },
+                          "carbohydrates": {
+                            "description": "Carbohydrates content in grams per 100g",
+                            "example": 11.4,
+                            "type": "number"
+                          },
+                          "fat": {
+                            "description": "Fat content in grams per 100g",
+                            "example": 0.4,
+                            "type": "number"
+                          },
+                          "protein": {
+                            "description": "Protein content in grams per 100g",
+                            "example": 0.3,
+                            "type": "number"
+                          },
+                          "sugar": {
+                            "description": "Sugar content in grams per 100g",
+                            "example": 10.3,
+                            "type": "number"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "order": {
+                        "description": "Botanical order of the fruit",
+                        "example": "Rosales",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response with all fruit data"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "example": "Fruit not found",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error message",
+                      "example": "The requested fruit could not be found in the database",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /api/fruit/{id}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getFruitById",
+        "parameters": [
+          {
+            "description": "The ID of the fruit",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "family": {
+                      "description": "Botanical family of the fruit",
+                      "example": "Rosaceae",
+                      "type": "string"
+                    },
+                    "genus": {
+                      "description": "Botanical genus of the fruit",
+                      "example": "Malus",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Unique identifier for the fruit",
+                      "example": 1,
+                      "type": "integer"
+                    },
+                    "name": {
+                      "description": "Name of the fruit",
+                      "example": "Apple",
+                      "type": "string"
+                    },
+                    "nutritions": {
+                      "description": "Nutritional information per 100 grams",
+                      "properties": {
+                        "calories": {
+                          "description": "Calories per 100g",
+                          "example": 52,
+                          "type": "number"
+                        },
+                        "carbohydrates": {
+                          "description": "Carbohydrates content in grams per 100g",
+                          "example": 11.4,
+                          "type": "number"
+                        },
+                        "fat": {
+                          "description": "Fat content in grams per 100g",
+                          "example": 0.4,
+                          "type": "number"
+                        },
+                        "protein": {
+                          "description": "Protein content in grams per 100g",
+                          "example": 0.3,
+                          "type": "number"
+                        },
+                        "sugar": {
+                          "description": "Sugar content in grams per 100g",
+                          "example": 10.3,
+                          "type": "number"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "order": {
+                      "description": "Botanical order of the fruit",
+                      "example": "Rosales",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with fruit data"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "example": "Fruit not found",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error message",
+                      "example": "The requested fruit could not be found in the database",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Fruit not found"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "example": "Fruit not found",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error message",
+                      "example": "The requested fruit could not be found in the database",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /api/fruit/{name}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getFruitByName",
+        "parameters": [
+          {
+            "description": "The name of the fruit",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "family": {
+                      "description": "Botanical family of the fruit",
+                      "example": "Rosaceae",
+                      "type": "string"
+                    },
+                    "genus": {
+                      "description": "Botanical genus of the fruit",
+                      "example": "Malus",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Unique identifier for the fruit",
+                      "example": 1,
+                      "type": "integer"
+                    },
+                    "name": {
+                      "description": "Name of the fruit",
+                      "example": "Apple",
+                      "type": "string"
+                    },
+                    "nutritions": {
+                      "description": "Nutritional information per 100 grams",
+                      "properties": {
+                        "calories": {
+                          "description": "Calories per 100g",
+                          "example": 52,
+                          "type": "number"
+                        },
+                        "carbohydrates": {
+                          "description": "Carbohydrates content in grams per 100g",
+                          "example": 11.4,
+                          "type": "number"
+                        },
+                        "fat": {
+                          "description": "Fat content in grams per 100g",
+                          "example": 0.4,
+                          "type": "number"
+                        },
+                        "protein": {
+                          "description": "Protein content in grams per 100g",
+                          "example": 0.3,
+                          "type": "number"
+                        },
+                        "sugar": {
+                          "description": "Sugar content in grams per 100g",
+                          "example": 10.3,
+                          "type": "number"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "order": {
+                      "description": "Botanical order of the fruit",
+                      "example": "Rosales",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with fruit data"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "example": "Fruit not found",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error message",
+                      "example": "The requested fruit could not be found in the database",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Fruit not found"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "example": "Fruit not found",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error message",
+                      "example": "The requested fruit could not be found in the database",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "PUT /api/fruit": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "addFruit",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "family": {
+                    "description": "Botanical family of the fruit",
+                    "example": "Musaceae",
+                    "type": "string"
+                  },
+                  "genus": {
+                    "description": "Botanical genus of the fruit",
+                    "example": "Musa",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Name of the fruit",
+                    "example": "Banana",
+                    "type": "string"
+                  },
+                  "nutritions": {
+                    "description": "Nutritional information per 100 grams",
+                    "properties": {
+                      "calories": {
+                        "description": "Calories per 100g",
+                        "example": 89,
+                        "type": "number"
+                      },
+                      "carbohydrates": {
+                        "description": "Carbohydrates content in grams per 100g",
+                        "example": 22.8,
+                        "type": "number"
+                      },
+                      "fat": {
+                        "description": "Fat content in grams per 100g",
+                        "example": 0.3,
+                        "type": "number"
+                      },
+                      "protein": {
+                        "description": "Protein content in grams per 100g",
+                        "example": 1.1,
+                        "type": "number"
+                      },
+                      "sugar": {
+                        "description": "Sugar content in grams per 100g",
+                        "example": 12.2,
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "calories",
+                      "fat",
+                      "sugar",
+                      "carbohydrates",
+                      "protein"
+                    ],
+                    "type": "object"
+                  },
+                  "order": {
+                    "description": "Botanical order of the fruit",
+                    "example": "Zingiberales",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "family",
+                  "order",
+                  "genus",
+                  "nutritions"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "description": "Fruit data to be added",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "message": {
+                      "example": "Fruit added successfully and pending approval",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Fruit successfully added and pending approval"
+          },
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "family": {
+                      "description": "Botanical family of the fruit",
+                      "example": "Rosaceae",
+                      "type": "string"
+                    },
+                    "genus": {
+                      "description": "Botanical genus of the fruit",
+                      "example": "Malus",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Unique identifier for the fruit",
+                      "example": 1,
+                      "type": "integer"
+                    },
+                    "name": {
+                      "description": "Name of the fruit",
+                      "example": "Apple",
+                      "type": "string"
+                    },
+                    "nutritions": {
+                      "description": "Nutritional information per 100 grams",
+                      "properties": {
+                        "calories": {
+                          "description": "Calories per 100g",
+                          "example": 52,
+                          "type": "number"
+                        },
+                        "carbohydrates": {
+                          "description": "Carbohydrates content in grams per 100g",
+                          "example": 11.4,
+                          "type": "number"
+                        },
+                        "fat": {
+                          "description": "Fat content in grams per 100g",
+                          "example": 0.4,
+                          "type": "number"
+                        },
+                        "protein": {
+                          "description": "Protein content in grams per 100g",
+                          "example": 0.3,
+                          "type": "number"
+                        },
+                        "sugar": {
+                          "description": "Sugar content in grams per 100g",
+                          "example": 10.3,
+                          "type": "number"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "order": {
+                      "description": "Botanical order of the fruit",
+                      "example": "Rosales",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Fruit successfully created"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "example": "Fruit not found",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error message",
+                      "example": "The requested fruit could not be found in the database",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - invalid fruit data"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "example": "Fruit not found",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error message",
+                      "example": "The requested fruit could not be found in the database",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
