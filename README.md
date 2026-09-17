@@ -105,12 +105,12 @@ local results, err = client:Fruit():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/fruityvice-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fruityvice-sdk/releases) |
-| Python | `voxgig-sdk-fruityvice` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fruityvice-sdk/releases) |
-| PHP | `voxgig-sdk/fruityvice` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fruityvice-sdk/releases) |
+| TypeScript | `@voxgig-sdk/fruityvice-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fruityvice-sdk/tags) |
+| Python | `voxgig-sdk-fruityvice` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fruityvice-sdk/tags) |
+| PHP | `voxgig-sdk/fruityvice` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fruityvice-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/fruityvice-sdk/go` | `go get github.com/voxgig-sdk/fruityvice-sdk/go@latest` |
-| Ruby | `voxgig-sdk-fruityvice` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fruityvice-sdk/releases) |
-| Lua | `voxgig-sdk-fruityvice` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fruityvice-sdk/releases) |
+| Ruby | `voxgig-sdk-fruityvice` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fruityvice-sdk/tags) |
+| Lua | `voxgig-sdk-fruityvice` | publish pending — [install from git tag](https://github.com/voxgig-sdk/fruityvice-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/fruityvice-sdk/go-cli` | `go install github.com/voxgig-sdk/fruityvice-sdk/go-cli/cmd/fruityvice@latest` |
 | Go MCP server | `github.com/voxgig-sdk/fruityvice-sdk/go-mcp` | `go get github.com/voxgig-sdk/fruityvice-sdk/go-mcp@latest` |
 
