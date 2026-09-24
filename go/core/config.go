@@ -91,92 +91,104 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "calories",
-						"short": "Calories per 100g",
+						"title": "Calories",
 						"type": "`$NUMBER`",
+						"short": "Calories per 100g",
 					},
 					map[string]any{
 						"name": "carbohydrates",
-						"short": "Carbohydrates content in grams per 100g",
+						"title": "Carbohydrates",
 						"type": "`$NUMBER`",
+						"short": "Carbohydrates content in grams per 100g",
 					},
 					map[string]any{
 						"name": "family",
+						"title": "Family",
+						"type": "`$STRING`",
+						"req": true,
 						"op": map[string]any{
 							"list": map[string]any{
 								"type": "`$STRING`",
 							},
 						},
-						"req": true,
 						"short": "Botanical family of the fruit",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "fat",
-						"short": "Fat content in grams per 100g",
+						"title": "Fat",
 						"type": "`$NUMBER`",
+						"short": "Fat content in grams per 100g",
 					},
 					map[string]any{
 						"name": "genus",
+						"title": "Genus",
+						"type": "`$STRING`",
+						"req": true,
 						"op": map[string]any{
 							"list": map[string]any{
 								"type": "`$STRING`",
 							},
 						},
-						"req": true,
 						"short": "Botanical genus of the fruit",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the fruit",
+						"title": "Id",
 						"type": "`$INTEGER`",
+						"short": "Unique identifier for the fruit",
 					},
 					map[string]any{
 						"name": "message",
+						"title": "Message",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"title": "Name",
+						"type": "`$STRING`",
+						"req": true,
 						"op": map[string]any{
 							"list": map[string]any{
 								"type": "`$STRING`",
 							},
 						},
-						"req": true,
 						"short": "Name of the fruit",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "nutritions",
+						"title": "Nutritions",
+						"type": "`$OBJECT`",
+						"req": true,
 						"op": map[string]any{
 							"list": map[string]any{
 								"type": "`$OBJECT`",
 							},
 						},
-						"req": true,
 						"short": "Nutritional information per 100 grams",
-						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "order",
+						"title": "Order",
+						"type": "`$STRING`",
+						"req": true,
 						"op": map[string]any{
 							"list": map[string]any{
 								"type": "`$STRING`",
 							},
 						},
-						"req": true,
 						"short": "Botanical order of the fruit",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "protein",
-						"short": "Protein content in grams per 100g",
+						"title": "Protein",
 						"type": "`$NUMBER`",
+						"short": "Protein content in grams per 100g",
 					},
 					map[string]any{
 						"name": "sugar",
-						"short": "Sugar content in grams per 100g",
+						"title": "Sugar",
 						"type": "`$NUMBER`",
+						"short": "Sugar content in grams per 100g",
 					},
 				},
 				"id": map[string]any{
@@ -190,7 +202,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/fruit/all",
@@ -205,17 +216,19 @@ func MakeConfig() map[string]any {
 										"lit": "all",
 									},
 								},
-								"select": map[string]any{
-									"$action": "all",
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"api",
 									"fruit",
 									"all",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{
+									"$action": "all",
 								},
 							},
 						},
@@ -225,17 +238,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/fruit/{id}",
@@ -250,41 +252,37 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.nutritions`",
-								},
 								"parts": []any{
 									"api",
 									"fruit",
 									"{id}",
 								},
-							},
-							map[string]any{
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.nutritions`",
+								},
 								"args": map[string]any{
 									"params": []any{
 										map[string]any{
-											"kind": "param",
 											"name": "id",
-											"orig": "name",
+											"orig": "id",
+											"type": "`$INTEGER`",
+											"kind": "param",
 											"reqd": true,
-											"type": "`$STRING`",
 										},
 									},
 								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
+								},
+							},
+							map[string]any{
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/fruit/{name}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"name": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "api",
@@ -296,19 +294,35 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
+								"parts": []any{
+									"api",
+									"fruit",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"name": "id",
 									},
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.nutritions`",
 								},
-								"parts": []any{
-									"api",
-									"fruit",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "name",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},
@@ -318,7 +332,6 @@ func MakeConfig() map[string]any {
 						"name": "update",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "PUT",
 								"orig": "/api/fruit",
@@ -330,15 +343,17 @@ func MakeConfig() map[string]any {
 										"lit": "fruit",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"api",
 									"fruit",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},

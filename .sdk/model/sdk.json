@@ -24,127 +24,205 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "fruit": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "calories",
-              "req": false,
-              "short": "Calories per 100g",
-              "type": "`$NUMBER`"
+          "fields": {
+            "calories": {
+              "a": true,
+              "h": "Calories",
+              "n": "calories",
+              "r": false,
+              "sh": "Calories per 100g",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "carbohydrates",
-              "req": false,
-              "short": "Carbohydrates content in grams per 100g",
-              "type": "`$NUMBER`"
+            "carbohydrates": {
+              "a": true,
+              "h": "Carbohydrates",
+              "n": "carbohydrates",
+              "r": false,
+              "sh": "Carbohydrates content in grams per 100g",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "family",
+            "family": {
+              "a": true,
+              "h": "Family",
+              "n": "family",
               "op": {
                 "list": {
                   "req": false,
                   "type": "`$STRING`"
                 }
               },
-              "req": true,
-              "short": "Botanical family of the fruit",
-              "type": "`$STRING`"
+              "r": true,
+              "sh": "Botanical family of the fruit",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "fat",
-              "req": false,
-              "short": "Fat content in grams per 100g",
-              "type": "`$NUMBER`"
+            "fat": {
+              "a": true,
+              "h": "Fat",
+              "n": "fat",
+              "r": false,
+              "sh": "Fat content in grams per 100g",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "genus",
+            "genus": {
+              "a": true,
+              "h": "Genus",
+              "n": "genus",
               "op": {
                 "list": {
                   "req": false,
                   "type": "`$STRING`"
                 }
               },
-              "req": true,
-              "short": "Botanical genus of the fruit",
-              "type": "`$STRING`"
+              "r": true,
+              "sh": "Botanical genus of the fruit",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier for the fruit",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier for the fruit",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "message",
-              "req": false,
-              "type": "`$STRING`"
+            "message": {
+              "a": true,
+              "h": "Message",
+              "n": "message",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
               "op": {
                 "list": {
                   "req": false,
                   "type": "`$STRING`"
                 }
               },
-              "req": true,
-              "short": "Name of the fruit",
-              "type": "`$STRING`"
+              "r": true,
+              "sh": "Name of the fruit",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "nutritions",
+            "nutritions": {
+              "a": true,
+              "h": "Nutritions",
+              "n": "nutritions",
               "op": {
                 "list": {
                   "req": false,
                   "type": "`$OBJECT`"
                 }
               },
-              "req": true,
-              "short": "Nutritional information per 100 grams",
-              "type": "`$OBJECT`"
+              "r": true,
+              "sh": "Nutritional information per 100 grams",
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "order",
+            "order": {
+              "a": true,
+              "h": "Order",
+              "n": "order",
               "op": {
                 "list": {
                   "req": false,
                   "type": "`$STRING`"
                 }
               },
-              "req": true,
-              "short": "Botanical order of the fruit",
-              "type": "`$STRING`"
+              "r": true,
+              "sh": "Botanical order of the fruit",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "protein",
-              "req": false,
-              "short": "Protein content in grams per 100g",
-              "type": "`$NUMBER`"
+            "protein": {
+              "a": true,
+              "h": "Protein",
+              "n": "protein",
+              "r": false,
+              "sh": "Protein content in grams per 100g",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "sugar",
-              "req": false,
-              "short": "Sugar content in grams per 100g",
-              "type": "`$NUMBER`"
+            "sugar": {
+              "a": true,
+              "h": "Sugar",
+              "n": "sugar",
+              "r": false,
+              "sh": "Sugar content in grams per 100g",
+              "t": "`$NUMBER`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -156,18 +234,21 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /api/fruit/all",
-                    "json": "{\"operationId\":\"getAllFruits\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"family\":{\"description\":\"Botanical family of the fruit\",\"example\":\"Rosaceae\",\"type\":\"string\"},\"genus\":{\"description\":\"Botanical genus of the fruit\",\"example\":\"Malus\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the fruit\",\"example\":1,\"type\":\"integer\"},\"name\":{\"description\":\"Name of the fruit\",\"example\":\"Apple\",\"type\":\"string\"},\"nutritions\":{\"description\":\"Nutritional information per 100 grams\",\"properties\":{\"calories\":{\"description\":\"Calories per 100g\",\"example\":52,\"type\":\"number\"},\"carbohydrates\":{\"description\":\"Carbohydrates content in grams per 100g\",\"example\":11.4,\"type\":\"number\"},\"fat\":{\"description\":\"Fat content in grams per 100g\",\"example\":0.4,\"type\":\"number\"},\"protein\":{\"description\":\"Protein content in grams per 100g\",\"example\":0.3,\"type\":\"number\"},\"sugar\":{\"description\":\"Sugar content in grams per 100g\",\"example\":10.3,\"type\":\"number\"}},\"type\":\"object\"},\"order\":{\"description\":\"Botanical order of the fruit\",\"example\":\"Rosales\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with all fruit data\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Fruit not found\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error message\",\"example\":\"The requested fruit could not be found in the database\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/fruit/all",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/fruit/all",
+                  "q": {
+                    "$action": "all"
+                  },
+                  "r": {},
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -178,10 +259,7 @@
                       "lit": "all"
                     }
                   ],
-                  "select": {
-                    "$action": "all"
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -193,29 +271,34 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/fruit/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /api/fruit/{id}",
-                    "json": "{\"operationId\":\"getFruitById\",\"parameters\":[{\"description\":\"The ID of the fruit\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"family\":{\"description\":\"Botanical family of the fruit\",\"example\":\"Rosaceae\",\"type\":\"string\"},\"genus\":{\"description\":\"Botanical genus of the fruit\",\"example\":\"Malus\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the fruit\",\"example\":1,\"type\":\"integer\"},\"name\":{\"description\":\"Name of the fruit\",\"example\":\"Apple\",\"type\":\"string\"},\"nutritions\":{\"description\":\"Nutritional information per 100 grams\",\"properties\":{\"calories\":{\"description\":\"Calories per 100g\",\"example\":52,\"type\":\"number\"},\"carbohydrates\":{\"description\":\"Carbohydrates content in grams per 100g\",\"example\":11.4,\"type\":\"number\"},\"fat\":{\"description\":\"Fat content in grams per 100g\",\"example\":0.4,\"type\":\"number\"},\"protein\":{\"description\":\"Protein content in grams per 100g\",\"example\":0.3,\"type\":\"number\"},\"sugar\":{\"description\":\"Sugar content in grams per 100g\",\"example\":10.3,\"type\":\"number\"}},\"type\":\"object\"},\"order\":{\"description\":\"Botanical order of the fruit\",\"example\":\"Rosales\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with fruit data\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Fruit not found\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error message\",\"example\":\"The requested fruit could not be found in the database\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Fruit not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Fruit not found\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error message\",\"example\":\"The requested fruit could not be found in the database\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/fruit/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/fruit/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -226,45 +309,44 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.nutritions`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/fruit/{name}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "name",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "name",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /api/fruit/{name}",
-                    "json": "{\"operationId\":\"getFruitByName\",\"parameters\":[{\"description\":\"The name of the fruit\",\"in\":\"path\",\"name\":\"name\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"family\":{\"description\":\"Botanical family of the fruit\",\"example\":\"Rosaceae\",\"type\":\"string\"},\"genus\":{\"description\":\"Botanical genus of the fruit\",\"example\":\"Malus\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the fruit\",\"example\":1,\"type\":\"integer\"},\"name\":{\"description\":\"Name of the fruit\",\"example\":\"Apple\",\"type\":\"string\"},\"nutritions\":{\"description\":\"Nutritional information per 100 grams\",\"properties\":{\"calories\":{\"description\":\"Calories per 100g\",\"example\":52,\"type\":\"number\"},\"carbohydrates\":{\"description\":\"Carbohydrates content in grams per 100g\",\"example\":11.4,\"type\":\"number\"},\"fat\":{\"description\":\"Fat content in grams per 100g\",\"example\":0.4,\"type\":\"number\"},\"protein\":{\"description\":\"Protein content in grams per 100g\",\"example\":0.3,\"type\":\"number\"},\"sugar\":{\"description\":\"Sugar content in grams per 100g\",\"example\":10.3,\"type\":\"number\"}},\"type\":\"object\"},\"order\":{\"description\":\"Botanical order of the fruit\",\"example\":\"Rosales\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with fruit data\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Fruit not found\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error message\",\"example\":\"The requested fruit could not be found in the database\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Fruit not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Fruit not found\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error message\",\"example\":\"The requested fruit could not be found in the database\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/fruit/{name}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/fruit/{name}",
-                  "rename": {
+                  "r": {
                     "param": {
                       "name": "id"
                     }
                   },
-                  "segments": [
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -275,12 +357,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.nutritions`"
                   }
@@ -292,18 +369,19 @@
               "name": "update",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "PUT /api/fruit",
-                    "json": "{\"operationId\":\"addFruit\",\"parameters\":[],\"protocol\":\"http\",\"requestBody\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"family\":{\"description\":\"Botanical family of the fruit\",\"example\":\"Musaceae\",\"type\":\"string\"},\"genus\":{\"description\":\"Botanical genus of the fruit\",\"example\":\"Musa\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the fruit\",\"example\":\"Banana\",\"type\":\"string\"},\"nutritions\":{\"description\":\"Nutritional information per 100 grams\",\"properties\":{\"calories\":{\"description\":\"Calories per 100g\",\"example\":89,\"type\":\"number\"},\"carbohydrates\":{\"description\":\"Carbohydrates content in grams per 100g\",\"example\":22.8,\"type\":\"number\"},\"fat\":{\"description\":\"Fat content in grams per 100g\",\"example\":0.3,\"type\":\"number\"},\"protein\":{\"description\":\"Protein content in grams per 100g\",\"example\":1.1,\"type\":\"number\"},\"sugar\":{\"description\":\"Sugar content in grams per 100g\",\"example\":12.2,\"type\":\"number\"}},\"required\":[\"calories\",\"fat\",\"sugar\",\"carbohydrates\",\"protein\"],\"type\":\"object\"},\"order\":{\"description\":\"Botanical order of the fruit\",\"example\":\"Zingiberales\",\"type\":\"string\"}},\"required\":[\"name\",\"family\",\"order\",\"genus\",\"nutritions\"],\"type\":\"object\"}}},\"description\":\"Fruit data to be added\",\"required\":true},\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"example\":\"Fruit added successfully and pending approval\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Fruit successfully added and pending approval\"},\"201\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"family\":{\"description\":\"Botanical family of the fruit\",\"example\":\"Rosaceae\",\"type\":\"string\"},\"genus\":{\"description\":\"Botanical genus of the fruit\",\"example\":\"Malus\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the fruit\",\"example\":1,\"type\":\"integer\"},\"name\":{\"description\":\"Name of the fruit\",\"example\":\"Apple\",\"type\":\"string\"},\"nutritions\":{\"description\":\"Nutritional information per 100 grams\",\"properties\":{\"calories\":{\"description\":\"Calories per 100g\",\"example\":52,\"type\":\"number\"},\"carbohydrates\":{\"description\":\"Carbohydrates content in grams per 100g\",\"example\":11.4,\"type\":\"number\"},\"fat\":{\"description\":\"Fat content in grams per 100g\",\"example\":0.4,\"type\":\"number\"},\"protein\":{\"description\":\"Protein content in grams per 100g\",\"example\":0.3,\"type\":\"number\"},\"sugar\":{\"description\":\"Sugar content in grams per 100g\",\"example\":10.3,\"type\":\"number\"}},\"type\":\"object\"},\"order\":{\"description\":\"Botanical order of the fruit\",\"example\":\"Rosales\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Fruit successfully created\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Fruit not found\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error message\",\"example\":\"The requested fruit could not be found in the database\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid fruit data\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"example\":\"Fruit not found\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error message\",\"example\":\"The requested fruit could not be found in the database\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "PUT",
-                  "orig": "/api/fruit",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "PUT",
+                  "o": "/api/fruit",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -311,8 +389,7 @@
                       "lit": "fruit"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -741,13 +818,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -757,17 +834,17 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "fruit_ref01",
                 "srcdatavar": "fruit_ref01_data",
                 "suffix": "_up0",
                 "textfield": "family"
               },
-              "match": {},
-              "op": "update",
-              "spec": [
+              "m": {},
+              "o": "update",
+              "s": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -775,22 +852,22 @@
                   }
                 }
               ],
-              "valid": []
+              "v": []
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "fruit_ref01",
                 "srcdatavar": "fruit_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "fruit01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

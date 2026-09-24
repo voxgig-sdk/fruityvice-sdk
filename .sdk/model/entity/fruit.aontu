@@ -1,0 +1,282 @@
+# Entity: fruit
+
+main: kit: entity: fruit: {
+
+  alias: field: {}
+
+  fields: {
+    calories: {
+      h: "Calories"
+      n: "calories"
+      r: false
+      sh: "Calories per 100g"
+      t: "`$NUMBER`"
+    }
+    carbohydrates: {
+      h: "Carbohydrates"
+      n: "carbohydrates"
+      r: false
+      sh: "Carbohydrates content in grams per 100g"
+      t: "`$NUMBER`"
+    }
+    family: {
+      h: "Family"
+      n: "family"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Botanical family of the fruit"
+      t: "`$STRING`"
+    }
+    fat: {
+      h: "Fat"
+      n: "fat"
+      r: false
+      sh: "Fat content in grams per 100g"
+      t: "`$NUMBER`"
+    }
+    genus: {
+      h: "Genus"
+      n: "genus"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Botanical genus of the fruit"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the fruit"
+      t: "`$INTEGER`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: false
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Name of the fruit"
+      t: "`$STRING`"
+    }
+    nutritions: {
+      h: "Nutritions"
+      n: "nutritions"
+      op: {
+        list: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      r: true
+      sh: "Nutritional information per 100 grams"
+      t: "`$OBJECT`"
+    }
+    order: {
+      h: "Order"
+      n: "order"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Botanical order of the fruit"
+      t: "`$STRING`"
+    }
+    protein: {
+      h: "Protein"
+      n: "protein"
+      r: false
+      sh: "Protein content in grams per 100g"
+      t: "`$NUMBER`"
+    }
+    sugar: {
+      h: "Sugar"
+      n: "sugar"
+      r: false
+      sh: "Sugar content in grams per 100g"
+      t: "`$NUMBER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "fruit"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/fruit/all"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api/fruit/all"
+          q: {
+            "$action": "all"
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "fruit"
+            }
+            {
+              lit: "all"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/fruit/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/fruit/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "fruit"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.nutritions`"
+          }
+        }
+        {
+          co: {
+            id: "GET /api/fruit/{name}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/fruit/{name}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              name: "id"
+            }
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "fruit"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.nutritions`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /api/fruit"
+            source: "openapi3"
+            version: 2
+          }
+          m: "PUT"
+          o: "/api/fruit"
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "fruit"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

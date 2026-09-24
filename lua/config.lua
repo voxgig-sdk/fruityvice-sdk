@@ -87,92 +87,104 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "calories",
-            ["short"] = "Calories per 100g",
+            ["title"] = "Calories",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Calories per 100g",
           },
           {
             ["name"] = "carbohydrates",
-            ["short"] = "Carbohydrates content in grams per 100g",
+            ["title"] = "Carbohydrates",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Carbohydrates content in grams per 100g",
           },
           {
             ["name"] = "family",
+            ["title"] = "Family",
+            ["type"] = "`$STRING`",
+            ["req"] = true,
             ["op"] = {
               ["list"] = {
                 ["type"] = "`$STRING`",
               },
             },
-            ["req"] = true,
             ["short"] = "Botanical family of the fruit",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "fat",
-            ["short"] = "Fat content in grams per 100g",
+            ["title"] = "Fat",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Fat content in grams per 100g",
           },
           {
             ["name"] = "genus",
+            ["title"] = "Genus",
+            ["type"] = "`$STRING`",
+            ["req"] = true,
             ["op"] = {
               ["list"] = {
                 ["type"] = "`$STRING`",
               },
             },
-            ["req"] = true,
             ["short"] = "Botanical genus of the fruit",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "id",
-            ["short"] = "Unique identifier for the fruit",
+            ["title"] = "Id",
             ["type"] = "`$INTEGER`",
+            ["short"] = "Unique identifier for the fruit",
           },
           {
             ["name"] = "message",
+            ["title"] = "Message",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "name",
+            ["title"] = "Name",
+            ["type"] = "`$STRING`",
+            ["req"] = true,
             ["op"] = {
               ["list"] = {
                 ["type"] = "`$STRING`",
               },
             },
-            ["req"] = true,
             ["short"] = "Name of the fruit",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "nutritions",
+            ["title"] = "Nutritions",
+            ["type"] = "`$OBJECT`",
+            ["req"] = true,
             ["op"] = {
               ["list"] = {
                 ["type"] = "`$OBJECT`",
               },
             },
-            ["req"] = true,
             ["short"] = "Nutritional information per 100 grams",
-            ["type"] = "`$OBJECT`",
           },
           {
             ["name"] = "order",
+            ["title"] = "Order",
+            ["type"] = "`$STRING`",
+            ["req"] = true,
             ["op"] = {
               ["list"] = {
                 ["type"] = "`$STRING`",
               },
             },
-            ["req"] = true,
             ["short"] = "Botanical order of the fruit",
-            ["type"] = "`$STRING`",
           },
           {
             ["name"] = "protein",
-            ["short"] = "Protein content in grams per 100g",
+            ["title"] = "Protein",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Protein content in grams per 100g",
           },
           {
             ["name"] = "sugar",
-            ["short"] = "Sugar content in grams per 100g",
+            ["title"] = "Sugar",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Sugar content in grams per 100g",
           },
         },
         ["id"] = {
@@ -186,7 +198,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/fruit/all",
@@ -201,17 +212,19 @@ local function make_config()
                     ["lit"] = "all",
                   },
                 },
-                ["select"] = {
-                  ["$action"] = "all",
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
                 ["parts"] = {
                   "api",
                   "fruit",
                   "all",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {},
+                ["select"] = {
+                  ["$action"] = "all",
                 },
               },
             },
@@ -221,17 +234,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["kind"] = "param",
-                      ["name"] = "id",
-                      ["orig"] = "id",
-                      ["reqd"] = true,
-                      ["type"] = "`$INTEGER`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/fruit/{id}",
@@ -246,41 +248,37 @@ local function make_config()
                     ["var"] = "id",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "id",
-                  },
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body.nutritions`",
-                },
                 ["parts"] = {
                   "api",
                   "fruit",
                   "{id}",
                 },
-              },
-              {
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body.nutritions`",
+                },
                 ["args"] = {
                   ["params"] = {
                     {
-                      ["kind"] = "param",
                       ["name"] = "id",
-                      ["orig"] = "name",
+                      ["orig"] = "id",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "param",
                       ["reqd"] = true,
-                      ["type"] = "`$STRING`",
                     },
                   },
                 },
+                ["select"] = {
+                  ["exist"] = {
+                    "id",
+                  },
+                },
+              },
+              {
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/fruit/{name}",
-                ["rename"] = {
-                  ["param"] = {
-                    ["name"] = "id",
-                  },
-                },
                 ["segments"] = {
                   {
                     ["lit"] = "api",
@@ -292,19 +290,35 @@ local function make_config()
                     ["var"] = "id",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "id",
+                ["parts"] = {
+                  "api",
+                  "fruit",
+                  "{id}",
+                },
+                ["rename"] = {
+                  ["param"] = {
+                    ["name"] = "id",
                   },
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.nutritions`",
                 },
-                ["parts"] = {
-                  "api",
-                  "fruit",
-                  "{id}",
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "id",
+                      ["orig"] = "name",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "id",
+                  },
                 },
               },
             },
@@ -314,7 +328,6 @@ local function make_config()
             ["name"] = "update",
             ["points"] = {
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "PUT",
                 ["orig"] = "/api/fruit",
@@ -326,15 +339,17 @@ local function make_config()
                     ["lit"] = "fruit",
                   },
                 },
-                ["select"] = {},
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
                 ["parts"] = {
                   "api",
                   "fruit",
                 },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {},
+                ["select"] = {},
               },
             },
           },

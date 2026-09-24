@@ -43,7 +43,7 @@ local fruits, err = client:Fruit():list()
 if err then error(err) end
 
 for _, item in ipairs(fruits) do
-  print(item["id"], item["family"])
+  print(item["id"])
 end
 ```
 

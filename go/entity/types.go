@@ -1,7 +1,7 @@
 // Typed models for the Fruityvice SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,18 +14,6 @@ import (
 
 // Fruit is the typed data model for the fruit entity.
 type Fruit struct {
-	Calories *float64 `json:"calories,omitempty"`
-	Carbohydrates *float64 `json:"carbohydrates,omitempty"`
-	Family string `json:"family"`
-	Fat *float64 `json:"fat,omitempty"`
-	Genus string `json:"genus"`
-	Id *int `json:"id,omitempty"`
-	Message *string `json:"message,omitempty"`
-	Name string `json:"name"`
-	Nutritions map[string]any `json:"nutritions"`
-	Order string `json:"order"`
-	Protein *float64 `json:"protein,omitempty"`
-	Sugar *float64 `json:"sugar,omitempty"`
 }
 
 // FruitLoadMatch is the typed request payload for Fruit.LoadTyped.
